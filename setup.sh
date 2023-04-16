@@ -50,6 +50,8 @@ cd ../market && mvn clean install -DskipTests && mvn dependency:build-classpath 
 cd ../project-tracking-system && mvn clean install -DskipTests && mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
 cd ../../..
 
+cd ./UIUC-API-Tester/open-api-processor && mvn clean package && cd ../../
+
 sudo docker pull genomenexus/gn-mongo
 sudo docker pull mongo
 sudo docker pull mysql

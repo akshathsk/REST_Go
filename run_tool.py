@@ -12,6 +12,7 @@ def whitebox(port):
 
 
 def blackbox(swagger, port):
+    print("bb")
     timeout = time.time() + 60 * 60 * int(time_limit)
     while time.time() < timeout:
         if tool == "dredd":
@@ -49,6 +50,12 @@ def blackbox(swagger, port):
             subprocess.run("cd tcases_" + service + " && mvn clean test", shell=True)
         elif tool == "apifuzzer":
             subprocess.run("APIFuzzer -s " + swagger + " -u http://localhost:" + str(port), shell=True)
+        elif tool == "uiuc-api-tester":
+            print("swagger " + swagger)
+            subprocess.run("cd UIUC-API-Tester/open-api-processor/target && java -jar open-api-processor-1.0-SNAPSHOT-jar-with-dependencies.jar " + swagger + " ../output", shell=True)
+            # subprocess.run("cd ../APITester && python integrate_enum.py")
+            break
+            # subprocess.run("python uiuc_api_tester.py")
 
 if __name__ == "__main__":
     tool = sys.argv[1]
@@ -56,15 +63,19 @@ if __name__ == "__main__":
     port = sys.argv[3]
     time_limit = "1"
 
+    print(tool)
+    print(service)
+    print(port)
+
     curdir = os.getcwd()
 
-    if tool == "evomaster-whitebox":
-        subprocess.run("python3 run_service.py " + service + " " + str(port) + " whitebox", shell=True)
-    else:
-        subprocess.run("python3 run_service.py " + service + " " + str(port) + " blackbox", shell=True)
+    # if tool == "evomaster-whitebox":
+    #     subprocess.run("python3 run_service.py " + service + " " + str(port) + " whitebox", shell=True)
+    # else:
+        # subprocess.run("python3 run_service.py " + service + " " + str(port) + " blackbox", shell=True)
 
     print("Service started in the background. To check or kill the session, please see README file.")
-    time.sleep(60)
+    # time.sleep(60)
 
     if service == "features-service":
         if tool == "evomaster-whitebox":
@@ -253,6 +264,7 @@ if __name__ == "__main__":
         else:
             blackbox(os.path.join(curdir, "doc/cwa_openapi.yaml"), 50116)
     elif service == "market":
+        print("market")
         if tool == "evomaster-whitebox":
             whitebox(40118)
         elif tool == "evomaster-blackbox":
