@@ -29,7 +29,11 @@ public class Main {
     Map<String, Schema> definitions = swagger.getComponents().getSchemas();
     Endpoints endpoint = new Endpoints();
     endpoint.setMicroservice(file.getName().split("\\.")[0]);
-    endpoint.setHost(swagger.getServers().get(0).getUrl());
+    String hostUrl = swagger.getServers().get(0).getUrl();
+    if(hostUrl.charAt(hostUrl.length()-1) == '/'){
+      hostUrl = hostUrl.substring(0, hostUrl.length()-1);
+    }
+    endpoint.setHost(hostUrl);
     Map<String, List<Request>> methodToRequestMap = new HashMap<>();
     swagger
         .getPaths()

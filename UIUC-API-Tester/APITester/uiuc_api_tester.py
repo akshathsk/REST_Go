@@ -533,7 +533,8 @@ def run(microservices, token, allJsonKeyValues, prevRespJson, GPTcontent, logger
         processGetRequests(allJsonKeyValues, k,
                         deleteUrlsProcessed, allIdFields,logger_helper)
         replaceAdditionalParams(deleteUrlsProcessed,logger_helper)
-        logger_helper[deleteUrlsProcessed[-1]] = k
+        if len(deleteUrlsProcessed) > 0:
+            logger_helper[deleteUrlsProcessed[-1]] = k
     for j in deleteUrlsProcessed:
         print(j)
 

@@ -51,11 +51,10 @@ def blackbox(swagger, port):
         elif tool == "apifuzzer":
             subprocess.run("APIFuzzer -s " + swagger + " -u http://localhost:" + str(port), shell=True)
         elif tool == "uiuc-api-tester":
-            print("swagger " + swagger)
-            subprocess.run("cd UIUC-API-Tester/open-api-processor/target && java -jar open-api-processor-1.0-SNAPSHOT-jar-with-dependencies.jar " + swagger + " ../output", shell=True)
-            # subprocess.run("cd ../APITester && python integrate_enum.py")
+            subprocess.run("cd UIUC-API-Tester/open-api-processor/target && java -jar open-api-processor-1.0-SNAPSHOT-jar-with-dependencies.jar " + swagger + " " + curdir + "/UIUC-API-Tester/output", shell=True)
+            subprocess.run("cd UIUC-API-Tester/APITester && python3 integrate_enum.py", shell=True)
+            subprocess.run("cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py", shell=True)
             break
-            # subprocess.run("python uiuc_api_tester.py")
 
 if __name__ == "__main__":
     tool = sys.argv[1]
