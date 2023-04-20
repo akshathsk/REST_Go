@@ -20,6 +20,7 @@ import java.io.File;
 import java.util.stream.Collectors;
 
 import static java.util.Objects.nonNull;
+import static org.uiuc.dto.swagger.Request.*;
 
 public class Main {
   public static void main(String[] args) throws IOException {
@@ -106,11 +107,12 @@ public class Main {
                           .get()
                           .getSchema()
                           .getProperties();
-                  if (bodyRef != null) {
+                  if(nonNull(bodyRef)){
                     request.setBody(bodyRef);
                     String obj[] = bodyRef.split("/");
                     String finalObj = obj[obj.length - 1];
                     request.setExample(getExampleJson(definitions, finalObj));
+                    request.setContentType(REQUEST_BODY_CONTENT_TYPE);
                   }
                   else if(nonNull(nonBodyParams) && !nonBodyParams.isEmpty()){
                     Map<String, Object> paramAndExample = nonBodyParams.values().stream()
@@ -118,6 +120,7 @@ public class Main {
                     SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
                     Json.mapper().registerModule(simpleModule);
                     request.setExample(Json.pretty(paramAndExample));
+                    request.setContentType(FORM_DATA_CONTENT_TYPE);
                   }
                   if (!methodToRequestMap.containsKey("PUT")) {
                     List<Request> list = new ArrayList<>();
@@ -143,11 +146,12 @@ public class Main {
                           .get()
                           .getSchema()
                           .getProperties();
-                  if (bodyRef != null) {
+                  if (nonNull(bodyRef)) {
                     request.setBody(bodyRef);
                     String obj[] = bodyRef.split("/");
                     String finalObj = obj[obj.length - 1];
                     request.setExample(getExampleJson(definitions, finalObj));
+                    request.setContentType(REQUEST_BODY_CONTENT_TYPE);
                   }
                   // Get formData params
                   else if(nonNull(nonBodyParams) && !nonBodyParams.isEmpty()){
@@ -156,6 +160,7 @@ public class Main {
                     SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
                     Json.mapper().registerModule(simpleModule);
                     request.setExample(Json.pretty(paramAndExample));
+                    request.setContentType(FORM_DATA_CONTENT_TYPE);
                   }
                 }
                 if (!methodToRequestMap.containsKey("POST")) {
@@ -187,10 +192,26 @@ public class Main {
                           .get()
                           .getSchema()
                           .get$ref();
-                  request.setBody(bodyRef);
-                  String obj[] = bodyRef.split("/");
-                  String finalObj = obj[obj.length - 1];
-                  request.setExample(getExampleJson(definitions, finalObj));
+                  Map<String, Schema> nonBodyParams = v.getPatch().getRequestBody().getContent().values().stream()
+                          .findFirst()
+                          .get()
+                          .getSchema()
+                          .getProperties();
+                  if(nonNull(bodyRef)){
+                    request.setBody(bodyRef);
+                    String obj[] = bodyRef.split("/");
+                    String finalObj = obj[obj.length - 1];
+                    request.setExample(getExampleJson(definitions, finalObj));
+                    request.setContentType(REQUEST_BODY_CONTENT_TYPE);
+                  }
+                  else if(nonNull(nonBodyParams) && !nonBodyParams.isEmpty()){
+                    Map<String, Object> paramAndExample = nonBodyParams.values().stream()
+                            .collect(Collectors.toMap(Schema::getName, param -> getExampleForFormData(param.getType())));
+                    SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
+                    Json.mapper().registerModule(simpleModule);
+                    request.setExample(Json.pretty(paramAndExample));
+                    request.setContentType(FORM_DATA_CONTENT_TYPE);
+                  }
                 }
                 if (!methodToRequestMap.containsKey("PATCH")) {
                   List<Request> list = new ArrayList<>();
