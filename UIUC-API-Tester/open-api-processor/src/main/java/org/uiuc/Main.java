@@ -17,6 +17,9 @@ import io.swagger.util.Json;
 import org.uiuc.dto.swagger.Endpoints;
 import org.uiuc.dto.swagger.Request;
 import java.io.File;
+import java.util.stream.Collectors;
+
+import static java.util.Objects.nonNull;
 
 public class Main {
   public static void main(String[] args) throws IOException {
@@ -121,11 +124,24 @@ public class Main {
                           .get()
                           .getSchema()
                           .get$ref();
+                  Map<String, Schema> nonBodyParams = v.getPost().getRequestBody().getContent().values().stream()
+                          .findFirst()
+                          .get()
+                          .getSchema()
+                          .getProperties();
                   if (bodyRef != null) {
                     request.setBody(bodyRef);
                     String obj[] = bodyRef.split("/");
                     String finalObj = obj[obj.length - 1];
                     request.setExample(getExampleJson(definitions, finalObj));
+                  }
+                  // Get formData params
+                  else if(nonNull(nonBodyParams) && !nonBodyParams.isEmpty()){
+                    Map<String, Object> paramAndExample = nonBodyParams.values().stream()
+                            .collect(Collectors.toMap(Schema::getName, param -> getExampleForFormData(param.getType())));
+                    SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
+                    Json.mapper().registerModule(simpleModule);
+                    request.setExample(Json.pretty(paramAndExample));
                   }
                 }
                 if (!methodToRequestMap.containsKey("POST")) {
@@ -187,5 +203,15 @@ public class Main {
     SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
     Json.mapper().registerModule(simpleModule);
     return Json.pretty(example);
+  }
+
+  private static Object getExampleForFormData(String dataType){
+    if(dataType.equalsIgnoreCase("string")){
+      return "example_string";
+    }
+    else if(dataType.toLowerCase().contains("int")){
+      return 1;
+    }
+    return "example_string";
   }
 }
