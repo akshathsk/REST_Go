@@ -92,7 +92,7 @@ public class Main {
                 Request request = new Request();
                 request.setUrl(k);
                 if (v.getPut().getRequestBody() != null
-                    && !v.getPut().getRequestBody().getContent().values().stream()
+                    && v.getPut().getRequestBody().getContent().values().stream()
                         .findFirst()
                         .isPresent()) {
                   String bodyRef =
@@ -101,10 +101,24 @@ public class Main {
                           .get()
                           .getSchema()
                           .get$ref();
-                  request.setBody(bodyRef);
-                  String obj[] = bodyRef.split("/");
-                  String finalObj = obj[obj.length - 1];
-                  request.setExample(getExampleJson(definitions, finalObj));
+                  Map<String, Schema> nonBodyParams = v.getPut().getRequestBody().getContent().values().stream()
+                          .findFirst()
+                          .get()
+                          .getSchema()
+                          .getProperties();
+                  if (bodyRef != null) {
+                    request.setBody(bodyRef);
+                    String obj[] = bodyRef.split("/");
+                    String finalObj = obj[obj.length - 1];
+                    request.setExample(getExampleJson(definitions, finalObj));
+                  }
+                  else if(nonNull(nonBodyParams) && !nonBodyParams.isEmpty()){
+                    Map<String, Object> paramAndExample = nonBodyParams.values().stream()
+                            .collect(Collectors.toMap(Schema::getName, param -> getExampleForFormData(param.getType())));
+                    SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
+                    Json.mapper().registerModule(simpleModule);
+                    request.setExample(Json.pretty(paramAndExample));
+                  }
                   if (!methodToRequestMap.containsKey("PUT")) {
                     List<Request> list = new ArrayList<>();
                     list.add(request);
