@@ -19,4 +19,5 @@ public class Request {
   String body;
   String example;
   String contentType;
+  String pathParamExample;
 }

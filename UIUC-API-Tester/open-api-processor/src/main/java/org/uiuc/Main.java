@@ -46,6 +46,7 @@ public class Main {
               if (v.getGet() != null) {
                 Request request = new Request();
                 AtomicReference<String> str = new AtomicReference<>(k);
+                Map<String, Object> pathParamExample = new HashMap<>();
                 if (v.getGet().getParameters() != null && v.getGet().getParameters().size() > 0) {
                   v.getGet()
                       .getParameters()
@@ -78,9 +79,16 @@ public class Main {
                                         + "}");
                               }
                             }
+                            if(param.getIn().equals("path")){
+                                pathParamExample.put(param.getName(), param.getExample());
+                            }
                           });
+
                 }
                 request.setUrl(str.get());
+                if(pathParamExample.keySet().size()>0){
+                    request.setPathParamExample(mapToString(pathParamExample));
+                }
                 if (!methodToRequestMap.containsKey("GET")) {
                   List<Request> list = new ArrayList<>();
                   list.add(request);
@@ -309,5 +317,11 @@ public class Main {
       return 1;
     }
     return "example_string";
+  }
+
+  private static String mapToString(Map<String, Object> targetMap){
+      SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
+      Json.mapper().registerModule(simpleModule);
+      return Json.pretty(targetMap);
   }
 }
