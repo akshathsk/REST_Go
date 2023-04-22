@@ -120,14 +120,15 @@ public class Main {
                     request.setBody(bodyRef);
                     String obj[] = bodyRef.split("/");
                     String finalObj = obj[obj.length - 1];
-                    request.setExample(getExampleJson(definitions, finalObj));
+                    request.setExample(getExampleJson(definitions, finalObj, null));
                     request.setContentType(REQUEST_BODY_CONTENT_TYPE);
                   }
                   else if(nonNull(bodyItemsRef)){
+                      String typeOfBodyParam = v.getPut().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getType();
                       request.setBody(bodyItemsRef);
                       String obj[] = bodyItemsRef.split("/");
                       String finalObj = obj[obj.length - 1];
-                      request.setExample(getExampleJson(definitions, finalObj));
+                      request.setExample(getExampleJson(definitions, finalObj, typeOfBodyParam));
                       request.setContentType(REQUEST_BODY_CONTENT_TYPE);
                   }
                   else if(nonNull(nonBodyParams) && !nonBodyParams.isEmpty()){
@@ -175,14 +176,15 @@ public class Main {
                         request.setBody(bodyRef);
                         String obj[] = bodyRef.split("/");
                         String finalObj = obj[obj.length - 1];
-                        request.setExample(getExampleJson(definitions, finalObj));
+                        request.setExample(getExampleJson(definitions, finalObj, null));
                         request.setContentType(REQUEST_BODY_CONTENT_TYPE);
                     }
                     else if(nonNull(bodyItemsRef)){
+                        String typeOfBodyParam = v.getPost().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getType();
                         request.setBody(bodyItemsRef);
                         String obj[] = bodyItemsRef.split("/");
                         String finalObj = obj[obj.length - 1];
-                        request.setExample(getExampleJson(definitions, finalObj));
+                        request.setExample(getExampleJson(definitions, finalObj, typeOfBodyParam));
                         request.setContentType(REQUEST_BODY_CONTENT_TYPE);
                     }
                     // Get formData params
@@ -242,14 +244,15 @@ public class Main {
                     request.setBody(bodyRef);
                     String obj[] = bodyRef.split("/");
                     String finalObj = obj[obj.length - 1];
-                    request.setExample(getExampleJson(definitions, finalObj));
+                    request.setExample(getExampleJson(definitions, finalObj, null));
                     request.setContentType(REQUEST_BODY_CONTENT_TYPE);
                   }
                   else if(nonNull(bodyItemsRef)){
+                      String typeOfBodyParam = v.getPost().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getType();
                       request.setBody(bodyItemsRef);
                       String obj[] = bodyItemsRef.split("/");
                       String finalObj = obj[obj.length - 1];
-                      request.setExample(getExampleJson(definitions, finalObj));
+                      request.setExample(getExampleJson(definitions, finalObj, typeOfBodyParam));
                       request.setContentType(REQUEST_BODY_CONTENT_TYPE);
                   }
                   else if(nonNull(nonBodyParams) && !nonBodyParams.isEmpty()){
@@ -280,17 +283,22 @@ public class Main {
     writer.close();
   }
 
-  private static String getExampleJson(Map<String, Schema> definitions, String pojo) {
+  private static String getExampleJson(Map<String, Schema> definitions, String pojo, String typeOfBodyParam) {
+      String stringExample = "";
     Schema model = definitions.get(pojo);
     Example example = ExampleBuilder.fromSchema(model, definitions);
     SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
     Json.mapper().registerModule(simpleModule);
     if(nonNull(example)){
-      return Json.pretty(example);
+        stringExample = Json.pretty(example);
     }
     else{
-      return Json.pretty(new HashMap<>() {{ put(pojo, "example_java_object");}});
+        stringExample = Json.pretty(new HashMap<>() {{ put(pojo, "example_java_object");}});
     }
+    if(nonNull(typeOfBodyParam) && typeOfBodyParam.equals("array")){
+        return "["+stringExample+"]";
+    }
+    return stringExample;
   }
 
   private static Object getExampleForFormData(String dataType){
