@@ -4,26 +4,28 @@ import json
 f = open("../output/output.json")
 data = json.load(f)
 
-# get enum 
+# get enum
 f = open("../input/enum-props/output_enum_message_struct.json")
 enum = json.load(f)
 
 
 
 def recursivePrompt(prompt, enum, jsnData):
-    print(jsnData)
-    for key in jsnData.keys():
-        if type(jsnData[key]) == list:
-            for value in jsnData[key]:
-                recursivePrompt(prompt, enum, value)
-        elif isinstance(jsnData[key], dict):
-            recursivePrompt(prompt, enum, jsnData[key])
-        
-        for enum_keys in enum.keys():
-            if key.lower() in enum_keys.lower() or  enum_keys.lower() in key.lower():
-                 prompt.append('{} should be filled with one among {}'.format(key, enum[enum_keys]))
-                  
-     
+    try:
+        for key in jsnData.keys():
+            if type(jsnData[key]) == list:
+                for value in jsnData[key]:
+                    if isinstance(value, dict):
+                        recursivePrompt(prompt, enum, value)
+            elif isinstance(jsnData[key], dict):
+                recursivePrompt(prompt, enum, jsnData[key])
+
+            for enum_keys in enum.keys():
+                if key.lower() in enum_keys.lower() or  enum_keys.lower() in key.lower():
+                    prompt.append('{} should be filled with one among {}'.format(key, enum[enum_keys]))
+    except Exception as e:
+        print("json error")
+        print(jsnData)
     return prompt
 
 target = 'example'
@@ -41,9 +43,9 @@ for jsonsArray in data:
                         if prompt:
                             for val in prompt:
                                 content['prompt'].append(val)
-                            
+
                             content['prompt'].append("For other relevant values, use the following json as reference: {}".format(enum))
-                        
+
 
 
 with open('../output/uiuc-api-tester.json', 'w') as f:

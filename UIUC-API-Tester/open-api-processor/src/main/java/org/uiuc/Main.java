@@ -102,6 +102,15 @@ public class Main {
                           .get()
                           .getSchema()
                           .get$ref();
+                  String bodyItemsRef = null;
+                  if(nonNull(v.getPut().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getItems())){
+                      bodyItemsRef = v.getPut().getRequestBody().getContent().values().stream()
+                              .findFirst()
+                              .get()
+                              .getSchema()
+                              .getItems()
+                              .get$ref();
+                  }
                   Map<String, Schema> nonBodyParams = v.getPut().getRequestBody().getContent().values().stream()
                           .findFirst()
                           .get()
@@ -113,6 +122,13 @@ public class Main {
                     String finalObj = obj[obj.length - 1];
                     request.setExample(getExampleJson(definitions, finalObj));
                     request.setContentType(REQUEST_BODY_CONTENT_TYPE);
+                  }
+                  else if(nonNull(bodyItemsRef)){
+                      request.setBody(bodyItemsRef);
+                      String obj[] = bodyItemsRef.split("/");
+                      String finalObj = obj[obj.length - 1];
+                      request.setExample(getExampleJson(definitions, finalObj));
+                      request.setContentType(REQUEST_BODY_CONTENT_TYPE);
                   }
                   else if(nonNull(nonBodyParams) && !nonBodyParams.isEmpty()){
                     Map<String, Object> paramAndExample = nonBodyParams.values().stream()
@@ -146,22 +162,38 @@ public class Main {
                           .get()
                           .getSchema()
                           .getProperties();
-                  if (nonNull(bodyRef)) {
-                    request.setBody(bodyRef);
-                    String obj[] = bodyRef.split("/");
-                    String finalObj = obj[obj.length - 1];
-                    request.setExample(getExampleJson(definitions, finalObj));
-                    request.setContentType(REQUEST_BODY_CONTENT_TYPE);
-                  }
-                  // Get formData params
-                  else if(nonNull(nonBodyParams) && !nonBodyParams.isEmpty()){
-                    Map<String, Object> paramAndExample = nonBodyParams.values().stream()
-                            .collect(Collectors.toMap(Schema::getName, param -> getExampleForFormData(param.getType())));
-                    SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
-                    Json.mapper().registerModule(simpleModule);
-                    request.setExample(Json.pretty(paramAndExample));
-                    request.setContentType(FORM_DATA_CONTENT_TYPE);
-                  }
+                    String bodyItemsRef = null;
+                    if(nonNull(v.getPost().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getItems())){
+                        bodyItemsRef = v.getPost().getRequestBody().getContent().values().stream()
+                                .findFirst()
+                                .get()
+                                .getSchema()
+                                .getItems()
+                                .get$ref();
+                    }
+                    if (nonNull(bodyRef)) {
+                        request.setBody(bodyRef);
+                        String obj[] = bodyRef.split("/");
+                        String finalObj = obj[obj.length - 1];
+                        request.setExample(getExampleJson(definitions, finalObj));
+                        request.setContentType(REQUEST_BODY_CONTENT_TYPE);
+                    }
+                    else if(nonNull(bodyItemsRef)){
+                        request.setBody(bodyItemsRef);
+                        String obj[] = bodyItemsRef.split("/");
+                        String finalObj = obj[obj.length - 1];
+                        request.setExample(getExampleJson(definitions, finalObj));
+                        request.setContentType(REQUEST_BODY_CONTENT_TYPE);
+                    }
+                    // Get formData params
+                    else if(nonNull(nonBodyParams) && !nonBodyParams.isEmpty()){
+                        Map<String, Object> paramAndExample = nonBodyParams.values().stream()
+                                .collect(Collectors.toMap(Schema::getName, param -> getExampleForFormData(param.getType())));
+                        SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
+                        Json.mapper().registerModule(simpleModule);
+                        request.setExample(Json.pretty(paramAndExample));
+                        request.setContentType(FORM_DATA_CONTENT_TYPE);
+                    }
                 }
                 if (!methodToRequestMap.containsKey("POST")) {
                   List<Request> list = new ArrayList<>();
@@ -197,12 +229,28 @@ public class Main {
                           .get()
                           .getSchema()
                           .getProperties();
+                    String bodyItemsRef = null;
+                    if(nonNull(v.getPatch().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getItems())){
+                        bodyItemsRef = v.getPatch().getRequestBody().getContent().values().stream()
+                                .findFirst()
+                                .get()
+                                .getSchema()
+                                .getItems()
+                                .get$ref();
+                    }
                   if(nonNull(bodyRef)){
                     request.setBody(bodyRef);
                     String obj[] = bodyRef.split("/");
                     String finalObj = obj[obj.length - 1];
                     request.setExample(getExampleJson(definitions, finalObj));
                     request.setContentType(REQUEST_BODY_CONTENT_TYPE);
+                  }
+                  else if(nonNull(bodyItemsRef)){
+                      request.setBody(bodyItemsRef);
+                      String obj[] = bodyItemsRef.split("/");
+                      String finalObj = obj[obj.length - 1];
+                      request.setExample(getExampleJson(definitions, finalObj));
+                      request.setContentType(REQUEST_BODY_CONTENT_TYPE);
                   }
                   else if(nonNull(nonBodyParams) && !nonBodyParams.isEmpty()){
                     Map<String, Object> paramAndExample = nonBodyParams.values().stream()
@@ -237,7 +285,12 @@ public class Main {
     Example example = ExampleBuilder.fromSchema(model, definitions);
     SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
     Json.mapper().registerModule(simpleModule);
-    return Json.pretty(example);
+    if(nonNull(example)){
+      return Json.pretty(example);
+    }
+    else{
+      return Json.pretty(new HashMap<>() {{ put(pojo, "example_java_object");}});
+    }
   }
 
   private static Object getExampleForFormData(String dataType){
