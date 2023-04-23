@@ -106,13 +106,24 @@ public class Main {
                     && v.getPut().getRequestBody().getContent().values().stream()
                         .findFirst()
                         .isPresent()) {
-                  String bodyRef =
-                      v.getPut().getRequestBody().getContent().values().stream()
+                  // bodyRef - To handle Body | bodyItemsRef - To handle formData
+                  String bodyRef = v.getPut().getRequestBody().getContent().values().stream()
                           .findFirst()
                           .get()
                           .getSchema()
                           .get$ref();
+                    Map<String, Schema> nonBodyParams = v.getPut().getRequestBody().getContent().values().stream()
+                            .findFirst()
+                            .get()
+                            .getSchema()
+                            .getProperties();
+                  String bodyType = v.getPut().getRequestBody().getContent().values().stream()
+                          .findFirst()
+                          .get()
+                          .getSchema()
+                          .getType();
                   String bodyItemsRef = null;
+                  String bodyItemsType = null;
                   if(nonNull(v.getPut().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getItems())){
                       bodyItemsRef = v.getPut().getRequestBody().getContent().values().stream()
                               .findFirst()
@@ -120,12 +131,8 @@ public class Main {
                               .getSchema()
                               .getItems()
                               .get$ref();
+                      bodyItemsType = v.getPut().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getItems().getType();
                   }
-                  Map<String, Schema> nonBodyParams = v.getPut().getRequestBody().getContent().values().stream()
-                          .findFirst()
-                          .get()
-                          .getSchema()
-                          .getProperties();
                   if(nonNull(bodyRef)){
                     request.setBody(bodyRef);
                     String obj[] = bodyRef.split("/");
@@ -149,14 +156,27 @@ public class Main {
                     request.setExample(Json.pretty(paramAndExample));
                     request.setContentType(FORM_DATA_CONTENT_TYPE);
                   }
-                  if (!methodToRequestMap.containsKey("PUT")) {
-                    List<Request> list = new ArrayList<>();
-                    list.add(request);
-                    methodToRequestMap.put("PUT", list);
-                  } else {
-                    methodToRequestMap.get("PUT").add(request);
+                  else {
+                      String example;
+                      if(nonNull(bodyType)){
+                          if(bodyType.equals("array") && nonNull(bodyItemsType)){
+                              example = "[" + (bodyItemsType.contains("int") ? 1 : "\"example_string\"") + "]";
+                          }
+                          else{
+                              example = (String) getExampleForFormData(bodyType);
+                          }
+                          request.setExample(example);
+                          request.setContentType(REQUEST_BODY_CONTENT_TYPE);
+                      }
                   }
                 }
+                  if (!methodToRequestMap.containsKey("PUT")) {
+                      List<Request> list = new ArrayList<>();
+                      list.add(request);
+                      methodToRequestMap.put("PUT", list);
+                  } else {
+                      methodToRequestMap.get("PUT").add(request);
+                  }
               }
               if (v.getPost() != null) {
                 Request request = new Request();
@@ -173,7 +193,13 @@ public class Main {
                           .get()
                           .getSchema()
                           .getProperties();
+                    String bodyType = v.getPost().getRequestBody().getContent().values().stream()
+                            .findFirst()
+                            .get()
+                            .getSchema()
+                            .getType();
                     String bodyItemsRef = null;
+                    String bodyItemsType = null;
                     if(nonNull(v.getPost().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getItems())){
                         bodyItemsRef = v.getPost().getRequestBody().getContent().values().stream()
                                 .findFirst()
@@ -181,6 +207,7 @@ public class Main {
                                 .getSchema()
                                 .getItems()
                                 .get$ref();
+                        bodyItemsType = v.getPost().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getItems().getType();
                     }
                     if (nonNull(bodyRef)) {
                         request.setBody(bodyRef);
@@ -205,6 +232,19 @@ public class Main {
                         Json.mapper().registerModule(simpleModule);
                         request.setExample(Json.pretty(paramAndExample));
                         request.setContentType(FORM_DATA_CONTENT_TYPE);
+                    }
+                    else {
+                        String example;
+                        if(nonNull(bodyType)){
+                            if(bodyType.equals("array") && nonNull(bodyItemsType)){
+                                example = "[" + (bodyItemsType.contains("int") ? 1 : "\"example_string\"") + "]";
+                            }
+                            else{
+                                example = (String) getExampleForFormData(bodyType);
+                            }
+                            request.setExample(example);
+                            request.setContentType(REQUEST_BODY_CONTENT_TYPE);
+                        }
                     }
                 }
                 if (!methodToRequestMap.containsKey("POST")) {
@@ -284,7 +324,13 @@ public class Main {
                           .get()
                           .getSchema()
                           .getProperties();
+                    String bodyType = v.getPatch().getRequestBody().getContent().values().stream()
+                            .findFirst()
+                            .get()
+                            .getSchema()
+                            .getType();
                     String bodyItemsRef = null;
+                    String bodyItemsType = null;
                     if(nonNull(v.getPatch().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getItems())){
                         bodyItemsRef = v.getPatch().getRequestBody().getContent().values().stream()
                                 .findFirst()
@@ -292,6 +338,7 @@ public class Main {
                                 .getSchema()
                                 .getItems()
                                 .get$ref();
+                        bodyItemsType = v.getPatch().getRequestBody().getContent().values().stream().findFirst().get().getSchema().getItems().getType();
                     }
                   if(nonNull(bodyRef)){
                     request.setBody(bodyRef);
@@ -315,6 +362,19 @@ public class Main {
                     Json.mapper().registerModule(simpleModule);
                     request.setExample(Json.pretty(paramAndExample));
                     request.setContentType(FORM_DATA_CONTENT_TYPE);
+                  }
+                  else {
+                      String example;
+                      if(nonNull(bodyType)){
+                          if(bodyType.equals("array") && nonNull(bodyItemsType)){
+                              example = "[" + (bodyItemsType.contains("int") ? 1 : "\"example_string\"") + "]";
+                          }
+                          else{
+                              example = (String) getExampleForFormData(bodyType);
+                          }
+                          request.setExample(example);
+                          request.setContentType(REQUEST_BODY_CONTENT_TYPE);
+                      }
                   }
                 }
                 if (!methodToRequestMap.containsKey("PATCH")) {
