@@ -61,7 +61,8 @@ public class Main {
                                         + "={"
                                         + param.getName()
                                         + "}");
-                              } else if (!str.get().contains("{")) {
+                              }
+                              else if (!str.get().contains("{")) {
                                 str.set(
                                     str.get()
                                         + "?"
@@ -69,7 +70,8 @@ public class Main {
                                         + "={"
                                         + param.getName()
                                         + "}");
-                              } else {
+                              }
+                              else {
                                 str.set(
                                     str.get()
                                         + "&"
@@ -79,7 +81,7 @@ public class Main {
                                         + "}");
                               }
                             }
-                            if(param.getIn().equals("path")){
+                            if(param.getIn().equals("path") && nonNull(param.getExample())){
                                 pathParamExample.put(param.getName(), param.getExample());
                             }
                           });
@@ -214,8 +216,51 @@ public class Main {
                 }
               }
               if (v.getDelete() != null) {
-                Request request = new Request();
-                request.setUrl(k);
+                  Request request = new Request();
+                  AtomicReference<String> str = new AtomicReference<>(k);
+                  Map<String, Object> pathParamExample = new HashMap<>();
+                  if (v.getDelete().getParameters() != null && v.getDelete().getParameters().size() > 0) {
+                      v.getDelete()
+                              .getParameters()
+                              .forEach(
+                                      param -> {
+                                          if (param.getIn().equals("query")) {
+                                              if (str.get().contains("{") && !str.get().contains("?")) {
+                                                  str.set(
+                                                          str.get()
+                                                                  + "?"
+                                                                  + param.getName()
+                                                                  + "={"
+                                                                  + param.getName()
+                                                                  + "}");
+                                              } else if (!str.get().contains("{")) {
+                                                  str.set(
+                                                          str.get()
+                                                                  + "?"
+                                                                  + param.getName()
+                                                                  + "={"
+                                                                  + param.getName()
+                                                                  + "}");
+                                              } else {
+                                                  str.set(
+                                                          str.get()
+                                                                  + "&"
+                                                                  + param.getName()
+                                                                  + "={"
+                                                                  + param.getName()
+                                                                  + "}");
+                                              }
+                                          }
+                                          if (param.getIn().equals("path") && nonNull(param.getExample())) {
+                                              pathParamExample.put(param.getName(), param.getExample());
+                                          }
+                                      });
+
+                  }
+                  request.setUrl(str.get());
+                  if(pathParamExample.keySet().size()>0){
+                      request.setPathParamExample(mapToString(pathParamExample));
+                  }
                 if (!methodToRequestMap.containsKey("DELETE")) {
                   List<Request> list = new ArrayList<>();
                   list.add(request);
