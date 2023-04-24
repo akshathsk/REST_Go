@@ -1,5 +1,10 @@
 package org.uiuc;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.gson.Gson;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.parser.OpenAPIV3Parser;
@@ -531,6 +536,16 @@ public class Main {
     Json.mapper().registerModule(simpleModule);
     if(nonNull(example)){
         stringExample = Json.pretty(example);
+        //Remove cyclic dependency
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode jsonNode = null;
+        try {
+            jsonNode = objectMapper.readTree(stringExample);
+            deleteKey(jsonNode, pojo.toLowerCase());
+            stringExample = Json.pretty(jsonNode);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
     else{
         stringExample = Json.pretty(new HashMap<>() {{ put(pojo, "example_java_object");}});
@@ -556,4 +571,24 @@ public class Main {
       Json.mapper().registerModule(simpleModule);
       return Json.pretty(targetMap);
   }
+
+    public static void deleteKey(JsonNode jsonNode, String keyToDelete) {
+        if (jsonNode.isArray()) {
+            ArrayNode arrayNode = (ArrayNode) jsonNode;
+            for (JsonNode node : arrayNode) {
+                deleteKey(node, keyToDelete);
+            }
+        } else if (jsonNode.isObject()) {
+            ObjectNode objectNode = (ObjectNode) jsonNode;
+            for (Iterator<String> it = objectNode.fieldNames(); it.hasNext(); ) {
+                String fieldName = it.next();
+                JsonNode node = objectNode.get(fieldName);
+                if (fieldName.equals(keyToDelete)) {
+                    objectNode.remove(fieldName);
+                } else {
+                    deleteKey(node, keyToDelete);
+                }
+            }
+        }
+    }
 }
