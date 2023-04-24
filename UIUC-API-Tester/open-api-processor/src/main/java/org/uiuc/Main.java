@@ -170,6 +170,18 @@ public class Main {
                       }
                   }
                 }
+                  //To add path param example
+                  Map<String, Object> pathParamExample = new HashMap<>();
+                  if (nonNull(v.getPut().getParameters()) && v.getPut().getParameters().size() > 0) {
+                      v.getPut().getParameters().forEach(param -> {
+                          if(param.getIn().equals("path") && nonNull(param.getExample())){
+                              pathParamExample.put(param.getName(), param.getExample());
+                          }
+                      });
+                      if(pathParamExample.keySet().size()>0){
+                          request.setPathParamExample(mapToString(pathParamExample));
+                      }
+                  }
                   if (!methodToRequestMap.containsKey("PUT")) {
                       List<Request> list = new ArrayList<>();
                       list.add(request);
@@ -233,6 +245,7 @@ public class Main {
                         request.setExample(Json.pretty(paramAndExample));
                         request.setContentType(FORM_DATA_CONTENT_TYPE);
                     }
+                    // For body with primitive data types
                     else {
                         String example;
                         if(nonNull(bodyType)){
@@ -247,6 +260,18 @@ public class Main {
                         }
                     }
                 }
+                  //To add path param example
+                  Map<String, Object> pathParamExample = new HashMap<>();
+                  if (nonNull(v.getPost().getParameters()) && v.getPost().getParameters().size() > 0) {
+                      v.getPost().getParameters().forEach(param -> {
+                          if(param.getIn().equals("path") && nonNull(param.getExample())){
+                              pathParamExample.put(param.getName(), param.getExample());
+                          }
+                      });
+                      if(pathParamExample.keySet().size()>0){
+                          request.setPathParamExample(mapToString(pathParamExample));
+                      }
+                  }
                 if (!methodToRequestMap.containsKey("POST")) {
                   List<Request> list = new ArrayList<>();
                   list.add(request);
@@ -377,6 +402,18 @@ public class Main {
                       }
                   }
                 }
+                  //To add path param example
+                  Map<String, Object> pathParamExample = new HashMap<>();
+                  if (nonNull(v.getPatch().getParameters()) && v.getPatch().getParameters().size() > 0) {
+                      v.getPatch().getParameters().forEach(param -> {
+                          if(param.getIn().equals("path") && nonNull(param.getExample())){
+                              pathParamExample.put(param.getName(), param.getExample());
+                          }
+                      });
+                      if(pathParamExample.keySet().size()>0){
+                          request.setPathParamExample(mapToString(pathParamExample));
+                      }
+                  }
                 if (!methodToRequestMap.containsKey("PATCH")) {
                   List<Request> list = new ArrayList<>();
                   list.add(request);
