@@ -101,7 +101,7 @@ public class Main {
               }
               if (v.getPut() != null) {
                 Request request = new Request();
-                request.setUrl(k);
+                AtomicReference<String> str = new AtomicReference<>(k);
                 if (v.getPut().getRequestBody() != null
                     && v.getPut().getRequestBody().getContent().values().stream()
                         .findFirst()
@@ -174,7 +174,36 @@ public class Main {
                   Map<String, Object> pathParamExample = new HashMap<>();
                   if (nonNull(v.getPut().getParameters()) && v.getPut().getParameters().size() > 0) {
                       v.getPut().getParameters().forEach(param -> {
-                          if(param.getIn().equals("path") && nonNull(param.getExample())){
+                          if (param.getIn().equals("query")) {
+                              if (str.get().contains("{") && !str.get().contains("?")) {
+                                  str.set(
+                                          str.get()
+                                                  + "?"
+                                                  + param.getName()
+                                                  + "={"
+                                                  + param.getName()
+                                                  + "}");
+                              }
+                              else if (!str.get().contains("{")) {
+                                  str.set(
+                                          str.get()
+                                                  + "?"
+                                                  + param.getName()
+                                                  + "={"
+                                                  + param.getName()
+                                                  + "}");
+                              }
+                              else {
+                                  str.set(
+                                          str.get()
+                                                  + "&"
+                                                  + param.getName()
+                                                  + "={"
+                                                  + param.getName()
+                                                  + "}");
+                              }
+                          }
+                          else if(param.getIn().equals("path") && nonNull(param.getExample())){
                               pathParamExample.put(param.getName(), param.getExample());
                           }
                       });
@@ -182,6 +211,7 @@ public class Main {
                           request.setPathParamExample(mapToString(pathParamExample));
                       }
                   }
+                  request.setUrl(str.get());
                   if (!methodToRequestMap.containsKey("PUT")) {
                       List<Request> list = new ArrayList<>();
                       list.add(request);
@@ -192,7 +222,7 @@ public class Main {
               }
               if (v.getPost() != null) {
                 Request request = new Request();
-                request.setUrl(k);
+                AtomicReference<String> str = new AtomicReference<>(k);
                 if (v.getPost().getRequestBody() != null) {
                   String bodyRef =
                       v.getPost().getRequestBody().getContent().values().stream()
@@ -264,7 +294,36 @@ public class Main {
                   Map<String, Object> pathParamExample = new HashMap<>();
                   if (nonNull(v.getPost().getParameters()) && v.getPost().getParameters().size() > 0) {
                       v.getPost().getParameters().forEach(param -> {
-                          if(param.getIn().equals("path") && nonNull(param.getExample())){
+                          if (param.getIn().equals("query")) {
+                              if (str.get().contains("{") && !str.get().contains("?")) {
+                                  str.set(
+                                          str.get()
+                                                  + "?"
+                                                  + param.getName()
+                                                  + "={"
+                                                  + param.getName()
+                                                  + "}");
+                              }
+                              else if (!str.get().contains("{")) {
+                                  str.set(
+                                          str.get()
+                                                  + "?"
+                                                  + param.getName()
+                                                  + "={"
+                                                  + param.getName()
+                                                  + "}");
+                              }
+                              else {
+                                  str.set(
+                                          str.get()
+                                                  + "&"
+                                                  + param.getName()
+                                                  + "={"
+                                                  + param.getName()
+                                                  + "}");
+                              }
+                          }
+                          else if(param.getIn().equals("path") && nonNull(param.getExample())){
                               pathParamExample.put(param.getName(), param.getExample());
                           }
                       });
@@ -272,6 +331,7 @@ public class Main {
                           request.setPathParamExample(mapToString(pathParamExample));
                       }
                   }
+                  request.setUrl(str.get());
                 if (!methodToRequestMap.containsKey("POST")) {
                   List<Request> list = new ArrayList<>();
                   list.add(request);
@@ -336,7 +396,7 @@ public class Main {
               }
               if (v.getPatch() != null) {
                 Request request = new Request();
-                request.setUrl(k);
+                AtomicReference<String> str = new AtomicReference<>(k);
                 if (v.getPatch().getRequestBody() != null) {
                   String bodyRef =
                       v.getPatch().getRequestBody().getContent().values().stream()
@@ -406,7 +466,36 @@ public class Main {
                   Map<String, Object> pathParamExample = new HashMap<>();
                   if (nonNull(v.getPatch().getParameters()) && v.getPatch().getParameters().size() > 0) {
                       v.getPatch().getParameters().forEach(param -> {
-                          if(param.getIn().equals("path") && nonNull(param.getExample())){
+                          if (param.getIn().equals("query")) {
+                              if (str.get().contains("{") && !str.get().contains("?")) {
+                                  str.set(
+                                          str.get()
+                                                  + "?"
+                                                  + param.getName()
+                                                  + "={"
+                                                  + param.getName()
+                                                  + "}");
+                              }
+                              else if (!str.get().contains("{")) {
+                                  str.set(
+                                          str.get()
+                                                  + "?"
+                                                  + param.getName()
+                                                  + "={"
+                                                  + param.getName()
+                                                  + "}");
+                              }
+                              else {
+                                  str.set(
+                                          str.get()
+                                                  + "&"
+                                                  + param.getName()
+                                                  + "={"
+                                                  + param.getName()
+                                                  + "}");
+                              }
+                          }
+                          else if(param.getIn().equals("path") && nonNull(param.getExample())){
                               pathParamExample.put(param.getName(), param.getExample());
                           }
                       });
@@ -414,6 +503,7 @@ public class Main {
                           request.setPathParamExample(mapToString(pathParamExample));
                       }
                   }
+                  request.setUrl(str.get());
                 if (!methodToRequestMap.containsKey("PATCH")) {
                   List<Request> list = new ArrayList<>();
                   list.add(request);
