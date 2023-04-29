@@ -164,7 +164,7 @@ public class Main {
                       String example;
                       if(nonNull(bodyType)){
                           if(bodyType.equals("array") && nonNull(bodyItemsType)){
-                              example = "[" + (bodyItemsType.contains("int") ? 1 : "\"example_string\"") + "]";
+                              example = getArrayExampleForFormData(bodyItemsType);
                           }
                           else{
                               example = (String) getExampleForFormData(bodyType);
@@ -284,7 +284,7 @@ public class Main {
                         String example;
                         if(nonNull(bodyType)){
                             if(bodyType.equals("array") && nonNull(bodyItemsType)){
-                                example = "[" + (bodyItemsType.contains("int") ? 1 : "\"example_string\"") + "]";
+                                example = getArrayExampleForFormData(bodyItemsType);
                             }
                             else{
                                 example = (String) getExampleForFormData(bodyType);
@@ -456,7 +456,7 @@ public class Main {
                       String example;
                       if(nonNull(bodyType)){
                           if(bodyType.equals("array") && nonNull(bodyItemsType)){
-                              example = "[" + (bodyItemsType.contains("int") ? 1 : "\"example_string\"") + "]";
+                              example = getArrayExampleForFormData(bodyItemsType);
                           }
                           else{
                               example = (String) getExampleForFormData(bodyType);
@@ -563,9 +563,24 @@ public class Main {
     else if(dataType.toLowerCase().contains("int")){
       return 1;
     }
+    else if(dataType.toLowerCase().contains("bool")){
+        return true;
+    }
     return "example_string";
   }
 
+    private static String getArrayExampleForFormData(String dataType){
+        if(dataType.equalsIgnoreCase("string")){
+            return "[\"example_string\"]";
+        }
+        else if(dataType.toLowerCase().contains("int")){
+            return "[1]";
+        }
+        else if(dataType.toLowerCase().contains("bool")){
+            return "[true]";
+        }
+        return "[\"example_string\"]";
+    }
   private static String mapToString(Map<String, Object> targetMap){
       SimpleModule simpleModule = new SimpleModule().addSerializer(new JsonNodeExampleSerializer());
       Json.mapper().registerModule(simpleModule);
