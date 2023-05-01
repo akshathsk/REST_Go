@@ -1,0 +1,54 @@
+[
+    {
+        "microservice": "scs_swagger",
+        "host": "http://localhost:50108",
+        "methodToRequestMap": {
+            "GET": [
+                {
+                    "url": "/api/calc/{op}/{arg1}/{arg2}",
+                    "pathParamExample": "{\n  \"arg2\" : 0.123,\n  \"op\" : \"abc\",\n  \"arg1\" : 0.123\n}"
+                },
+                {
+                    "url": "/api/cookie/{name}/{val}/{site}",
+                    "pathParamExample": "{\n  \"val\" : \"abc\",\n  \"site\" : \"abc\",\n  \"name\" : \"abc\"\n}"
+                },
+                {
+                    "url": "/api/costfuns/{i}/{s}",
+                    "pathParamExample": "{\n  \"s\" : \"abc\",\n  \"i\" : 123\n}"
+                },
+                {
+                    "url": "/api/dateparse/{dayname}/{monthname}",
+                    "pathParamExample": "{\n  \"dayname\" : \"abc\",\n  \"monthname\" : \"abc\"\n}"
+                },
+                {
+                    "url": "/api/filesuffix/{directory}/{file}",
+                    "pathParamExample": "{\n  \"file\" : \"abc\",\n  \"directory\" : \"abc\"\n}"
+                },
+                {
+                    "url": "/api/notypevar/{i}/{s}",
+                    "pathParamExample": "{\n  \"s\" : \"abc\",\n  \"i\" : 123\n}"
+                },
+                {
+                    "url": "/api/ordered4/{w}/{x}/{z}/{y}",
+                    "pathParamExample": "{\n  \"w\" : \"abc\",\n  \"x\" : \"abc\",\n  \"y\" : \"abc\",\n  \"z\" : \"abc\"\n}"
+                },
+                {
+                    "url": "/api/pat/{txt}",
+                    "pathParamExample": "{\n  \"txt\" : \"abc\"\n}"
+                },
+                {
+                    "url": "/api/pat/{txt}/{pat}",
+                    "pathParamExample": "{\n  \"txt\" : \"abc\",\n  \"pat\" : \"abc\"\n}"
+                },
+                {
+                    "url": "/api/text2txt/{word1}/{word2}/{word3}",
+                    "pathParamExample": "{\n  \"word1\" : \"abc\",\n  \"word3\" : \"abc\",\n  \"word2\" : \"abc\"\n}"
+                },
+                {
+                    "url": "/api/title/{sex}/{title}",
+                    "pathParamExample": "{\n  \"sex\" : \"abc\",\n  \"title\" : \"abc\"\n}"
+                }
+            ]
+        }
+    }
+]

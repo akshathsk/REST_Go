@@ -39,13 +39,15 @@ paths = [
 
 port = sys.argv[1]
 name = sys.argv[2]
+tool = sys.argv[3]
 k = 0
 for i in range(len(services)):
     if name == services[i]:
+        print(name)
         k = i
 
 path = paths[k]
-
+print(path)
 print(services[k] + " is processing....")
 subdirs = [x[0] for x in os.walk(path)]
 class_files = []
@@ -66,10 +68,10 @@ for subdir in subdirs:
 jacoco_command2 = jacoco_command2 + ' --csv '
 
 jacoco_command1 = 'java -jar org.jacoco.cli-0.8.7-nodeps.jar report '
-
+print("current jacoco directory: "+os.getcwd())
+print(class_files)
 files = [f for f in os.listdir(curdir)]
 files.sort()
-
 
 count = 0
 errors = []
@@ -126,9 +128,22 @@ c_method = [0, 0, 0, 0, 0, 0]
 error = 0
 unique_err = 0
 crucial = 0
-mypath = os.path.join(curdir, "data/" + services[k])
+
+print(k, "data/" + services[k])
+subprocess.run("sudo mkdir -p " + "data/" + services[k] +"/"+ tool, shell=True)
+subprocess.call('sudo mv '+name+'*.csv ' + "data/" + services[k] +"/"+ tool, shell=True)
+subprocess.call('sudo mv error.json ' + "data/" + services[k] +"/"+ tool, shell=True)
+subprocess.call('sudo mv time.json ' + "data/" + services[k] +"/"+ tool, shell=True)
+# subprocess.call('sudo cp jacoco*.exec ' + "data/" + services[k], shell=True)
+subprocess.call('sudo mv jacoco_'+str(port)+'_*.exec ' + "data/" + services[k] +"/"+ tool, shell=True)
+subprocess.call('sudo mv log_'+str(port)+'* ' + "data/" + services[k] +"/"+ tool, shell=True)
+print("move done")
+mypath = os.path.join(curdir, "data/" + services[k]+"/"+ tool)
+#mypath = os.path.join(curdir,'')
+print(mypath)
 if os.path.isdir(mypath):
     onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+    print(onlyfiles)
     for dir_file in onlyfiles:
         if '_1.csv' in dir_file:
             with open(os.path.join(mypath, dir_file)) as f:
@@ -252,18 +267,18 @@ if os.path.isdir(mypath):
                 if flag:
                     crucial = crucial + 1
 res = ""
-
-for k in range(6):
-    if t_line[k] != 0:
-        line = c_line[k]/t_line[k]
+print(c_line, t_line, c_branch, t_branch, c_method, t_method)
+for v in range(6):
+    if t_line[v] != 0:
+        line = c_line[v]/t_line[v]
     else:
         line = 0
-    if t_branch[k] != 0:
-        branch = c_branch[k]/t_branch[k]
+    if t_branch[v] != 0:
+        branch = c_branch[v]/t_branch[v]
     else:
         branch = 0
-    if t_method[k] != 0:
-        method = c_method[k]/t_method[k]
+    if t_method[v] != 0:
+        method = c_method[v]/t_method[v]
     else:
         method = 0
     res = res + str(line*100) + '%,' + str(branch*100) + '%,' + str(method*100) + '%\n'
@@ -271,12 +286,18 @@ res = res + str(error) + ',' + str(unique_err) + ',' + str(crucial) + '\n'
 
 with open('res.csv', 'w') as f:
     f.write(res)
+    print("writing success")
 
+print(k, services[k])
+#subprocess.run("sudo mkdir -p " + "data/" + services[k], shell=True)
+print(1)
+subprocess.call('sudo mv res.csv ' + "data/" + services[k] +"/"+ tool, shell=True)
+print(2)
+#subprocess.call('sudo mv *.csv ' + "data/" + services[k], shell=True)
+print(3)
+#subprocess.call('sudo mv error.json ' + "data/" + services[k], shell=True)
+#subprocess.call('sudo mv time.json ' + "data/" + services[k], shell=True)
+#subprocess.call('sudo mv jacoco*.exec ' + "data/" + services[k], shell=True)
+#subprocess.call('sudo mv log* ' + "data/" + services[k], shell=True)
+print("D")
 
-subprocess.run("mkdir -p " + "data/" + services[k], shell=True)
-subprocess.call('mv res.csv ' + "data/" + services[k], shell=True)
-subprocess.call('mv *.csv ' + "data/" + services[k], shell=True)
-subprocess.call('mv error.json ' + "data/" + services[k], shell=True)
-subprocess.call('mv time.json ' + "data/" + services[k], shell=True)
-subprocess.call('mv jacoco*.exec ' + "data/" + services[k], shell=True)
-subprocess.call('mv log* ' + "data/" + services[k], shell=True)

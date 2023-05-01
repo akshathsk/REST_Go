@@ -1,0 +1,620 @@
+[
+    {
+      "microservice": "ocvn_swagger",
+      "host": "http://localhost:50104",
+      "methodToRequestMap": {
+        "POST": [
+          {
+            "url": "/api/averageAwardPeriod?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/averageNumberOfTenderers?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/averageTenderPeriod?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/avgTimeFromPlanToTenderPhase?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/awardValueInterval?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/costEffectivenessAwardAmount?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/costEffectivenessTenderAmount?groupByCategory={groupByCategory}&year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/costEffectivenessTenderAwardAmount?groupByCategory={groupByCategory}&year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/countAwardsByYear?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/countBidPlansByYear?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/countTendersByYear?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i003/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i003/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i004/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i004/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i007/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i007/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i019/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i019/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i038/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i038/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i077/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i077/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i180/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i180/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/frequentSuppliersTimeInterval?intervalDays={intervalDays}&maxAwards={maxAwards}"
+          },
+          {
+            "url": "/api/frequentTenderers?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/fundingByTenderDeliveryLocation?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/averageNumberBidsExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/bidSelectionExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/bidSelectionMethod/all"
+          },
+          {
+            "url": "/api/ocds/bidTimelineExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/bidType/all"
+          },
+          {
+            "url": "/api/ocds/cancelledFundingExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/cancelledFundingPercentageExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/cancelledTendersByYearByRationaleExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/city/all"
+          },
+          {
+            "url": "/api/ocds/city/search?text={text}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/contrMethod/all"
+          },
+          {
+            "url": "/api/ocds/costEffectivenessExcelChart?groupByCategory={groupByCategory}&year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/excelExport?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/location/all"
+          },
+          {
+            "url": "/api/ocds/location/search?text={text}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/numberCancelledFundingExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/numberTendersUsingEBidExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/orgDepartment/all"
+          },
+          {
+            "url": "/api/ocds/orgDepartment/search?text={text}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/orgGroup/all"
+          },
+          {
+            "url": "/api/ocds/orgGroup/search?text={text}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/organization/all",
+            "body": "#/components/schemas/TextSearchRequest",
+            "example": "{\r\n  \"pageNumber\" : 0,\r\n  \"pageSize\" : 0,\r\n  \"text\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/api/ocds/organization/buyer/all",
+            "body": "#/components/schemas/TextSearchRequest",
+            "example": "{\r\n  \"pageNumber\" : 0,\r\n  \"pageSize\" : 0,\r\n  \"text\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/api/ocds/organization/buyer/id/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/organization/id/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/organization/ids?id={id}"
+          },
+          {
+            "url": "/api/ocds/organization/procuringEntity/all",
+            "body": "#/components/schemas/TextSearchRequest",
+            "example": "{\r\n  \"pageNumber\" : 0,\r\n  \"pageSize\" : 0,\r\n  \"text\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/api/ocds/organization/procuringEntity/id/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/organization/supplier/all",
+            "body": "#/components/schemas/TextSearchRequest",
+            "example": "{\r\n  \"pageNumber\" : 0,\r\n  \"pageSize\" : 0,\r\n  \"text\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/api/ocds/organization/supplier/id/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/package/all?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/package/budgetProjectId/{projectId}",
+            "pathParamExample": "{\r\n  \"projectId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/package/ocid/{ocid}",
+            "pathParamExample": "{\r\n  \"ocid\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/package/planningBidNo/{bidNo}",
+            "pathParamExample": "{\r\n  \"bidNo\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/percentTendersUsingEBidExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/percentTendersUsingEgpExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/procurementActivityExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/procurementMethod/all"
+          },
+          {
+            "url": "/api/ocds/procurementMethodExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/release/all?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/release/budgetProjectId/{projectId}",
+            "pathParamExample": "{\r\n  \"projectId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/release/ocid/{ocid}",
+            "pathParamExample": "{\r\n  \"ocid\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/release/planningBidNo/{bidNo}",
+            "pathParamExample": "{\r\n  \"bidNo\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/tendersByItemExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/tendersWithLinkedProcurementPlanExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersAwardedWithTwoOrMoreTenderers?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersCancelled?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersUsingEBid?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersUsingEgp?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersWithLinkedProcurementPlan?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersWithTwoOrMoreTenderers?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentageAwardsNarrowPublicationDates?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/plannedFundingByLocation?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/qualityAverageAwardPeriod?bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/qualityAverageTenderPeriod?bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/qualityFundingByTenderDeliveryLocation?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/qualityPlannedFundingByLocation?bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/tenderPriceByAllBidSelectionMethods?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/tenderPriceByBidSelectionMethod?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/tenderPriceByProcurementMethod?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/tenderValueInterval?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/tendersAwardsYears"
+          },
+          {
+            "url": "/api/tendersByItemClassification?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/topTenLargestAwards?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/topTenLargestTenders?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/topTenSuppliers?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/totalCancelledTendersByYear?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/totalCancelledTendersByYearByRationale?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/api/averageAwardPeriod?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/averageNumberOfTenderers?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/averageTenderPeriod?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/avgTimeFromPlanToTenderPhase?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/awardValueInterval?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/costEffectivenessAwardAmount?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/costEffectivenessTenderAmount?groupByCategory={groupByCategory}&year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/costEffectivenessTenderAwardAmount?groupByCategory={groupByCategory}&year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/countAwardsByYear?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/countBidPlansByYear?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/countTendersByYear?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i003/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i003/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i004/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i004/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i007/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i007/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i019/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i019/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i038/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i038/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i077/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i077/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i180/releases?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/flags/i180/stats?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/frequentSuppliersTimeInterval?intervalDays={intervalDays}&maxAwards={maxAwards}"
+          },
+          {
+            "url": "/api/frequentTenderers?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/fundingByTenderDeliveryLocation?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/averageNumberBidsExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/bidSelectionExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/bidSelectionMethod/all"
+          },
+          {
+            "url": "/api/ocds/bidTimelineExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/bidType/all"
+          },
+          {
+            "url": "/api/ocds/cancelledFundingExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/cancelledFundingPercentageExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/cancelledTendersByYearByRationaleExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/city/all"
+          },
+          {
+            "url": "/api/ocds/city/search?text={text}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/contrMethod/all"
+          },
+          {
+            "url": "/api/ocds/costEffectivenessExcelChart?groupByCategory={groupByCategory}&year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/excelExport?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/location/all"
+          },
+          {
+            "url": "/api/ocds/location/search?text={text}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/numberCancelledFundingExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/numberTendersUsingEBidExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/orgDepartment/all"
+          },
+          {
+            "url": "/api/ocds/orgDepartment/search?text={text}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/orgGroup/all"
+          },
+          {
+            "url": "/api/ocds/orgGroup/search?text={text}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/organization/all"
+          },
+          {
+            "url": "/api/ocds/organization/buyer/all"
+          },
+          {
+            "url": "/api/ocds/organization/buyer/id/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/organization/id/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/organization/ids?id={id}"
+          },
+          {
+            "url": "/api/ocds/organization/procuringEntity/all"
+          },
+          {
+            "url": "/api/ocds/organization/procuringEntity/id/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/organization/supplier/all"
+          },
+          {
+            "url": "/api/ocds/organization/supplier/id/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/package/all?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/package/budgetProjectId/{projectId}",
+            "pathParamExample": "{\r\n  \"projectId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/package/ocid/{ocid}",
+            "pathParamExample": "{\r\n  \"ocid\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/package/planningBidNo/{bidNo}",
+            "pathParamExample": "{\r\n  \"bidNo\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/percentTendersUsingEBidExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/percentTendersUsingEgpExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/procurementActivityExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/procurementMethod/all"
+          },
+          {
+            "url": "/api/ocds/procurementMethodExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/release/all?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/release/budgetProjectId/{projectId}",
+            "pathParamExample": "{\r\n  \"projectId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/release/ocid/{ocid}",
+            "pathParamExample": "{\r\n  \"ocid\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/release/planningBidNo/{bidNo}",
+            "pathParamExample": "{\r\n  \"bidNo\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/ocds/tendersByItemExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/ocds/tendersWithLinkedProcurementPlanExcelChart?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersAwardedWithTwoOrMoreTenderers?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersCancelled?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersUsingEBid?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersUsingEgp?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersWithLinkedProcurementPlan?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentTendersWithTwoOrMoreTenderers?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/percentageAwardsNarrowPublicationDates?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/plannedFundingByLocation?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/qualityAverageAwardPeriod?bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/qualityAverageTenderPeriod?bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/qualityFundingByTenderDeliveryLocation?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/qualityPlannedFundingByLocation?bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/tenderPriceByAllBidSelectionMethods?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/tenderPriceByBidSelectionMethod?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/tenderPriceByProcurementMethod?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/tenderValueInterval?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/tendersAwardsYears"
+          },
+          {
+            "url": "/api/tendersByItemClassification?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/topTenLargestAwards?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/topTenLargestTenders?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/topTenSuppliers?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/totalCancelledTendersByYear?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          },
+          {
+            "url": "/api/totalCancelledTendersByYearByRationale?year={year}&month={month}&monthly={monthly}&bidTypeId={bidTypeId}&notBidTypeId={notBidTypeId}&procuringEntityId={procuringEntityId}&notProcuringEntityId={notProcuringEntityId}&supplierId={supplierId}&bidSelectionMethod={bidSelectionMethod}&notBidSelectionMethod={notBidSelectionMethod}&contrMethod={contrMethod}&tenderLoc={tenderLoc}&minTenderValue={minTenderValue}&maxTenderValue={maxTenderValue}&minAwardValue={minAwardValue}&maxAwardValue={maxAwardValue}&procuringEntityCityId={procuringEntityCityId}&procuringEntityDepartmentId={procuringEntityDepartmentId}&procuringEntityGroupId={procuringEntityGroupId}&pageNumber={pageNumber}&pageSize={pageSize}"
+          }
+        ]
+      }
+    }
+  ]

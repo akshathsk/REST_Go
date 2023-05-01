@@ -12,15 +12,17 @@ def whitebox(port):
 
 
 def blackbox(swagger, port):
-    print("bb")
     timeout = time.time() + 60 * 60 * int(time_limit)
     while time.time() < timeout:
         if tool == "dredd":
             subprocess.run("dredd " + swagger + ' http://localhost:' + str(port), shell=True)
         elif tool == "evomaster-blackbox":
+            print(os.getcwd())
             subprocess.run("rm -rf " + service, shell=True)
-            subprocess.run("java -jar evomaster.jar --blackBox true --bbSwaggerUrl " + swagger + " --bbTargetUrl http://localhost:" + str(port) + " --outputFormat JAVA_JUNIT_4 --maxTime " + time_limit + "h --outputFolder " + service, shell=True)
+            subprocess.run("java -jar evomaster.jar --blackBox true --bbSwaggerUrl " + swagger + " --bbTargetUrl http://localhost:" + str(port) + " --outputFormat JAVA_JUNIT_4 --maxTime " + time_limit + "h --outputFolder "+ service, shell=True)
+            print("service started")
         elif tool == "restler":
+            print(os.environ['PATH'])
             basedir = os.path.join(curdir, "restler_" + service)
             restler_home = os.path.join(curdir, "restler/restler_bin/restler/Restler.dll")
             com1 = " && dotnet " + restler_home + " compile --api_spec " + swagger
@@ -53,7 +55,7 @@ def blackbox(swagger, port):
         elif tool == "uiuc-api-tester":
             subprocess.run("cd UIUC-API-Tester/open-api-processor/target && java -jar open-api-processor-1.0-SNAPSHOT-jar-with-dependencies.jar " + swagger + " " + curdir + "/UIUC-API-Tester/output", shell=True)
             subprocess.run("cd UIUC-API-Tester/APITester && python3 integrate_enum.py", shell=True)
-            subprocess.run("cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py", shell=True)
+            subprocess.run("cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py > uiuc_test_6500.txt", shell=True)
             break
 
 if __name__ == "__main__":
@@ -61,20 +63,23 @@ if __name__ == "__main__":
     service = sys.argv[2]
     port = sys.argv[3]
     time_limit = "1"
-
-    print(tool)
+    # print(service)
+    # Add DotNet 5 Bin Path to env
+    path_to_dotnet5 = '/home/darko/dotnet'
+    path_var = os.environ['PATH']
+    new_path = f'{path_to_dotnet5}:{path_var}'
+    os.environ['PATH'] = new_path
     print(service)
-    print(port)
 
     curdir = os.getcwd()
 
-    # if tool == "evomaster-whitebox":
-    #     subprocess.run("python3 run_service.py " + service + " " + str(port) + " whitebox", shell=True)
-    # else:
-        # subprocess.run("python3 run_service.py " + service + " " + str(port) + " blackbox", shell=True)
+    if tool == "evomaster-whitebox":
+        subprocess.run("python3 run_service.py " + service + " " + str(port) + " whitebox", shell=True)
+    else:
+        subprocess.run("python3 run_service.py " + service + " " + str(port) + " blackbox", shell=True)
 
     print("Service started in the background. To check or kill the session, please see README file.")
-    # time.sleep(60)
+    time.sleep(60)
 
     if service == "features-service":
         if tool == "evomaster-whitebox":
@@ -263,7 +268,6 @@ if __name__ == "__main__":
         else:
             blackbox(os.path.join(curdir, "doc/cwa_openapi.yaml"), 50116)
     elif service == "market":
-        print("market")
         if tool == "evomaster-whitebox":
             whitebox(40118)
         elif tool == "evomaster-blackbox":
@@ -291,3 +295,4 @@ if __name__ == "__main__":
 
     time.sleep(180)
     subprocess.run("tmux kill-sess -t " + service, shell=True)
+

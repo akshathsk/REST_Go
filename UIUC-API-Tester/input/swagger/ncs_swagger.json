@@ -1,0 +1,34 @@
+[
+    {
+      "microservice": "ncs_swagger",
+      "host": "http://localhost:50102",
+      "methodToRequestMap": {
+        "GET": [
+          {
+            "url": "/api/bessj/{n}/{x}",
+            "pathParamExample": "{\r\n  \"x\" : 0.123,\r\n  \"n\" : 123\r\n}"
+          },
+          {
+            "url": "/api/expint/{n}/{x}",
+            "pathParamExample": "{\r\n  \"x\" : 0.123,\r\n  \"n\" : 123\r\n}"
+          },
+          {
+            "url": "/api/fisher/{m}/{n}/{x}",
+            "pathParamExample": "{\r\n  \"x\" : 0.123,\r\n  \"m\" : 123,\r\n  \"n\" : 123\r\n}"
+          },
+          {
+            "url": "/api/gammq/{a}/{x}",
+            "pathParamExample": "{\r\n  \"a\" : 0.123,\r\n  \"x\" : 0.123\r\n}"
+          },
+          {
+            "url": "/api/remainder/{a}/{b}",
+            "pathParamExample": "{\r\n  \"a\" : 123,\r\n  \"b\" : 123\r\n}"
+          },
+          {
+            "url": "/api/triangle/{a}/{b}/{c}",
+            "pathParamExample": "{\r\n  \"a\" : 123,\r\n  \"b\" : 123,\r\n  \"c\" : 123\r\n}"
+          }
+        ]
+      }
+    }
+  ]

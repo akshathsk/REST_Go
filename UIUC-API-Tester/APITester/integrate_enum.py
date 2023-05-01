@@ -1,52 +1,62 @@
 import json
-
-# get swagger json
-f = open("../output/output.json")
-data = json.load(f)
-
-# get enum
-f = open("../input/enum-props/output_enum_message_struct.json")
-enum = json.load(f)
-
-
+import sys
 
 def recursivePrompt(prompt, enum, jsnData):
     try:
         for key in jsnData.keys():
             if type(jsnData[key]) == list:
                 for value in jsnData[key]:
-                    if isinstance(value, dict):
-                        recursivePrompt(prompt, enum, value)
+                    recursivePrompt(prompt, enum, value)
             elif isinstance(jsnData[key], dict):
                 recursivePrompt(prompt, enum, jsnData[key])
-
+            
             for enum_keys in enum.keys():
                 if key.lower() in enum_keys.lower() or  enum_keys.lower() in key.lower():
                     prompt.append('{} should be filled with one among {}'.format(key, enum[enum_keys]))
+                    
     except Exception as e:
-        print("json error")
-        print(jsnData)
+        pass
     return prompt
 
-target = 'example'
-for jsonsArray in data:
-    httpjson = jsonsArray['methodToRequestMap']
-    for methods in httpjson:
-            httpcontent = httpjson[methods]
-            for content in httpcontent:
-                  prompt = []
-                  if target in content.keys():
-                        customData =  content[target]
-                        jsnData = json.loads(customData)
-                        content['prompt'] = []
-                        prompt = recursivePrompt(prompt, enum, jsnData)
-                        if prompt:
-                            for val in prompt:
-                                content['prompt'].append(val)
+if __name__ == "__main__":
 
-                            content['prompt'].append("For other relevant values, use the following json as reference: {}".format(enum))
+    service = sys.argv[1]
+
+    # get swagger json
+    try:
+        f = open('../input/swagger/'+str(service)+'_swagger.json')
+        data = json.load(f)
+    except:
+        data = {}
+
+    # get enum 
+    try:
+        f = open('../input/enum-props/output_enum_'+str(service)+'.json')
+        enum = json.load(f)
+    except:
+        enum = {}
+
+    target = 'example'
+    for jsonsArray in data:
+        httpjson = jsonsArray['methodToRequestMap']
+        for methods in httpjson:
+                httpcontent = httpjson[methods]
+                for content in httpcontent:
+                    prompt = []
+                    if target in content.keys():
+                            customData =  content[target]
+                            try:
+                                jsnData = json.loads(customData)
+                                content['prompt'] = []
+                                prompt = recursivePrompt(prompt, enum, jsnData)
+                                if prompt:
+                                    for val in prompt:
+                                        content['prompt'].append(val)
+                                    
+                                    content['prompt'].append("For other relevant values, use the following json as reference: {}".format(enum))
+                            except:
+                                pass                       
 
 
-
-with open('../output/uiuc-api-tester.json', 'w') as f:
-    json.dump(data, f)
+    with open('../output/uiuc-api-tester-'+str(service)+'.json', 'w') as f:
+        json.dump(data, f)

@@ -1,0 +1,104 @@
+[
+    {
+      "microservice": "user_swagger",
+      "host": "http://localhost:50115",
+      "methodToRequestMap": {
+        "DELETE": [
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/users/rbac/roles/{roleId}",
+            "pathParamExample": "{\r\n  \"roleId\" : 123\r\n}"
+          },
+          {
+            "url": "/users/rbac/roles/{roleId}/permissions/{permissionKey}",
+            "pathParamExample": "{\r\n  \"roleId\" : 123,\r\n  \"permissionKey\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/users/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/users/{id}/roles/{roleId}",
+            "pathParamExample": "{\r\n  \"roleId\" : 123,\r\n  \"id\" : 123\r\n}"
+          }
+        ],
+        "POST": [
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/login",
+            "body": "#/components/schemas/LoginRequestDTO",
+            "example": "{\r\n  \"password\" : \"string\",\r\n  \"username\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/users",
+            "body": "#/components/schemas/CreateOrUpdateUserDTO",
+            "example": "{\r\n  \"address\" : \"string\",\r\n  \"address2\" : \"string\",\r\n  \"birthDate\" : \"2015-07-20\",\r\n  \"city\" : \"string\",\r\n  \"contactNote\" : \"string\",\r\n  \"country\" : \"string\",\r\n  \"email\" : \"string\",\r\n  \"enabled\" : true,\r\n  \"facebook\" : \"string\",\r\n  \"gender\" : \"string\",\r\n  \"linkedin\" : \"string\",\r\n  \"mobile\" : \"string\",\r\n  \"name\" : \"string\",\r\n  \"note\" : \"string\",\r\n  \"password\" : \"string\",\r\n  \"secured\" : true,\r\n  \"skype\" : \"string\",\r\n  \"surname\" : \"string\",\r\n  \"username\" : \"string\",\r\n  \"website\" : \"string\",\r\n  \"zipCode\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/users/rbac/roles",
+            "example": "example_string",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/users/rbac/roles/{roleId}/permissions/{permissionKey}",
+            "pathParamExample": "{\r\n  \"roleId\" : 123,\r\n  \"permissionKey\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/users/register",
+            "body": "#/components/schemas/RegisterUserAccountDTO",
+            "example": "{\r\n  \"email\" : \"string\",\r\n  \"gender\" : \"string\",\r\n  \"name\" : \"string\",\r\n  \"password\" : \"string\",\r\n  \"surname\" : \"string\",\r\n  \"username\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/users/{id}/roles/{roleId}",
+            "pathParamExample": "{\r\n  \"roleId\" : 123,\r\n  \"id\" : 123\r\n}"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/users"
+          },
+          {
+            "url": "/users/rbac/permissions"
+          },
+          {
+            "url": "/users/rbac/roles"
+          },
+          {
+            "url": "/users/rbac/roles/{roleId}",
+            "pathParamExample": "{\r\n  \"roleId\" : 123\r\n}"
+          },
+          {
+            "url": "/users/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          }
+        ],
+        "PUT": [
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/users/{id}",
+            "body": "#/components/schemas/CreateOrUpdateUserDTO",
+            "example": "{\r\n  \"address\" : \"string\",\r\n  \"address2\" : \"string\",\r\n  \"birthDate\" : \"2015-07-20\",\r\n  \"city\" : \"string\",\r\n  \"contactNote\" : \"string\",\r\n  \"country\" : \"string\",\r\n  \"email\" : \"string\",\r\n  \"enabled\" : true,\r\n  \"facebook\" : \"string\",\r\n  \"gender\" : \"string\",\r\n  \"linkedin\" : \"string\",\r\n  \"mobile\" : \"string\",\r\n  \"name\" : \"string\",\r\n  \"note\" : \"string\",\r\n  \"password\" : \"string\",\r\n  \"secured\" : true,\r\n  \"skype\" : \"string\",\r\n  \"surname\" : \"string\",\r\n  \"username\" : \"string\",\r\n  \"website\" : \"string\",\r\n  \"zipCode\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          }
+        ],
+        "PATCH": [
+          {
+            "url": "/error"
+          }
+        ]
+      }
+    }
+  ]

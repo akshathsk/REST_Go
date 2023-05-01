@@ -1,0 +1,37 @@
+[
+    {
+      "microservice": "cwa_openapi",
+      "host": "http://localhost:50116",
+      "methodToRequestMap": {
+        "POST": [
+          {
+            "url": "/version/v1/tan",
+            "body": "#/components/schemas/RegistrationToken",
+            "example": "{\r\n  \"registrationToken\" : \"string\",\r\n  \"responsePadding\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/version/v1/testresult",
+            "body": "#/components/schemas/RegistrationToken",
+            "example": "{\r\n  \"registrationToken\" : \"string\",\r\n  \"responsePadding\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/version/v1/registrationToken",
+            "body": "#/components/schemas/RegistrationTokenRequest",
+            "example": "{\r\n  \"key\" : \"string\",\r\n  \"keyDob\" : \"string\",\r\n  \"keyType\" : \"GUID\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/version/v1/tan/teletan"
+          },
+          {
+            "url": "/version/v1/tan/verify",
+            "body": "#/components/schemas/Tan",
+            "example": "{\r\n  \"responsePadding\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          }
+        ]
+      }
+    }
+  ]

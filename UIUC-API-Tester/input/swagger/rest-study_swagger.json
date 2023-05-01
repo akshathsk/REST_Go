@@ -1,0 +1,274 @@
+[
+    {
+      "microservice": "rest_swagger",
+      "host": "http://localhost:50113",
+      "methodToRequestMap": {
+        "DELETE": [
+          {
+            "url": "/actuator/caches"
+          },
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/jpa/users/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/posts/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/posts/{id}/user",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/users/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/users/{id}/posts",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/users/{id}/posts/{postId}",
+            "pathParamExample": "{\r\n  \"id\" : 123,\r\n  \"postId\" : \"abc\"\r\n}"
+          }
+        ],
+        "POST": [
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/jpa/users",
+            "body": "#/components/schemas/User",
+            "example": "{\r\n  \"birthDate\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"posts\" : [ {\r\n    \"description\" : \"string\",\r\n    \"id\" : 0\r\n  } ]\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/jpa/users/{id}/posts",
+            "body": "#/components/schemas/Post",
+            "example": "{\r\n  \"description\" : \"string\",\r\n  \"id\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/posts",
+            "body": "#/components/schemas/Post",
+            "example": "{\r\n  \"description\" : \"string\",\r\n  \"id\" : 0\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/posts/{id}/user",
+            "example": "example_string",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/users",
+            "body": "#/components/schemas/User",
+            "example": "{\r\n  \"birthDate\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"posts\" : [ {\r\n    \"description\" : \"string\",\r\n    \"id\" : 0\r\n  } ]\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/users/{id}/posts",
+            "example": "[\"example_string\"]",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/"
+          },
+          {
+            "url": "/actuator"
+          },
+          {
+            "url": "/actuator/beans"
+          },
+          {
+            "url": "/actuator/caches"
+          },
+          {
+            "url": "/actuator/conditions"
+          },
+          {
+            "url": "/actuator/configprops"
+          },
+          {
+            "url": "/actuator/env"
+          },
+          {
+            "url": "/actuator/health"
+          },
+          {
+            "url": "/actuator/health/**"
+          },
+          {
+            "url": "/actuator/heapdump"
+          },
+          {
+            "url": "/actuator/info"
+          },
+          {
+            "url": "/actuator/loggers"
+          },
+          {
+            "url": "/actuator/mappings"
+          },
+          {
+            "url": "/actuator/metrics"
+          },
+          {
+            "url": "/actuator/scheduledtasks"
+          },
+          {
+            "url": "/actuator/threaddump"
+          },
+          {
+            "url": "/browser"
+          },
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/filtering"
+          },
+          {
+            "url": "/filtering-list"
+          },
+          {
+            "url": "/hello-world"
+          },
+          {
+            "url": "/hello-world-bean"
+          },
+          {
+            "url": "/hello-world-internationalized"
+          },
+          {
+            "url": "/hello-world/path-variable/{name}",
+            "pathParamExample": "{\r\n  \"name\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/jpa/users"
+          },
+          {
+            "url": "/jpa/users/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/jpa/users/{id}/posts",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/person/header"
+          },
+          {
+            "url": "/person/param?version={version}"
+          },
+          {
+            "url": "/person/produces"
+          },
+          {
+            "url": "/posts?page={page}&size={size}&sort={sort}"
+          },
+          {
+            "url": "/posts/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/posts/{id}/user",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/profile"
+          },
+          {
+            "url": "/users"
+          },
+          {
+            "url": "/users/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/users/{id}/posts",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/users/{id}/posts/{postId}",
+            "pathParamExample": "{\r\n  \"id\" : 123,\r\n  \"postId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v1/person"
+          },
+          {
+            "url": "/v2/person"
+          }
+        ],
+        "PUT": [
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/posts/{id}",
+            "body": "#/components/schemas/Post",
+            "example": "{\r\n  \"description\" : \"string\",\r\n  \"id\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/posts/{id}/user",
+            "example": "example_string",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/users/{id}",
+            "body": "#/components/schemas/User",
+            "example": "{\r\n  \"birthDate\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"posts\" : [ {\r\n    \"description\" : \"string\",\r\n    \"id\" : 0\r\n  } ]\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/users/{id}/posts",
+            "example": "[\"example_string\"]",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          }
+        ],
+        "PATCH": [
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/posts/{id}",
+            "body": "#/components/schemas/Post",
+            "example": "{\r\n  \"description\" : \"string\",\r\n  \"id\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/posts/{id}/user",
+            "example": "example_string",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/users/{id}",
+            "body": "#/components/schemas/User",
+            "example": "{\r\n  \"birthDate\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"posts\" : [ {\r\n    \"description\" : \"string\",\r\n    \"id\" : 0\r\n  } ]\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/users/{id}/posts",
+            "example": "[\"example_string\"]",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          }
+        ]
+      }
+    }
+  ]

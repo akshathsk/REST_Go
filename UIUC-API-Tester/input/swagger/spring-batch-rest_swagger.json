@@ -1,0 +1,32 @@
+[
+    {
+      "microservice": "springbatch_openapi",
+      "host": "http://localhost:50114",
+      "methodToRequestMap": {
+        "POST": [
+          {
+            "url": "/jobExecutions",
+            "body": "#/components/schemas/JobConfig",
+            "example": "{\r\n  \"name\" : \"string\",\r\n  \"asynchronous\" : true\r\n}",
+            "contentType": "REQUEST_BODY"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/jobs/{jobName}",
+            "pathParamExample": "{\r\n  \"jobName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/jobs"
+          },
+          {
+            "url": "/jobExecutions/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/jobExecutions?jobName={jobName}&exitCode={exitCode}&limitPerJob={limitPerJob}"
+          }
+        ]
+      }
+    }
+  ]

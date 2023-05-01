@@ -1,0 +1,314 @@
+[
+    {
+      "microservice": "project_swagger",
+      "host": "http://localhost:50118",
+      "methodToRequestMap": {
+        "DELETE": [
+          {
+            "url": "/app/api/assignments/delete/{employeeId}/{projectId}/{commitDate}",
+            "pathParamExample": "{\r\n  \"employeeId\" : \"abc\",\r\n  \"projectId\" : \"abc\",\r\n  \"commitDate\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/assignments/{employeeId}/{projectId}/{commitDate}",
+            "pathParamExample": "{\r\n  \"employeeId\" : \"abc\",\r\n  \"projectId\" : \"abc\",\r\n  \"commitDate\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/credentials?credentialId={credentialId}"
+          },
+          {
+            "url": "/app/api/credentials/delete?credentialId={credentialId}"
+          },
+          {
+            "url": "/app/api/credentials/username/{username}",
+            "pathParamExample": "{\r\n  \"username\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/departments?departmentId={departmentId}"
+          },
+          {
+            "url": "/app/api/departments/delete?departmentId={departmentId}"
+          },
+          {
+            "url": "/app/api/employees?employeeId={employeeId}"
+          },
+          {
+            "url": "/app/api/employees/delete?employeeId={employeeId}"
+          },
+          {
+            "url": "/app/api/employees/username/{username}",
+            "pathParamExample": "{\r\n  \"username\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/locations?locationId={locationId}"
+          },
+          {
+            "url": "/app/api/locations/delete?locationId={locationId}"
+          },
+          {
+            "url": "/app/api/projects?projectId={projectId}"
+          },
+          {
+            "url": "/app/api/projects/delete?projectId={projectId}"
+          }
+        ],
+        "POST": [
+          {
+            "url": "/app/api/assignments",
+            "body": "#/components/schemas/Assignment",
+            "example": "{\r\n  \"commitDate\" : \"dd-MM-yyyyHH:mm:ss\",\r\n  \"commitEmpDesc\" : \"string\",\r\n  \"commitMgrDesc\" : \"string\",\r\n  \"employee\" : {\r\n    \"credential\" : {\r\n      \"credentialId\" : 0,\r\n      \"enabled\" : true,\r\n      \"password\" : \"string\",\r\n      \"role\" : \"string\",\r\n      \"username\" : \"string\"\r\n    },\r\n    \"department\" : {\r\n      \"departmentId\" : 0,\r\n      \"departmentName\" : \"string\",\r\n      \"location\" : {\r\n        \"adr\" : \"string\",\r\n        \"city\" : \"string\",\r\n        \"locationId\" : 0,\r\n        \"postalCode\" : \"string\"\r\n      }\r\n    },\r\n    \"email\" : \"string\",\r\n    \"employeeId\" : 0,\r\n    \"firstName\" : \"string\",\r\n    \"hiredate\" : \"dd-MM-yyyy\",\r\n    \"job\" : \"string\",\r\n    \"lastName\" : \"string\",\r\n    \"manager\" : { },\r\n    \"phone\" : \"string\",\r\n    \"salary\" : 1.100000023841858\r\n  },\r\n  \"employeeId\" : 0,\r\n  \"project\" : {\r\n    \"endDate\" : \"dd-MM-yyyy\",\r\n    \"projectId\" : 0,\r\n    \"startDate\" : \"dd-MM-yyyy\",\r\n    \"status\" : \"string\",\r\n    \"title\" : \"string\"\r\n  },\r\n  \"projectId\" : 0\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/assignments/save",
+            "body": "#/components/schemas/Assignment",
+            "example": "{\r\n  \"commitDate\" : \"dd-MM-yyyyHH:mm:ss\",\r\n  \"commitEmpDesc\" : \"string\",\r\n  \"commitMgrDesc\" : \"string\",\r\n  \"employee\" : {\r\n    \"credential\" : {\r\n      \"credentialId\" : 0,\r\n      \"enabled\" : true,\r\n      \"password\" : \"string\",\r\n      \"role\" : \"string\",\r\n      \"username\" : \"string\"\r\n    },\r\n    \"department\" : {\r\n      \"departmentId\" : 0,\r\n      \"departmentName\" : \"string\",\r\n      \"location\" : {\r\n        \"adr\" : \"string\",\r\n        \"city\" : \"string\",\r\n        \"locationId\" : 0,\r\n        \"postalCode\" : \"string\"\r\n      }\r\n    },\r\n    \"email\" : \"string\",\r\n    \"employeeId\" : 0,\r\n    \"firstName\" : \"string\",\r\n    \"hiredate\" : \"dd-MM-yyyy\",\r\n    \"job\" : \"string\",\r\n    \"lastName\" : \"string\",\r\n    \"manager\" : { },\r\n    \"phone\" : \"string\",\r\n    \"salary\" : 1.100000023841858\r\n  },\r\n  \"employeeId\" : 0,\r\n  \"project\" : {\r\n    \"endDate\" : \"dd-MM-yyyy\",\r\n    \"projectId\" : 0,\r\n    \"startDate\" : \"dd-MM-yyyy\",\r\n    \"status\" : \"string\",\r\n    \"title\" : \"string\"\r\n  },\r\n  \"projectId\" : 0\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/authenticate",
+            "body": "#/components/schemas/AuthenticationRequest",
+            "example": "{\r\n  \"password\" : \"string\",\r\n  \"username\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/authenticate/",
+            "body": "#/components/schemas/AuthenticationRequest",
+            "example": "{\r\n  \"password\" : \"string\",\r\n  \"username\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/credentials",
+            "body": "#/components/schemas/Credential",
+            "example": "{\r\n  \"credentialId\" : 0,\r\n  \"enabled\" : true,\r\n  \"password\" : \"string\",\r\n  \"role\" : \"string\",\r\n  \"username\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/credentials/save",
+            "body": "#/components/schemas/Credential",
+            "example": "{\r\n  \"credentialId\" : 0,\r\n  \"enabled\" : true,\r\n  \"password\" : \"string\",\r\n  \"role\" : \"string\",\r\n  \"username\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/departments",
+            "body": "#/components/schemas/Department",
+            "example": "{\r\n  \"departmentId\" : 0,\r\n  \"departmentName\" : \"string\",\r\n  \"location\" : {\r\n    \"adr\" : \"string\",\r\n    \"city\" : \"string\",\r\n    \"locationId\" : 0,\r\n    \"postalCode\" : \"string\"\r\n  }\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/departments/save",
+            "body": "#/components/schemas/Department",
+            "example": "{\r\n  \"departmentId\" : 0,\r\n  \"departmentName\" : \"string\",\r\n  \"location\" : {\r\n    \"adr\" : \"string\",\r\n    \"city\" : \"string\",\r\n    \"locationId\" : 0,\r\n    \"postalCode\" : \"string\"\r\n  }\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/employees",
+            "body": "#/components/schemas/Employee",
+            "example": "{\r\n  \"credential\" : {\r\n    \"credentialId\" : 0,\r\n    \"enabled\" : true,\r\n    \"password\" : \"string\",\r\n    \"role\" : \"string\",\r\n    \"username\" : \"string\"\r\n  },\r\n  \"department\" : {\r\n    \"departmentId\" : 0,\r\n    \"departmentName\" : \"string\",\r\n    \"location\" : {\r\n      \"adr\" : \"string\",\r\n      \"city\" : \"string\",\r\n      \"locationId\" : 0,\r\n      \"postalCode\" : \"string\"\r\n    }\r\n  },\r\n  \"email\" : \"string\",\r\n  \"employeeId\" : 0,\r\n  \"firstName\" : \"string\",\r\n  \"hiredate\" : \"dd-MM-yyyy\",\r\n  \"job\" : \"string\",\r\n  \"lastName\" : \"string\",\r\n  \"manager\" : {\r\n    \"credential\" : {\r\n      \"credentialId\" : 0,\r\n      \"enabled\" : true,\r\n      \"password\" : \"string\",\r\n      \"role\" : \"string\",\r\n      \"username\" : \"string\"\r\n    },\r\n    \"department\" : {\r\n      \"departmentId\" : 0,\r\n      \"departmentName\" : \"string\",\r\n      \"location\" : {\r\n        \"adr\" : \"string\",\r\n        \"city\" : \"string\",\r\n        \"locationId\" : 0,\r\n        \"postalCode\" : \"string\"\r\n      }\r\n    },\r\n    \"email\" : \"string\",\r\n    \"employeeId\" : 0,\r\n    \"firstName\" : \"string\",\r\n    \"hiredate\" : \"dd-MM-yyyy\",\r\n    \"job\" : \"string\",\r\n    \"lastName\" : \"string\",\r\n    \"manager\" : { },\r\n    \"phone\" : \"string\",\r\n    \"salary\" : 1.100000023841858\r\n  },\r\n  \"phone\" : \"string\",\r\n  \"salary\" : 1.100000023841858\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/employees/save",
+            "body": "#/components/schemas/Employee",
+            "example": "{\r\n  \"credential\" : {\r\n    \"credentialId\" : 0,\r\n    \"enabled\" : true,\r\n    \"password\" : \"string\",\r\n    \"role\" : \"string\",\r\n    \"username\" : \"string\"\r\n  },\r\n  \"department\" : {\r\n    \"departmentId\" : 0,\r\n    \"departmentName\" : \"string\",\r\n    \"location\" : {\r\n      \"adr\" : \"string\",\r\n      \"city\" : \"string\",\r\n      \"locationId\" : 0,\r\n      \"postalCode\" : \"string\"\r\n    }\r\n  },\r\n  \"email\" : \"string\",\r\n  \"employeeId\" : 0,\r\n  \"firstName\" : \"string\",\r\n  \"hiredate\" : \"dd-MM-yyyy\",\r\n  \"job\" : \"string\",\r\n  \"lastName\" : \"string\",\r\n  \"manager\" : {\r\n    \"credential\" : {\r\n      \"credentialId\" : 0,\r\n      \"enabled\" : true,\r\n      \"password\" : \"string\",\r\n      \"role\" : \"string\",\r\n      \"username\" : \"string\"\r\n    },\r\n    \"department\" : {\r\n      \"departmentId\" : 0,\r\n      \"departmentName\" : \"string\",\r\n      \"location\" : {\r\n        \"adr\" : \"string\",\r\n        \"city\" : \"string\",\r\n        \"locationId\" : 0,\r\n        \"postalCode\" : \"string\"\r\n      }\r\n    },\r\n    \"email\" : \"string\",\r\n    \"employeeId\" : 0,\r\n    \"firstName\" : \"string\",\r\n    \"hiredate\" : \"dd-MM-yyyy\",\r\n    \"job\" : \"string\",\r\n    \"lastName\" : \"string\",\r\n    \"manager\" : { },\r\n    \"phone\" : \"string\",\r\n    \"salary\" : 1.100000023841858\r\n  },\r\n  \"phone\" : \"string\",\r\n  \"salary\" : 1.100000023841858\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/locations",
+            "body": "#/components/schemas/Location",
+            "example": "{\r\n  \"adr\" : \"string\",\r\n  \"city\" : \"string\",\r\n  \"locationId\" : 0,\r\n  \"postalCode\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/locations/save",
+            "body": "#/components/schemas/Location",
+            "example": "{\r\n  \"adr\" : \"string\",\r\n  \"city\" : \"string\",\r\n  \"locationId\" : 0,\r\n  \"postalCode\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/projects",
+            "body": "#/components/schemas/Project",
+            "example": "{\r\n  \"endDate\" : \"dd-MM-yyyy\",\r\n  \"projectId\" : 0,\r\n  \"startDate\" : \"dd-MM-yyyy\",\r\n  \"status\" : \"string\",\r\n  \"title\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/projects/save",
+            "body": "#/components/schemas/Project",
+            "example": "{\r\n  \"endDate\" : \"dd-MM-yyyy\",\r\n  \"projectId\" : 0,\r\n  \"startDate\" : \"dd-MM-yyyy\",\r\n  \"status\" : \"string\",\r\n  \"title\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/app/api/assignments"
+          },
+          {
+            "url": "/app/api/assignments/"
+          },
+          {
+            "url": "/app/api/assignments/data/project-commit/{employeeId}/{projectId}",
+            "pathParamExample": "{\r\n  \"employeeId\" : \"abc\",\r\n  \"projectId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/assignments/data/project-commit/{employeeId}/{projectId}/{commitDate}",
+            "pathParamExample": "{\r\n  \"employeeId\" : \"abc\",\r\n  \"projectId\" : \"abc\",\r\n  \"commitDate\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/assignments/data/project-commit/{projectId}",
+            "pathParamExample": "{\r\n  \"projectId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/assignments/{employeeId}/{projectId}",
+            "pathParamExample": "{\r\n  \"employeeId\" : \"abc\",\r\n  \"projectId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/assignments/{employeeId}/{projectId}/{commitDate}",
+            "pathParamExample": "{\r\n  \"employeeId\" : \"abc\",\r\n  \"projectId\" : \"abc\",\r\n  \"commitDate\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/credentials"
+          },
+          {
+            "url": "/app/api/credentials/"
+          },
+          {
+            "url": "/app/api/credentials/username/{username}",
+            "pathParamExample": "{\r\n  \"username\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/credentials/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/departments"
+          },
+          {
+            "url": "/app/api/departments/"
+          },
+          {
+            "url": "/app/api/departments/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/employees"
+          },
+          {
+            "url": "/app/api/employees/"
+          },
+          {
+            "url": "/app/api/employees/data/department/{departmentId}",
+            "pathParamExample": "{\r\n  \"departmentId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/employees/data/employee-project-data/{employeeId}",
+            "pathParamExample": "{\r\n  \"employeeId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/employees/data/manager-project-data/{employeeId}",
+            "pathParamExample": "{\r\n  \"employeeId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/employees/username/{username}",
+            "pathParamExample": "{\r\n  \"username\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/employees/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/locations"
+          },
+          {
+            "url": "/app/api/locations/"
+          },
+          {
+            "url": "/app/api/locations/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/app/api/projects"
+          },
+          {
+            "url": "/app/api/projects/"
+          },
+          {
+            "url": "/app/api/projects/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          }
+        ],
+        "PUT": [
+          {
+            "url": "/app/api/assignments",
+            "body": "#/components/schemas/Assignment",
+            "example": "{\r\n  \"commitDate\" : \"dd-MM-yyyyHH:mm:ss\",\r\n  \"commitEmpDesc\" : \"string\",\r\n  \"commitMgrDesc\" : \"string\",\r\n  \"employee\" : {\r\n    \"credential\" : {\r\n      \"credentialId\" : 0,\r\n      \"enabled\" : true,\r\n      \"password\" : \"string\",\r\n      \"role\" : \"string\",\r\n      \"username\" : \"string\"\r\n    },\r\n    \"department\" : {\r\n      \"departmentId\" : 0,\r\n      \"departmentName\" : \"string\",\r\n      \"location\" : {\r\n        \"adr\" : \"string\",\r\n        \"city\" : \"string\",\r\n        \"locationId\" : 0,\r\n        \"postalCode\" : \"string\"\r\n      }\r\n    },\r\n    \"email\" : \"string\",\r\n    \"employeeId\" : 0,\r\n    \"firstName\" : \"string\",\r\n    \"hiredate\" : \"dd-MM-yyyy\",\r\n    \"job\" : \"string\",\r\n    \"lastName\" : \"string\",\r\n    \"manager\" : { },\r\n    \"phone\" : \"string\",\r\n    \"salary\" : 1.100000023841858\r\n  },\r\n  \"employeeId\" : 0,\r\n  \"project\" : {\r\n    \"endDate\" : \"dd-MM-yyyy\",\r\n    \"projectId\" : 0,\r\n    \"startDate\" : \"dd-MM-yyyy\",\r\n    \"status\" : \"string\",\r\n    \"title\" : \"string\"\r\n  },\r\n  \"projectId\" : 0\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/assignments/update",
+            "body": "#/components/schemas/Assignment",
+            "example": "{\r\n  \"commitDate\" : \"dd-MM-yyyyHH:mm:ss\",\r\n  \"commitEmpDesc\" : \"string\",\r\n  \"commitMgrDesc\" : \"string\",\r\n  \"employee\" : {\r\n    \"credential\" : {\r\n      \"credentialId\" : 0,\r\n      \"enabled\" : true,\r\n      \"password\" : \"string\",\r\n      \"role\" : \"string\",\r\n      \"username\" : \"string\"\r\n    },\r\n    \"department\" : {\r\n      \"departmentId\" : 0,\r\n      \"departmentName\" : \"string\",\r\n      \"location\" : {\r\n        \"adr\" : \"string\",\r\n        \"city\" : \"string\",\r\n        \"locationId\" : 0,\r\n        \"postalCode\" : \"string\"\r\n      }\r\n    },\r\n    \"email\" : \"string\",\r\n    \"employeeId\" : 0,\r\n    \"firstName\" : \"string\",\r\n    \"hiredate\" : \"dd-MM-yyyy\",\r\n    \"job\" : \"string\",\r\n    \"lastName\" : \"string\",\r\n    \"manager\" : { },\r\n    \"phone\" : \"string\",\r\n    \"salary\" : 1.100000023841858\r\n  },\r\n  \"employeeId\" : 0,\r\n  \"project\" : {\r\n    \"endDate\" : \"dd-MM-yyyy\",\r\n    \"projectId\" : 0,\r\n    \"startDate\" : \"dd-MM-yyyy\",\r\n    \"status\" : \"string\",\r\n    \"title\" : \"string\"\r\n  },\r\n  \"projectId\" : 0\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/credentials",
+            "body": "#/components/schemas/Credential",
+            "example": "{\r\n  \"credentialId\" : 0,\r\n  \"enabled\" : true,\r\n  \"password\" : \"string\",\r\n  \"role\" : \"string\",\r\n  \"username\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/credentials/update",
+            "body": "#/components/schemas/Credential",
+            "example": "{\r\n  \"credentialId\" : 0,\r\n  \"enabled\" : true,\r\n  \"password\" : \"string\",\r\n  \"role\" : \"string\",\r\n  \"username\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/departments",
+            "body": "#/components/schemas/Department",
+            "example": "{\r\n  \"departmentId\" : 0,\r\n  \"departmentName\" : \"string\",\r\n  \"location\" : {\r\n    \"adr\" : \"string\",\r\n    \"city\" : \"string\",\r\n    \"locationId\" : 0,\r\n    \"postalCode\" : \"string\"\r\n  }\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/departments/update",
+            "body": "#/components/schemas/Department",
+            "example": "{\r\n  \"departmentId\" : 0,\r\n  \"departmentName\" : \"string\",\r\n  \"location\" : {\r\n    \"adr\" : \"string\",\r\n    \"city\" : \"string\",\r\n    \"locationId\" : 0,\r\n    \"postalCode\" : \"string\"\r\n  }\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/employees",
+            "body": "#/components/schemas/Employee",
+            "example": "{\r\n  \"credential\" : {\r\n    \"credentialId\" : 0,\r\n    \"enabled\" : true,\r\n    \"password\" : \"string\",\r\n    \"role\" : \"string\",\r\n    \"username\" : \"string\"\r\n  },\r\n  \"department\" : {\r\n    \"departmentId\" : 0,\r\n    \"departmentName\" : \"string\",\r\n    \"location\" : {\r\n      \"adr\" : \"string\",\r\n      \"city\" : \"string\",\r\n      \"locationId\" : 0,\r\n      \"postalCode\" : \"string\"\r\n    }\r\n  },\r\n  \"email\" : \"string\",\r\n  \"employeeId\" : 0,\r\n  \"firstName\" : \"string\",\r\n  \"hiredate\" : \"dd-MM-yyyy\",\r\n  \"job\" : \"string\",\r\n  \"lastName\" : \"string\",\r\n  \"manager\" : {\r\n    \"credential\" : {\r\n      \"credentialId\" : 0,\r\n      \"enabled\" : true,\r\n      \"password\" : \"string\",\r\n      \"role\" : \"string\",\r\n      \"username\" : \"string\"\r\n    },\r\n    \"department\" : {\r\n      \"departmentId\" : 0,\r\n      \"departmentName\" : \"string\",\r\n      \"location\" : {\r\n        \"adr\" : \"string\",\r\n        \"city\" : \"string\",\r\n        \"locationId\" : 0,\r\n        \"postalCode\" : \"string\"\r\n      }\r\n    },\r\n    \"email\" : \"string\",\r\n    \"employeeId\" : 0,\r\n    \"firstName\" : \"string\",\r\n    \"hiredate\" : \"dd-MM-yyyy\",\r\n    \"job\" : \"string\",\r\n    \"lastName\" : \"string\",\r\n    \"manager\" : { },\r\n    \"phone\" : \"string\",\r\n    \"salary\" : 1.100000023841858\r\n  },\r\n  \"phone\" : \"string\",\r\n  \"salary\" : 1.100000023841858\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/employees/update",
+            "body": "#/components/schemas/Employee",
+            "example": "{\r\n  \"credential\" : {\r\n    \"credentialId\" : 0,\r\n    \"enabled\" : true,\r\n    \"password\" : \"string\",\r\n    \"role\" : \"string\",\r\n    \"username\" : \"string\"\r\n  },\r\n  \"department\" : {\r\n    \"departmentId\" : 0,\r\n    \"departmentName\" : \"string\",\r\n    \"location\" : {\r\n      \"adr\" : \"string\",\r\n      \"city\" : \"string\",\r\n      \"locationId\" : 0,\r\n      \"postalCode\" : \"string\"\r\n    }\r\n  },\r\n  \"email\" : \"string\",\r\n  \"employeeId\" : 0,\r\n  \"firstName\" : \"string\",\r\n  \"hiredate\" : \"dd-MM-yyyy\",\r\n  \"job\" : \"string\",\r\n  \"lastName\" : \"string\",\r\n  \"manager\" : {\r\n    \"credential\" : {\r\n      \"credentialId\" : 0,\r\n      \"enabled\" : true,\r\n      \"password\" : \"string\",\r\n      \"role\" : \"string\",\r\n      \"username\" : \"string\"\r\n    },\r\n    \"department\" : {\r\n      \"departmentId\" : 0,\r\n      \"departmentName\" : \"string\",\r\n      \"location\" : {\r\n        \"adr\" : \"string\",\r\n        \"city\" : \"string\",\r\n        \"locationId\" : 0,\r\n        \"postalCode\" : \"string\"\r\n      }\r\n    },\r\n    \"email\" : \"string\",\r\n    \"employeeId\" : 0,\r\n    \"firstName\" : \"string\",\r\n    \"hiredate\" : \"dd-MM-yyyy\",\r\n    \"job\" : \"string\",\r\n    \"lastName\" : \"string\",\r\n    \"manager\" : { },\r\n    \"phone\" : \"string\",\r\n    \"salary\" : 1.100000023841858\r\n  },\r\n  \"phone\" : \"string\",\r\n  \"salary\" : 1.100000023841858\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/locations",
+            "body": "#/components/schemas/Location",
+            "example": "{\r\n  \"adr\" : \"string\",\r\n  \"city\" : \"string\",\r\n  \"locationId\" : 0,\r\n  \"postalCode\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/locations/update",
+            "body": "#/components/schemas/Location",
+            "example": "{\r\n  \"adr\" : \"string\",\r\n  \"city\" : \"string\",\r\n  \"locationId\" : 0,\r\n  \"postalCode\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/projects",
+            "body": "#/components/schemas/Project",
+            "example": "{\r\n  \"endDate\" : \"dd-MM-yyyy\",\r\n  \"projectId\" : 0,\r\n  \"startDate\" : \"dd-MM-yyyy\",\r\n  \"status\" : \"string\",\r\n  \"title\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/app/api/projects/update",
+            "body": "#/components/schemas/Project",
+            "example": "{\r\n  \"endDate\" : \"dd-MM-yyyy\",\r\n  \"projectId\" : 0,\r\n  \"startDate\" : \"dd-MM-yyyy\",\r\n  \"status\" : \"string\",\r\n  \"title\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          }
+        ]
+      }
+    }
+  ]

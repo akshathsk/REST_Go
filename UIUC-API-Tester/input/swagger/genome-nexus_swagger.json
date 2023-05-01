@@ -1,0 +1,113 @@
+[
+    {
+      "microservice": "genome_swagger",
+      "host": "http://localhost:50110",
+      "methodToRequestMap": {
+        "POST": [
+          {
+            "url": "/annotation?isoformOverrideSource={isoformOverrideSource}&token={token}&fields={fields}",
+            "example": "[\"example_string\"]",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/annotation/dbsnp/?isoformOverrideSource={isoformOverrideSource}&token={token}&fields={fields}",
+            "example": "[\"example_string\"]",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/annotation/genomic?isoformOverrideSource={isoformOverrideSource}&token={token}&fields={fields}",
+            "body": "#/components/schemas/GenomicLocation",
+            "example": "[{\r\n  \"chromosome\" : \"string\",\r\n  \"start\" : 0,\r\n  \"end\" : 0,\r\n  \"referenceAllele\" : \"string\",\r\n  \"variantAllele\" : \"string\"\r\n}]",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/ensembl/canonical-gene/entrez",
+            "example": "[\"example_string\"]",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/ensembl/canonical-gene/hgnc",
+            "example": "[\"example_string\"]",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/ensembl/canonical-transcript/hgnc?isoformOverrideSource={isoformOverrideSource}",
+            "example": "[\"example_string\"]",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/ensembl/transcript",
+            "body": "#/components/schemas/EnsemblFilter",
+            "example": "{\r\n  \"geneIds\" : [ \"string\" ],\r\n  \"hugoSymbols\" : [ \"string\" ],\r\n  \"proteinIds\" : [ \"string\" ],\r\n  \"transcriptIds\" : [ \"string\" ]\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/pdb/header",
+            "example": "[\"example_string\"]",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/pfam/domain",
+            "example": "[\"example_string\"]",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/ptm/experimental",
+            "body": "#/components/schemas/PtmFilter",
+            "example": "{\r\n  \"transcriptIds\" : [ \"string\" ]\r\n}",
+            "contentType": "REQUEST_BODY"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/annotation/dbsnp/{variantId}?isoformOverrideSource={isoformOverrideSource}&token={token}&fields={fields}",
+            "pathParamExample": "{\r\n  \"variantId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/annotation/genomic/{genomicLocation}?isoformOverrideSource={isoformOverrideSource}&token={token}&fields={fields}",
+            "pathParamExample": "{\r\n  \"genomicLocation\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/annotation/{variant}?isoformOverrideSource={isoformOverrideSource}&token={token}&fields={fields}",
+            "pathParamExample": "{\r\n  \"variant\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/ensembl/canonical-gene/entrez/{entrezGeneId}",
+            "pathParamExample": "{\r\n  \"entrezGeneId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/ensembl/canonical-gene/hgnc/{hugoSymbol}",
+            "pathParamExample": "{\r\n  \"hugoSymbol\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/ensembl/canonical-transcript/hgnc/{hugoSymbol}?isoformOverrideSource={isoformOverrideSource}",
+            "pathParamExample": "{\r\n  \"hugoSymbol\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/ensembl/transcript?geneId={geneId}&proteinId={proteinId}&hugoSymbol={hugoSymbol}"
+          },
+          {
+            "url": "/ensembl/transcript/{transcriptId}",
+            "pathParamExample": "{\r\n  \"transcriptId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/ensembl/xrefs?accession={accession}"
+          },
+          {
+            "url": "/pdb/header/{pdbId}",
+            "pathParamExample": "{\r\n  \"pdbId\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/pfam/domain/{pfamAccession}",
+            "pathParamExample": "{\r\n  \"pfamAccession\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/ptm/experimental?ensemblTranscriptId={ensemblTranscriptId}"
+          },
+          {
+            "url": "/version"
+          }
+        ]
+      }
+    }
+  ]

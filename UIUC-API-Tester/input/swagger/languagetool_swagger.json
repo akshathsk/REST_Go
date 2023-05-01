@@ -1,0 +1,20 @@
+[
+    {
+      "microservice": "languagetool_swagger",
+      "host": "http://localhost:50101/v2",
+      "methodToRequestMap": {
+        "POST": [
+          {
+            "url": "/check",
+            "example": "{\r\n  \"preferredVariants\" : \"example_string\",\r\n  \"motherTongue\" : \"example_string\",\r\n  \"enabledRules\" : \"example_string\",\r\n  \"data\" : \"example_string\",\r\n  \"enabledCategories\" : \"example_string\",\r\n  \"altLanguages\" : \"example_string\",\r\n  \"enabledOnly\" : true,\r\n  \"language\" : \"example_string\",\r\n  \"disabledRules\" : \"example_string\",\r\n  \"text\" : \"example_string\",\r\n  \"disabledCategories\" : \"example_string\"\r\n}",
+            "contentType": "FORM_DATA"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/languages"
+          }
+        ]
+      }
+    }
+  ]
