@@ -262,7 +262,7 @@ def processPostID(allJsonKeyValues, postUrl, postUrlIDVariation,microservices, l
                                     var = var.replace("{"+key+"}", str(resp[key]))
                                 print(type(postUrlIDVariation))
                                 postUrlIDVariation.add(var)
-                                return 
+                                 
 
         allParams = re.findall('\{.*?\}', postUrl)
         print("URL PARAMS")
@@ -345,8 +345,8 @@ def replaceAdditionalParams(processedUrls, logger_helper):
                     model="gpt-3.5-turbo",
                     messages=[
                         {"role": "system",
-                         "content": "You are generating HTTP GET requests"},
-                        {"role": "user", "content": "Using the same context as the POST requests and reusing the attribute values from all the previous responses replace the params between braces in the url {} with one value. Provide only the url as a response without any other text information".format(
+                         "content": "You are generating HTTP GET request url"},
+                        {"role": "user", "content": "Replace the params between braces in the url {} with one realistic example value. Provide only the url as a response without any explanation.".format(
                                                     url)}
                     ]
                 )
@@ -1016,11 +1016,8 @@ def run(microservices, token, allJsonKeyValues, prevRespJson, GPTcontent, logger
 
 if __name__ == "__main__":
     # chat GPT code to get data suggestions
-    # "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"
-    # "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"
     service = port = sys.argv[1]
     time.sleep(100)
-    openai.api_key = "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"
     openai.organization = os.getenv("OPENAI_ORGANIZATION")
 
     # read the pojo with the required data type ( please input the file location of struct.json)
