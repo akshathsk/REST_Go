@@ -341,18 +341,17 @@ def replaceAdditionalParams(processedUrls, logger_helper):
         remove = []
         add = []
         for url in processedUrls:
-            if "{" in url:
-                response = openai.ChatCompletion.create(
+            response = openai.ChatCompletion.create(
                     model="gpt-3.5-turbo",
                     messages=[
                         {"role": "system",
-                         "content": "Generate some sample URL with parameters for HTTP GET requests"},
-                        {"role": "user", "content": " Replace the params between braces in the url {} with one value each. Provide only the url as a response without any explanation and use full forms.".format(
+                         "content": "You are generating HTTP GET requests"},
+                        {"role": "user", "content": "Using the same context as the POST requests and reusing the attribute values from all the previous responses replace the params between braces in the url {} with one value. Provide only the url as a response without any other text information".format(
                                                     url)}
                     ]
                 )
-                remove.append(url)
-                add.append(response['choices'][0]['message']['content'])
+            remove.append(url)
+            add.append(response['choices'][0]['message']['content'])
         for j in remove:
             processedUrls.remove(j)
         for j in add:
@@ -459,7 +458,7 @@ def run(microservices, token, allJsonKeyValues, prevRespJson, GPTcontent, logger
     finalReqs['PATCH'] = {}
     const_no = str(random.randint(-5,6))
     const_no2 = '10001'
-    const_str = "0gn547"
+    const_str = "xyz"
     # const_no_neg = "-123"
     # const_no_big = "123456789012345678901234567890123456789012345678901234567890"
     # const_no_exp = "6.921106675869019E-34"
@@ -1018,11 +1017,10 @@ def run(microservices, token, allJsonKeyValues, prevRespJson, GPTcontent, logger
 if __name__ == "__main__":
     # chat GPT code to get data suggestions
     # "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"
-    # "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"
     # "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"
     service = port = sys.argv[1]
     time.sleep(100)
-    openai.api_key = "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"
+    openai.api_key = "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"
     openai.organization = os.getenv("OPENAI_ORGANIZATION")
 
     # read the pojo with the required data type ( please input the file location of struct.json)
