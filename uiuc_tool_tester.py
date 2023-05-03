@@ -71,6 +71,8 @@ if __name__ == "__main__":
         blackbox(os.path.join(curdir, "doc/market_swagger.json"), port, service)
     elif service == "project-tracking-system":
         blackbox(os.path.join(curdir, "doc/project_swagger.json"), port, service)
+    elif service == "spring-boot-sample-app":
+        blackbox(os.path.join(curdir, "doc/springboot_swagger.json"), port, service)
     else:
         print("select proper service")
 
