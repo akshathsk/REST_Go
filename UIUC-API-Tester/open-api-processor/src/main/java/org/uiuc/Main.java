@@ -31,6 +31,7 @@ public class Main {
 
     String path = args[0];
     String output = args[1];
+    String serviceName = args[2];
     List<Endpoints> endpoints = new ArrayList<>();
     File file = new File(path);
     OpenAPI swagger = new OpenAPIV3Parser().read(path);
@@ -522,7 +523,7 @@ public class Main {
     endpoints.add(endpoint);
     Gson gson = new Gson();
     System.out.println(gson.toJson(endpoints));
-    FileWriter writer = new FileWriter(output + "/output.json");
+    FileWriter writer = new FileWriter(output + System.getProperty("file.separator") + serviceName + "_swagger.json");
     writer.write(gson.toJson(endpoints));
     writer.close();
   }
