@@ -1019,7 +1019,9 @@ if __name__ == "__main__":
         enable_gpt_logs = True
 
     time.sleep(70)
-    openai.api_key = "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"
+    f = open('../input/constants.json')
+    val = json.load(f)
+    openai.api_key = val['apikey']
     openai.organization = os.getenv("OPENAI_ORGANIZATION")
 
     # please input the unified swagger json

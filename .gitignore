@@ -33,3 +33,4 @@ jacoco_*
 *LOG_PATH*
 test.sh
 run.sh
+UIUC-API-Tester/input/constants.json
