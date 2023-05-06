@@ -1,0 +1,221 @@
+[
+  {
+    "microservice": "customer-management",
+    "host": "http://localhost:8100",
+    "methodToRequestMap": {
+      "DELETE": [
+        {
+          "url": "/error"
+        }
+      ],
+      "POST": [
+        {
+          "url": "/error"
+        }
+      ],
+      "GET": [
+        {
+          "url": "/customers/{customerId}"
+        },
+        {
+          "url": "/interaction-logs/{customerId}"
+        },
+        {
+          "url": "/notifications"
+        },
+        {
+          "url": "/customers?filter={filter}&limit={limit}&offset={offset}"
+        },
+        {
+          "url": "/error"
+        }
+      ],
+      "PUT": [
+        {
+          "url": "/customers/{customerId}",
+          "body": "#/components/schemas/CustomerProfileDto",
+          "example": "{\r\n  \"firstname\" : \"string\",\r\n  \"lastname\" : \"string\",\r\n  \"birthday\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"streetAddress\" : \"string\",\r\n  \"postalCode\" : \"string\",\r\n  \"city\" : \"string\",\r\n  \"email\" : \"string\",\r\n  \"phoneNumber\" : \"string\",\r\n  \"moveHistory\" : [ {\r\n    \"streetAddress\" : \"string\",\r\n    \"postalCode\" : \"string\",\r\n    \"city\" : \"string\"\r\n  } ]\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/error"
+        }
+      ],
+      "PATCH": [
+        {
+          "url": "/interaction-logs/{customerId}",
+          "body": "#/components/schemas/InteractionAcknowledgementDto",
+          "example": "{\r\n  \"lastAcknowledgedInteractionId\" : \"string\"\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/error"
+        }
+      ]
+    }
+  },
+  {
+    "microservice": "customer-self-service",
+    "host": "http://localhost:8080",
+    "methodToRequestMap": {
+      "DELETE": [
+        {
+          "url": "/error"
+        }
+      ],
+      "POST": [
+        {
+          "url": "/insurance-quote-requests",
+          "body": "#/components/schemas/InsuranceQuoteRequestDto",
+          "example": "{\r\n  \"id\" : 0,\r\n  \"date\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"statusHistory\" : [ {\r\n    \"date\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"status\" : \"string\"\r\n  } ],\r\n  \"customerInfo\" : {\r\n    \"customerId\" : \"string\",\r\n    \"firstname\" : \"string\",\r\n    \"lastname\" : \"string\",\r\n    \"contactAddress\" : {\r\n      \"streetAddress\" : \"string\",\r\n      \"postalCode\" : \"string\",\r\n      \"city\" : \"string\"\r\n    },\r\n    \"billingAddress\" : {\r\n      \"streetAddress\" : \"string\",\r\n      \"postalCode\" : \"string\",\r\n      \"city\" : \"string\"\r\n    }\r\n  },\r\n  \"insuranceOptions\" : {\r\n    \"startDate\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"insuranceType\" : \"string\",\r\n    \"deductible\" : {\r\n      \"amount\" : 1.5,\r\n      \"currency\" : \"string\"\r\n    }\r\n  },\r\n  \"insuranceQuote\" : {\r\n    \"expirationDate\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"insurancePremium\" : {\r\n      \"amount\" : 1.5,\r\n      \"currency\" : \"string\"\r\n    },\r\n    \"policyLimit\" : {\r\n      \"amount\" : 1.5,\r\n      \"currency\" : \"string\"\r\n    }\r\n  },\r\n  \"policyId\" : \"string\"\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/customers",
+          "body": "#/components/schemas/CustomerRegistrationRequestDto",
+          "example": "{\r\n  \"firstname\" : \"string\",\r\n  \"lastname\" : \"string\",\r\n  \"birthday\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"city\" : \"string\",\r\n  \"streetAddress\" : \"string\",\r\n  \"postalCode\" : \"string\",\r\n  \"phoneNumber\" : \"string\"\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/auth",
+          "body": "#/components/schemas/AuthenticationRequestDto",
+          "example": "{\r\n  \"email\" : \"string\",\r\n  \"password\" : \"string\"\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/auth/signup",
+          "body": "#/components/schemas/SignupRequestDto",
+          "example": "{\r\n  \"email\" : \"string\",\r\n  \"password\" : \"string\"\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/error"
+        }
+      ],
+      "GET": [
+        {
+          "url": "/insurance-quote-requests"
+        },
+        {
+          "url": "/user"
+        },
+        {
+          "url": "/insurance-quote-requests/{insuranceQuoteRequestId}"
+        },
+        {
+          "url": "/customers/{customerId}"
+        },
+        {
+          "url": "/customers/{customerId}/insurance-quote-requests"
+        },
+        {
+          "url": "/cities/{postalCode}"
+        },
+        {
+          "url": "/error"
+        }
+      ],
+      "PUT": [
+        {
+          "url": "/customers/{customerId}/address",
+          "body": "#/components/schemas/AddressDto",
+          "example": "{\r\n  \"streetAddress\" : \"string\",\r\n  \"postalCode\" : \"string\",\r\n  \"city\" : \"string\"\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/error"
+        }
+      ],
+      "PATCH": [
+        {
+          "url": "/insurance-quote-requests/{id}",
+          "body": "#/components/schemas/InsuranceQuoteResponseDto",
+          "example": "{\r\n  \"status\" : \"string\",\r\n  \"expirationDate\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"insurancePremium\" : {\r\n    \"amount\" : 1.5,\r\n    \"currency\" : \"string\"\r\n  },\r\n  \"policyLimit\" : {\r\n    \"amount\" : 1.5,\r\n    \"currency\" : \"string\"\r\n  }\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/error"
+        }
+      ]
+    }
+  },
+  {
+    "microservice": "policy-management",
+    "host": "http://localhost:8090",
+    "methodToRequestMap": {
+      "DELETE": [
+        {
+          "url": "/policies/{policyId}"
+        },
+        {
+          "url": "/error"
+        }
+      ],
+      "POST": [
+        {
+          "url": "/riskfactor/compute",
+          "body": "#/components/schemas/RiskFactorRequestDto",
+          "example": "{\r\n  \"birthday\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"postalCode\" : \"string\"\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/policies",
+          "body": "#/components/schemas/CreatePolicyRequestDto",
+          "example": "{\r\n  \"customerId\" : \"string\",\r\n  \"policyPeriod\" : {\r\n    \"startDate\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"endDate\" : \"2015-07-20T15:49:04-07:00\"\r\n  },\r\n  \"policyType\" : \"string\",\r\n  \"deductible\" : {\r\n    \"amount\" : 1.5,\r\n    \"currency\" : \"string\"\r\n  },\r\n  \"policyLimit\" : {\r\n    \"amount\" : 1.5,\r\n    \"currency\" : \"string\"\r\n  },\r\n  \"insurancePremium\" : {\r\n    \"amount\" : 1.5,\r\n    \"currency\" : \"string\"\r\n  },\r\n  \"insuringAgreement\" : {\r\n    \"agreementItems\" : [ {\r\n      \"title\" : \"string\",\r\n      \"description\" : \"string\"\r\n    } ]\r\n  }\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/error"
+        }
+      ],
+      "GET": [
+        {
+          "url": "/policies/{policyId}?expand={expand}"
+        },
+        {
+          "url": "/policies?limit={limit}&offset={offset}&expand={expand}"
+        },
+        {
+          "url": "/insurance-quote-requests/{id}"
+        },
+        {
+          "url": "/insurance-quote-requests"
+        },
+        {
+          "url": "/customers?filter={filter}&limit={limit}&offset={offset}"
+        },
+        {
+          "url": "/customers/{customerIdDto}"
+        },
+        {
+          "url": "/customers/{customerIdDto}/policies?expand={expand}"
+        },
+        {
+          "url": "/error"
+        }
+      ],
+      "PUT": [
+        {
+          "url": "/policies/{policyId}",
+          "body": "#/components/schemas/CreatePolicyRequestDto",
+          "example": "{\r\n  \"customerId\" : \"string\",\r\n  \"policyPeriod\" : {\r\n    \"startDate\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"endDate\" : \"2015-07-20T15:49:04-07:00\"\r\n  },\r\n  \"policyType\" : \"string\",\r\n  \"deductible\" : {\r\n    \"amount\" : 1.5,\r\n    \"currency\" : \"string\"\r\n  },\r\n  \"policyLimit\" : {\r\n    \"amount\" : 1.5,\r\n    \"currency\" : \"string\"\r\n  },\r\n  \"insurancePremium\" : {\r\n    \"amount\" : 1.5,\r\n    \"currency\" : \"string\"\r\n  },\r\n  \"insuringAgreement\" : {\r\n    \"agreementItems\" : [ {\r\n      \"title\" : \"string\",\r\n      \"description\" : \"string\"\r\n    } ]\r\n  }\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/error"
+        }
+      ],
+      "PATCH": [
+        {
+          "url": "/insurance-quote-requests/{id}",
+          "body": "#/components/schemas/InsuranceQuoteResponseDto",
+          "example": "{\r\n  \"status\" : \"string\",\r\n  \"expirationDate\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"insurancePremium\" : {\r\n    \"amount\" : 1.5,\r\n    \"currency\" : \"string\"\r\n  },\r\n  \"policyLimit\" : {\r\n    \"amount\" : 1.5,\r\n    \"currency\" : \"string\"\r\n  }\r\n}",
+          "contentType": "REQUEST_BODY"
+        },
+        {
+          "url": "/error"
+        }
+      ]
+    }
+  }
+]
