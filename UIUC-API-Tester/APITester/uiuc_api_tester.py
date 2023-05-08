@@ -83,7 +83,6 @@ def randints(count, *randint_args):
 def myHash(text):
     try:
         m = hashlib.sha256()
-        print(text, type(text))
         m.update(text.encode('utf-8'))
         return m.hexdigest()
     except:
@@ -1050,7 +1049,6 @@ if __name__ == "__main__":
 
     # track 2
     try:
-        # dependency_file = open('/Users/surajvashistabettadapurakrishna/Academics/Independent_study/projects/new2/REST_Go/UIUC-API-Tester/input/Sequence/'+str(service)+'.json')
         dependency_file = open('../input/Sequence/'+str(service)+'.json')
         json_dict = json.load(dependency_file)
     except:
