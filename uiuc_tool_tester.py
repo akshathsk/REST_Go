@@ -9,8 +9,7 @@ def blackbox(swagger, port, service):
     subprocess.run("cd UIUC-API-Tester/open-api-processor/target && java -jar open-api-processor-1.0-SNAPSHOT-jar-with-dependencies.jar " + swagger + " " + curdir + "/UIUC-API-Tester/input/swagger" + " " +service, shell=True)
     subprocess.run('cd UIUC-API-Tester/APITester && python3 integrate_enum.py '+str(service)+'', shell=True)
     print("uiuc tool started")
-    subprocess.run('cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py '+str(service)+' > logs/uiuc_test_'+str(port)+'.txt', shell=True)
-    # subprocess.run('cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py '+str(service)+'', shell=True)
+    subprocess.run('cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py '+str(service)+' True > logs/uiuc_test_'+str(port)+'.txt', shell=True)
     print("uiuc tool ended")
 
 

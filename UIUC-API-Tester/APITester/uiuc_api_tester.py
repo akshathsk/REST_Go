@@ -1030,7 +1030,7 @@ if __name__ == "__main__":
     logger_write = []
 
     # track 1
-    for i in range(2):
+    for i in range(10):
         try:
             print("RUN STARTED FOR: " + str(i))
             logger = {}
