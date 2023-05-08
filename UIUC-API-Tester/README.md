@@ -22,6 +22,7 @@ Execute this query at root directory of project - </br>
 - Import the database by selecting folder generated in above step ``<path_till_root_location>-codeql>``
 - Select the imported Database as target database in CodeQL
 - Execute this codeQL query: 
+
 ```
 import java
 
@@ -43,8 +44,24 @@ select
 
 - This script will generate a json file in the location ```UIUC-API-Tester/input/enum-props/output_enum_{service_name}.json``` with the enum information.
 
+#### Command line Enum detection
 
-
+- This bash script could only work with Java project currently
+- You could also collect all the `Enum` object using bash script
+  1. Navigate to the target system's project folder
+  2. To scan through the project, and collect all the class that was `extended` from `java.lamg.Enum`
+    * Type in terminal: `for c in $(find -name *.class); do echo ==== $c; if javap "$c" | grep "extends java.lang.Enum"; then javap "$c" | grep "public static final" | rev | cut -d' ' -f1 | rev | tr -d \;; fi; done |& tee /tmp/log`
+    * Sample output
+      ```
+      TODO
+      ```
+    * The collected data will be store under the folder with absolute path `/tmp/log`
+  3. To collect and process the data from `/tmp/log`, and print it to the console:
+    * Type in terminal: `awk '/final/{t=1} /====/{t=0} {if(t)print}' </tmp/log`
+    * Sample output
+      ```
+      TODO
+      ```
 
 ## Running the tool
 
