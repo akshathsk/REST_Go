@@ -48,16 +48,9 @@ select
 
 ## Running the tool
 
-### Configure open AI key
+### Configure openAI key and generating unified swagger generating jar
 
-- First we need to configure the API key. To do this, add the key to ```constants.json``` file containing in the location ```UIUC-API-Tester/input/constants.json```. A sample content of the file will look like this:
-```
-{
-    "apikey":"{your key}"
-}
-```
-- Go to root location of ``UIUC-API-Tester/open-api-processor`` and execute ``mvn clean package``
-
+Execute the command ``python3 uiuc_tool_setup.py <openai_api_key>``
 
 ### Automated
 
