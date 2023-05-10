@@ -1015,7 +1015,12 @@ if __name__ == "__main__":
     try:
         enable_gpt_logs = sys.argv[2]
     except:
-        enable_gpt_logs = True
+        enable_gpt_logs = False
+    
+    try:
+        runs = int(sys.argv[3])
+    except:
+        runs = 10
 
     time.sleep(70)
     f = open('../input/constants.json')
@@ -1030,11 +1035,10 @@ if __name__ == "__main__":
     logger_write = []
 
     # track 1
-    for i in range(10):
+    for i in range(runs):
         try:
             print("RUN STARTED FOR: " + str(i))
             logger = {}
-            logger['POST'] = {}
             logger['POST'] = {}
             logger['GET'] = {}
             logger['PUT'] = {}

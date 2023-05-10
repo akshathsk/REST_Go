@@ -54,7 +54,7 @@ Execute the command ``python3 uiuc_tool_setup.py <openai_api_key>``
 
 ### Automated
 
-To run all the script at once with a single python file, run the command ```python3 uiuc_tool_tester.py {port} {service_name}```
+To run all the script at once with a single python file, run the command ```python3 uiuc_tool_tester.py {port} {service_name} {enable_gpt_logs} {runs}```. Here, ```enable_gpt_logs``` should be filled with ```True/False``` and ```runs``` indicates the number of times the tool should run for one execution. This is defaulted to 10 if no input is given. 
 
 ### Manually
 
@@ -106,7 +106,7 @@ Before we begin with the execution of our tool, we need to start the service and
 #### 4. Running the tool with the help of GPT 3.5 APIs and generated Unified Swagger
 After successful completion of previous steps, we will have the final swagger ready in the location ```UIUC-API-Tester/output/uiuc-api-tester-{service_name}.json```, service running and the jacoco agent started. Now we are ready to run our tool.
 
-- Navigate to the location ```UIUC-API-Tester/APITester``` and run the script using the command ```python3 uiuc_api_tester.py {service_name} {enable_gpt_logs - True/False} > logs/restgpt_log__{port_number}.txt```. The tool will generate 2 files as it runs.
+- Navigate to the location ```UIUC-API-Tester/APITester``` and run the script using the command ```python3 uiuc_api_tester.py {service_name} {enable_gpt_logs - True/False} {runs} > logs/restgpt_log__{port_number}.txt```. Here, ```runs``` indicates the number of times the tool should run for one execution. This is defaulted to 10 if no input is given. The tool will generate 2 files as it runs.
 
 - The first file is the GPT logs for re-using the GPT produced data. This log file will be genereted in the location ```UIUC-API-Tester/APITester/gptlogs/{service_name}.txt```.
 
