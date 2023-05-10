@@ -3,6 +3,14 @@ RestGPT automatically tests the REST based projects with the help of GPT3.5 APIs
 This document gives detailed description of the flow of the tool and its working.
 For running the tool, follow the below sections in order.
 
+## Installations
+Run the commands below to install dependencies. This project requires python3.
+- ```pip3 install openai```
+- ```pip3 install pandas```
+- ```pip3 install hashlib```
+- ```pip3 install openpyxl```
+- ```pip3 install xlsxwriter```
+
 ## Enum generation
 
 #### Already Generated enums
@@ -120,4 +128,11 @@ After the jacoco agent is run for 1 hour, we should be able to see 6 jacoco exec
 - from the root directory ```RESTGO/``` , run the command ```pytho3 report.py {port} {name} {tool_name}```.
 - This will generate a csv file called ```res.csv``` with the coverage report at the location ```RESTGO/data/{service_name}/res.csv```
 
+
+## formatting all results to one excel
+For comparison, inorder to ease the process, there is a script that can iterate though all the ```res.csv``` from each service and the respective tool. This will ouput a file in the ```RESTGO/``` directoy with the name ```{tool_name}_results_{date}.xlsx```. 
+
+- Make sure that ```RESTGO/data``` directory exists. If not, please follow steps from above properly. 
+- To achieve this, from ```RESTGO/``` directory, run the command ```python3 tool_report.py {tool_name}```.
+- Incase this is running on a VM, xlsx formats might be difficult to open in editors like vi . So we can scp the excel file to the local machine using the command ```scp user@remote:<path>/<filename>  <location in local machine>```
 
