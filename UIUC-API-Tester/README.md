@@ -21,6 +21,10 @@ To generate enums for new project, please follow below sections.
 To generate enums for a service, we need to have CodeQL setup on the system.
 Please refer to CodeQL official docs to set up it on your system: https://codeql.github.com/
 
+#### Run by Command Line
+
+* Please refer to [codeql_cli_readme.md](./codeql_cli_readme.md) to generate `codeql query result` using command line instrcutions.
+
 #### How to Run
 - Import codebase as database in CodeQL. Sample query to import database: </br>
 Execute this query at root directory of project - </br>
@@ -111,6 +115,9 @@ Sample input of swagger file: [features_swagger.json](https://github.com/akshath
 ###### Output
 Sample output of unified swagger file: [features-service_swagger.json](https://github.com/akshathsk/REST_Go/blob/UIUC-API-Tester/UIUC-API-Tester/input/swagger/features-service_swagger.json)
 
+##### Generate Swagger file 
+
+* Please refer to [swagger_generation_readme.md](./swagger_generation_readme.md) to generate swagger during `Spring` project building.
 
 #### 2. Using enum with unified json
 The project uses the enum's to replace certain attributes in the body during the request. Our tool already takes the unified swagger as input and to simplify the process, we integrate the enum to that swagger. to do that,
