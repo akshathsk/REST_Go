@@ -9,15 +9,27 @@ def blackbox(swagger, port, service):
     subprocess.run("cd UIUC-API-Tester/open-api-processor/target && java -jar open-api-processor-1.0-SNAPSHOT-jar-with-dependencies.jar " + swagger + " " + curdir + "/UIUC-API-Tester/input/swagger" + " " +service, shell=True)
     subprocess.run('cd UIUC-API-Tester/APITester && python3 integrate_enum.py '+str(service)+'', shell=True)
     print("uiuc tool started")
-    subprocess.run('cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py '+str(service)+' > logs/restgpt_log_'+str(port)+'.txt', shell=True)
+    subprocess.run('cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py '+str(service)+' '+str(enable_gpt_logs)+' '+runs+' > logs/restgpt_log_'+str(port)+'.txt', shell=True)
     # subprocess.run('cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py '+str(service)+'', shell=True)
     print("uiuc tool ended")
 
 
 if __name__ == "__main__":
     # this is only for blackbox. Please do not use this for whitebox testing
+    global enable_gpt_logs
+    global runs
+
     port = sys.argv[1]
     service = sys.argv[2]
+
+    try:
+        enable_gpt_logs = sys.argv[3]
+        if enable_gpt_logs.lower() == 'true':
+            enable_gpt_logs = True
+    except:
+        enable_gpt_logs = False
+        
+    runs = sys.argv[4]
 
     curdir = os.getcwd()
     # services = ["market","user-management", "cwa-verification","ncs", "proxyprint", "restcountries", "scout-api", "erc20-rest-service", "person-controller", "rest-study", "spring-batch-rest", "project-tracking-system"]
