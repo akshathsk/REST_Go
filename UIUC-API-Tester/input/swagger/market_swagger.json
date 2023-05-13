@@ -1,0 +1,69 @@
+[
+    {
+      "microservice": "market_swagger",
+      "host": "http://localhost:50117",
+      "methodToRequestMap": {
+        "DELETE": [
+          {
+            "url": "/customer/cart?name={name}"
+          }
+        ],
+        "POST": [
+          {
+            "url": "/customer/cart/pay?name={name}",
+            "body": "#/components/schemas/CreditCardDTO",
+            "example": "{\r\n  \"ccNumber\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/register",
+            "body": "#/components/schemas/UserDTOReq",
+            "example": "{\r\n  \"address\" : \"string\",\r\n  \"email\" : \"string\",\r\n  \"name\" : \"string\",\r\n  \"password\" : \"string\",\r\n  \"phone\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/customer?name={name}"
+          },
+          {
+            "url": "/customer/cart?name={name}"
+          },
+          {
+            "url": "/customer/contacts?name={name}"
+          },
+          {
+            "url": "/customer/orders?name={name}"
+          },
+          {
+            "url": "/customer/orders/{orderId}?name={name}",
+            "pathParamExample": "{\r\n  \"orderId\" : 123\r\n}"
+          },
+          {
+            "url": "/products"
+          },
+          {
+            "url": "/products/{productId}",
+            "pathParamExample": "{\r\n  \"productId\" : 123\r\n}"
+          }
+        ],
+        "PUT": [
+          {
+            "url": "/customer/cart?name={name}",
+            "body": "#/components/schemas/CartItemDTOReq",
+            "example": "{\r\n  \"productId\" : 0,\r\n  \"quantity\" : 0\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/customer/cart/delivery?included={included}&name={name}"
+          },
+          {
+            "url": "/customer/contacts?name={name}",
+            "body": "#/components/schemas/ContactsDTOReq",
+            "example": "{\r\n  \"address\" : \"string\",\r\n  \"phone\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          }
+        ]
+      }
+    }
+  ]

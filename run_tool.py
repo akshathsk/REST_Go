@@ -17,9 +17,12 @@ def blackbox(swagger, port):
         if tool == "dredd":
             subprocess.run("dredd " + swagger + ' http://localhost:' + str(port), shell=True)
         elif tool == "evomaster-blackbox":
+            print(os.getcwd())
             subprocess.run("rm -rf " + service, shell=True)
-            subprocess.run("java -jar evomaster.jar --blackBox true --bbSwaggerUrl " + swagger + " --bbTargetUrl http://localhost:" + str(port) + " --outputFormat JAVA_JUNIT_4 --maxTime " + time_limit + "h --outputFolder " + service, shell=True)
+            subprocess.run("java -jar evomaster.jar --blackBox true --bbSwaggerUrl " + swagger + " --bbTargetUrl http://localhost:" + str(port) + " --outputFormat JAVA_JUNIT_4 --maxTime " + time_limit + "h --outputFolder "+ service, shell=True)
+            print("service started")
         elif tool == "restler":
+            print(os.environ['PATH'])
             basedir = os.path.join(curdir, "restler_" + service)
             restler_home = os.path.join(curdir, "restler/restler_bin/restler/Restler.dll")
             com1 = " && dotnet " + restler_home + " compile --api_spec " + swagger
@@ -49,12 +52,24 @@ def blackbox(swagger, port):
             subprocess.run("cd tcases_" + service + " && mvn clean test", shell=True)
         elif tool == "apifuzzer":
             subprocess.run("APIFuzzer -s " + swagger + " -u http://localhost:" + str(port), shell=True)
+        elif tool == "uiuc-api-tester":
+            subprocess.run("cd UIUC-API-Tester/open-api-processor/target && java -jar open-api-processor-1.0-SNAPSHOT-jar-with-dependencies.jar " + swagger + " " + curdir + "/UIUC-API-Tester/output", shell=True)
+            subprocess.run("cd UIUC-API-Tester/APITester && python3 integrate_enum.py", shell=True)
+            subprocess.run("cd UIUC-API-Tester/APITester && python3 uiuc_api_tester.py > uiuc_test_6500.txt", shell=True)
+            break
 
 if __name__ == "__main__":
     tool = sys.argv[1]
     service = sys.argv[2]
     port = sys.argv[3]
     time_limit = "1"
+    # print(service)
+    # Add DotNet 5 Bin Path to env
+    path_to_dotnet5 = '/home/darko/dotnet'
+    path_var = os.environ['PATH']
+    new_path = f'{path_to_dotnet5}:{path_var}'
+    os.environ['PATH'] = new_path
+    print(service)
 
     curdir = os.getcwd()
 
@@ -280,3 +295,4 @@ if __name__ == "__main__":
 
     time.sleep(180)
     subprocess.run("tmux kill-sess -t " + service, shell=True)
+

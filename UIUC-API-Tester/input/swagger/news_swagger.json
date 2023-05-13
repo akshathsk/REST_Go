@@ -1,0 +1,49 @@
+[
+    {
+      "microservice": "news_swagger",
+      "host": "http://localhost:50103",
+      "methodToRequestMap": {
+        "DELETE": [
+          {
+            "url": "/news/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          }
+        ],
+        "POST": [
+          {
+            "url": "/news",
+            "body": "#/components/schemas/NewsDto",
+            "example": "{\r\n  \"authorId\" : \"string\",\r\n  \"country\" : \"string\",\r\n  \"creationTime\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"id\" : \"string\",\r\n  \"newsId\" : \"string\",\r\n  \"text\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/countries"
+          },
+          {
+            "url": "/news?authorId={authorId}&country={country}"
+          },
+          {
+            "url": "/news/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          }
+        ],
+        "PUT": [
+          {
+            "url": "/news/{id}",
+            "body": "#/components/schemas/NewsDto",
+            "example": "{\r\n  \"authorId\" : \"string\",\r\n  \"country\" : \"string\",\r\n  \"creationTime\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"id\" : \"string\",\r\n  \"newsId\" : \"string\",\r\n  \"text\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/news/{id}/text",
+            "example": "example_string",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          }
+        ]
+      }
+    }
+  ]

@@ -1,0 +1,68 @@
+[
+    {
+      "microservice": "person_swagger",
+      "host": "http://localhost:50111",
+      "methodToRequestMap": {
+        "DELETE": [
+          {
+            "url": "/api/person/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/persons"
+          },
+          {
+            "url": "/api/persons/{ids}",
+            "pathParamExample": "{\r\n  \"ids\" : \"abc\"\r\n}"
+          }
+        ],
+        "POST": [
+          {
+            "url": "/api/person",
+            "body": "#/components/schemas/PersonReq",
+            "example": "{\r\n  \"address\" : {\r\n    \"city\" : \"string\",\r\n    \"country\" : \"string\",\r\n    \"number\" : 0,\r\n    \"postcode\" : \"string\",\r\n    \"street\" : \"string\"\r\n  },\r\n  \"age\" : 0,\r\n  \"cars\" : [ {\r\n    \"brand\" : \"string\",\r\n    \"maxSpeedKmH\" : 1.1,\r\n    \"model\" : \"string\"\r\n  } ],\r\n  \"createdAt\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"firstName\" : \"string\",\r\n  \"id\" : {\r\n    \"timestamp\" : 0\r\n  },\r\n  \"insurance\" : true,\r\n  \"lastName\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/api/persons",
+            "body": "#/components/schemas/PersonReq",
+            "example": "[{\r\n  \"address\" : {\r\n    \"city\" : \"string\",\r\n    \"country\" : \"string\",\r\n    \"number\" : 0,\r\n    \"postcode\" : \"string\",\r\n    \"street\" : \"string\"\r\n  },\r\n  \"age\" : 0,\r\n  \"cars\" : [ {\r\n    \"brand\" : \"string\",\r\n    \"maxSpeedKmH\" : 1.1,\r\n    \"model\" : \"string\"\r\n  } ],\r\n  \"createdAt\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"firstName\" : \"string\",\r\n  \"id\" : {\r\n    \"timestamp\" : 0\r\n  },\r\n  \"insurance\" : true,\r\n  \"lastName\" : \"string\"\r\n}]",
+            "contentType": "REQUEST_BODY"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/api/person/{id}",
+            "pathParamExample": "{\r\n  \"id\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/persons"
+          },
+          {
+            "url": "/api/persons/averageAge"
+          },
+          {
+            "url": "/api/persons/count"
+          },
+          {
+            "url": "/api/persons/{ids}",
+            "pathParamExample": "{\r\n  \"ids\" : \"abc\"\r\n}"
+          }
+        ],
+        "PUT": [
+          {
+            "url": "/api/person",
+            "body": "#/components/schemas/PersonReq",
+            "example": "{\r\n  \"address\" : {\r\n    \"city\" : \"string\",\r\n    \"country\" : \"string\",\r\n    \"number\" : 0,\r\n    \"postcode\" : \"string\",\r\n    \"street\" : \"string\"\r\n  },\r\n  \"age\" : 0,\r\n  \"cars\" : [ {\r\n    \"brand\" : \"string\",\r\n    \"maxSpeedKmH\" : 1.1,\r\n    \"model\" : \"string\"\r\n  } ],\r\n  \"createdAt\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"firstName\" : \"string\",\r\n  \"id\" : {\r\n    \"timestamp\" : 0\r\n  },\r\n  \"insurance\" : true,\r\n  \"lastName\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/api/persons",
+            "body": "#/components/schemas/PersonReq",
+            "example": "[{\r\n  \"address\" : {\r\n    \"city\" : \"string\",\r\n    \"country\" : \"string\",\r\n    \"number\" : 0,\r\n    \"postcode\" : \"string\",\r\n    \"street\" : \"string\"\r\n  },\r\n  \"age\" : 0,\r\n  \"cars\" : [ {\r\n    \"brand\" : \"string\",\r\n    \"maxSpeedKmH\" : 1.1,\r\n    \"model\" : \"string\"\r\n  } ],\r\n  \"createdAt\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"firstName\" : \"string\",\r\n  \"id\" : {\r\n    \"timestamp\" : 0\r\n  },\r\n  \"insurance\" : true,\r\n  \"lastName\" : \"string\"\r\n}]",
+            "contentType": "REQUEST_BODY"
+          }
+        ]
+      }
+    }
+  ]

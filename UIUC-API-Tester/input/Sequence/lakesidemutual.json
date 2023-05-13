@@ -1,0 +1,11 @@
+{
+    "sequence": [
+        ["customer-management-backend", "customer-core", "customer-self-service-backend", "policy-management-backend"], 
+        ["customer-management-backend", "customer-core", "policy-management-backend", "customer-self-service-backend"], 
+        ["customer-core", "customer-self-service-backend", "policy-management-backend", "customer-management-backend"],
+        ["customer-core", "customer-self-service-backend", "customer-management-backend", "policy-management-backend"],
+        ["customer-core", "policy-management-backend", "customer-self-service-backend", "customer-management-backend"],
+        ["customer-core", "policy-management-backend", "customer-management-backend", "customer-self-service-backend"],
+        ["customer-core", "customer-management-backend", "customer-self-service-backend", "policy-management-backend"],
+        ["customer-core", "customer-management-backend", "policy-management-backend", "customer-self-service-backend"]]
+}

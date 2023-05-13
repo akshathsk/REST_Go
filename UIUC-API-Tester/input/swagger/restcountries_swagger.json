@@ -1,0 +1,94 @@
+[
+    {
+      "microservice": "restcountries_openapi",
+      "host": "http://localhost:50106/rest",
+      "methodToRequestMap": {
+        "GET": [
+          {
+            "url": "/v1/all"
+          },
+          {
+            "url": "/v1/alpha/{alphacode}",
+            "pathParamExample": "{\r\n  \"alphacode\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v1/alpha?codes={codes}"
+          },
+          {
+            "url": "/v1/currency/{currency}",
+            "pathParamExample": "{\r\n  \"currency\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v1/name/{name}?fullText={fullText}",
+            "pathParamExample": "{\r\n  \"name\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v1/callingcode/{callingcode}",
+            "pathParamExample": "{\r\n  \"callingcode\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v1/capital/{capital}",
+            "pathParamExample": "{\r\n  \"capital\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v1/region/{region}",
+            "pathParamExample": "{\r\n  \"region\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v1/subregion/{subregion}",
+            "pathParamExample": "{\r\n  \"subregion\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v1/lang/{lang}",
+            "pathParamExample": "{\r\n  \"lang\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v2/all?fields={fields}"
+          },
+          {
+            "url": "/v2/alpha/{alphacode}?fields={fields}",
+            "pathParamExample": "{\r\n  \"alphacode\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v2/alpha?fields={fields}&codes={codes}"
+          },
+          {
+            "url": "/v2/currency/{currency}?fields={fields}",
+            "pathParamExample": "{\r\n  \"currency\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v2/name/{name}?fields={fields}&fullText={fullText}",
+            "pathParamExample": "{\r\n  \"name\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v2/callingcode/{callingcode}?fields={fields}",
+            "pathParamExample": "{\r\n  \"callingcode\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v2/capital/{capital}?fields={fields}",
+            "pathParamExample": "{\r\n  \"capital\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v2/region/{region}?fields={fields}",
+            "pathParamExample": "{\r\n  \"region\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v2/subregion/{subregion}?fields={fields}",
+            "pathParamExample": "{\r\n  \"subregion\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v2/lang/{lang}?fields={fields}",
+            "pathParamExample": "{\r\n  \"lang\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v2/demonym/{demonym}?fields={fields}",
+            "pathParamExample": "{\r\n  \"demonym\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/v2/regionalbloc/{regionalbloc}?fields={fields}",
+            "pathParamExample": "{\r\n  \"regionalbloc\" : \"abc\"\r\n}"
+          }
+        ]
+      }
+    }
+  ]

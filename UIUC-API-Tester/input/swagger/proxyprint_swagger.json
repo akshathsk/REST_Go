@@ -1,0 +1,485 @@
+[
+    {
+      "microservice": "proxyprint_swagger",
+      "host": "http://localhost:50105",
+      "methodToRequestMap": {
+        "DELETE": [
+          {
+            "url": "/consumer/requests/cancel/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/consumer/subscribe"
+          },
+          {
+            "url": "/consumer/{consumerID}/printingschemas/{printingSchemaID}",
+            "pathParamExample": "{\r\n  \"printingSchemaID\" : 123,\r\n  \"consumerID\" : 123\r\n}"
+          },
+          {
+            "url": "/consumer/{username}/notifications",
+            "pathParamExample": "{\r\n  \"username\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/health"
+          },
+          {
+            "url": "/health.json"
+          },
+          {
+            "url": "/notifications/{notificationId}",
+            "pathParamExample": "{\r\n  \"notificationId\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{printShopID}/employees/{employeeID}",
+            "pathParamExample": "{\r\n  \"printShopID\" : 123,\r\n  \"employeeID\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{printShopId}/reviews/{reviewId}",
+            "pathParamExample": "{\r\n  \"printShopId\" : 123,\r\n  \"reviewId\" : 123\r\n}"
+          }
+        ],
+        "POST": [
+          {
+            "url": "/admin/register",
+            "body": "#/components/schemas/Admin",
+            "example": "{\r\n  \"balance\" : {\r\n    \"currency\" : \"string\",\r\n    \"fractionalPart\" : 0,\r\n    \"integerPart\" : 0,\r\n    \"moneyAsDouble\" : 1.100000023841858,\r\n    \"valid\" : true\r\n  },\r\n  \"email\" : \"string\",\r\n  \"id\" : 0,\r\n  \"rolesSet\" : [ \"string\" ],\r\n  \"username\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/admin/seed"
+          },
+          {
+            "url": "/admin/useed"
+          },
+          {
+            "url": "/consumer/budget",
+            "example": "{\r\n  \"requestJSON\" : \"example_string\"\r\n}",
+            "contentType": "FORM_DATA"
+          },
+          {
+            "url": "/consumer/printrequest/{printRequestID}/submit",
+            "body": "#/components/schemas/Principal",
+            "example": "{\r\n  \"name\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"printRequestID\" : 123\r\n}"
+          },
+          {
+            "url": "/consumer/register",
+            "body": "#/components/schemas/WebRequest",
+            "example": "{\r\n  \"WebRequest\" : \"example_java_object\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/consumer/subscribe",
+            "body": "#/components/schemas/WebRequest",
+            "example": "{\r\n  \"WebRequest\" : \"example_java_object\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/consumer/{consumerID}/printingschemas",
+            "body": "#/components/schemas/PrintingSchema",
+            "example": "{\r\n  \"bindingSpecs\" : \"string\",\r\n  \"coverSpecs\" : \"string\",\r\n  \"deleted\" : true,\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"paperSpecs\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"consumerID\" : 123\r\n}"
+          },
+          {
+            "url": "/consumer/{id}/notify",
+            "body": "#/components/schemas/WebRequest",
+            "example": "{\r\n  \"WebRequest\" : \"example_java_object\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/health",
+            "body": "#/components/schemas/Principal",
+            "example": "{\r\n  \"name\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/health.json",
+            "body": "#/components/schemas/Principal",
+            "example": "{\r\n  \"name\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/login",
+            "body": "#/components/schemas/WebRequest",
+            "example": "{\r\n  \"WebRequest\" : \"example_java_object\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/paypal/ipn/consumer/{consumerID}",
+            "pathParamExample": "{\r\n  \"consumerID\" : 123\r\n}"
+          },
+          {
+            "url": "/paypal/ipn/{printRequestID}",
+            "pathParamExample": "{\r\n  \"printRequestID\" : 123\r\n}"
+          },
+          {
+            "url": "/printdocument"
+          },
+          {
+            "url": "/printdocument/{id}/budget",
+            "body": "#/components/schemas/Principal",
+            "example": "{\r\n  \"name\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/requests/cancel/{id}",
+            "example": "example_string",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/requests/{id}",
+            "body": "#/components/schemas/Principal",
+            "example": "{\r\n  \"name\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/pricetable/covers",
+            "body": "#/components/schemas/CoverTableItem",
+            "example": "{\r\n  \"coverType\" : \"string\",\r\n  \"priceA3\" : \"string\",\r\n  \"priceA4\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/pricetable/deletecover",
+            "body": "#/components/schemas/CoverTableItem",
+            "example": "{\r\n  \"coverType\" : \"string\",\r\n  \"priceA3\" : \"string\",\r\n  \"priceA4\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/pricetable/deletepaper",
+            "body": "#/components/schemas/PaperTableItem",
+            "example": "{\r\n  \"colors\" : \"string\",\r\n  \"infLim\" : 0,\r\n  \"priceA3DUPLEX\" : \"string\",\r\n  \"priceA3SIMPLEX\" : \"string\",\r\n  \"priceA4DUPLEX\" : \"string\",\r\n  \"priceA4SIMPLEX\" : \"string\",\r\n  \"supLim\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/pricetable/deletering",
+            "body": "#/components/schemas/RingTableItem",
+            "example": "{\r\n  \"infLim\" : 0,\r\n  \"price\" : \"string\",\r\n  \"ringType\" : \"string\",\r\n  \"supLim\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/pricetable/papers",
+            "body": "#/components/schemas/PaperTableItem",
+            "example": "{\r\n  \"colors\" : \"string\",\r\n  \"infLim\" : 0,\r\n  \"priceA3DUPLEX\" : \"string\",\r\n  \"priceA3SIMPLEX\" : \"string\",\r\n  \"priceA4DUPLEX\" : \"string\",\r\n  \"priceA4SIMPLEX\" : \"string\",\r\n  \"supLim\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/pricetable/rings",
+            "body": "#/components/schemas/RingTableItem",
+            "example": "{\r\n  \"infLim\" : 0,\r\n  \"price\" : \"string\",\r\n  \"ringType\" : \"string\",\r\n  \"supLim\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/reviews",
+            "example": "example_string",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{printShopID}/employees",
+            "pathParamExample": "{\r\n  \"printShopID\" : 123\r\n}"
+          },
+          {
+            "url": "/request/accept/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/request/register",
+            "body": "#/components/schemas/RegisterRequest",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"managerEmail\" : \"string\",\r\n  \"managerName\" : \"string\",\r\n  \"managerPassword\" : \"string\",\r\n  \"managerUsername\" : \"string\",\r\n  \"pShopAddress\" : \"string\",\r\n  \"pShopDateRequest\" : \"string\",\r\n  \"pShopDateRequestAccepted\" : \"string\",\r\n  \"pShopLatitude\" : 1.100000023841858,\r\n  \"pShopLongitude\" : 1.100000023841858,\r\n  \"pShopNIF\" : \"string\",\r\n  \"pShopName\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/request/reject/{printRequestID}",
+            "example": "example_string",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"printRequestID\" : 123\r\n}"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/"
+          },
+          {
+            "url": "/admin/printshops"
+          },
+          {
+            "url": "/api/secured"
+          },
+          {
+            "url": "/autoconfig"
+          },
+          {
+            "url": "/autoconfig.json"
+          },
+          {
+            "url": "/beans"
+          },
+          {
+            "url": "/beans.json"
+          },
+          {
+            "url": "/configprops"
+          },
+          {
+            "url": "/configprops.json"
+          },
+          {
+            "url": "/consumer/balance"
+          },
+          {
+            "url": "/consumer/info"
+          },
+          {
+            "url": "/consumer/notifications"
+          },
+          {
+            "url": "/consumer/requests"
+          },
+          {
+            "url": "/consumer/satisfied"
+          },
+          {
+            "url": "/consumer/subscribe"
+          },
+          {
+            "url": "/consumer/{consumerID}/printingschemas",
+            "pathParamExample": "{\r\n  \"consumerID\" : 123\r\n}"
+          },
+          {
+            "url": "/documents/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/dump"
+          },
+          {
+            "url": "/dump.json"
+          },
+          {
+            "url": "/env"
+          },
+          {
+            "url": "/env.json"
+          },
+          {
+            "url": "/env/{name}",
+            "pathParamExample": "{\r\n  \"name\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/health"
+          },
+          {
+            "url": "/health.json"
+          },
+          {
+            "url": "/heapdump?live={live}"
+          },
+          {
+            "url": "/heapdump.json?live={live}"
+          },
+          {
+            "url": "/info"
+          },
+          {
+            "url": "/info.json"
+          },
+          {
+            "url": "/mappings"
+          },
+          {
+            "url": "/mappings.json"
+          },
+          {
+            "url": "/metrics"
+          },
+          {
+            "url": "/metrics.json"
+          },
+          {
+            "url": "/metrics/{name}",
+            "pathParamExample": "{\r\n  \"name\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/printdocument/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshop"
+          },
+          {
+            "url": "/printshops"
+          },
+          {
+            "url": "/printshops/history"
+          },
+          {
+            "url": "/printshops/nearest"
+          },
+          {
+            "url": "/printshops/requests"
+          },
+          {
+            "url": "/printshops/requests/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/satisfied"
+          },
+          {
+            "url": "/printshops/stats"
+          },
+          {
+            "url": "/printshops/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/pricetable",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/reviews",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{printShopID}/employees",
+            "pathParamExample": "{\r\n  \"printShopID\" : 123\r\n}"
+          },
+          {
+            "url": "/requests/pending"
+          },
+          {
+            "url": "/trace"
+          },
+          {
+            "url": "/trace.json"
+          }
+        ],
+        "PUT": [
+          {
+            "url": "/consumer/info/update",
+            "body": "#/components/schemas/Principal",
+            "example": "{\r\n  \"name\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/consumer/subscribe",
+            "body": "#/components/schemas/WebRequest",
+            "example": "{\r\n  \"WebRequest\" : \"example_java_object\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/consumer/{consumerID}/printingschemas/{printingSchemaID}",
+            "body": "#/components/schemas/PrintingSchema",
+            "example": "{\r\n  \"bindingSpecs\" : \"string\",\r\n  \"coverSpecs\" : \"string\",\r\n  \"deleted\" : true,\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"paperSpecs\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"printingSchemaID\" : 123,\r\n  \"consumerID\" : 123\r\n}"
+          },
+          {
+            "url": "/consumer/{username}/notifications",
+            "pathParamExample": "{\r\n  \"username\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/health",
+            "body": "#/components/schemas/Principal",
+            "example": "{\r\n  \"name\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/health.json",
+            "body": "#/components/schemas/Principal",
+            "example": "{\r\n  \"name\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/notifications/{notificationId}",
+            "pathParamExample": "{\r\n  \"notificationId\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/pricetable/covers",
+            "body": "#/components/schemas/CoverTableItem",
+            "example": "{\r\n  \"coverType\" : \"string\",\r\n  \"priceA3\" : \"string\",\r\n  \"priceA4\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/pricetable/papers",
+            "body": "#/components/schemas/PaperTableItem",
+            "example": "{\r\n  \"colors\" : \"string\",\r\n  \"infLim\" : 0,\r\n  \"priceA3DUPLEX\" : \"string\",\r\n  \"priceA3SIMPLEX\" : \"string\",\r\n  \"priceA4DUPLEX\" : \"string\",\r\n  \"priceA4SIMPLEX\" : \"string\",\r\n  \"supLim\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{id}/pricetable/rings",
+            "body": "#/components/schemas/RingTableItem",
+            "example": "{\r\n  \"infLim\" : 0,\r\n  \"price\" : \"string\",\r\n  \"ringType\" : \"string\",\r\n  \"supLim\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{printShopID}/employees",
+            "pathParamExample": "{\r\n  \"printShopID\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{printShopID}/pricetable/editstapling",
+            "example": "example_string",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"printShopID\" : 123\r\n}"
+          },
+          {
+            "url": "/printshops/{printShopId}/reviews/{reviewId}",
+            "body": "#/components/schemas/WebRequest",
+            "example": "{\r\n  \"WebRequest\" : \"example_java_object\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"printShopId\" : 123,\r\n  \"reviewId\" : 123\r\n}"
+          }
+        ],
+        "PATCH": [
+          {
+            "url": "/consumer/subscribe",
+            "body": "#/components/schemas/WebRequest",
+            "example": "{\r\n  \"WebRequest\" : \"example_java_object\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/error"
+          },
+          {
+            "url": "/health",
+            "body": "#/components/schemas/Principal",
+            "example": "{\r\n  \"name\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/health.json",
+            "body": "#/components/schemas/Principal",
+            "example": "{\r\n  \"name\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          }
+        ]
+      }
+    }
+  ]

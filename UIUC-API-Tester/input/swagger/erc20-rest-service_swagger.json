@@ -1,0 +1,77 @@
+[
+    {
+      "microservice": "erc20_swagger",
+      "host": "http://localhost:50109",
+      "methodToRequestMap": {
+        "POST": [
+          {
+            "url": "/deploy",
+            "body": "#/components/schemas/ContractSpecification",
+            "example": "{\r\n  \"decimalUnits\" : 0,\r\n  \"initialAmount\" : 0,\r\n  \"tokenName\" : \"string\",\r\n  \"tokenSymbol\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/{contractAddress}/approve",
+            "body": "#/components/schemas/ApproveRequest",
+            "example": "{\r\n  \"spender\" : \"string\",\r\n  \"value\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"contractAddress\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/{contractAddress}/approveAndCall",
+            "body": "#/components/schemas/ApproveAndCallRequest",
+            "example": "{\r\n  \"ApproveAndCallRequest\" : \"example_java_object\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"contractAddress\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/{contractAddress}/transfer",
+            "body": "#/components/schemas/TransferRequest",
+            "example": "{\r\n  \"to\" : \"string\",\r\n  \"value\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"contractAddress\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/{contractAddress}/transferFrom",
+            "body": "#/components/schemas/TransferFromRequest",
+            "example": "{\r\n  \"from\" : \"string\",\r\n  \"to\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"contractAddress\" : \"abc\"\r\n}"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/config"
+          },
+          {
+            "url": "/{contractAddress}/allowance?ownerAddress={ownerAddress}&spenderAddress={spenderAddress}",
+            "pathParamExample": "{\r\n  \"contractAddress\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/{contractAddress}/balanceOf/{ownerAddress}",
+            "pathParamExample": "{\r\n  \"contractAddress\" : \"abc\",\r\n  \"ownerAddress\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/{contractAddress}/decimals",
+            "pathParamExample": "{\r\n  \"contractAddress\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/{contractAddress}/name",
+            "pathParamExample": "{\r\n  \"contractAddress\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/{contractAddress}/symbol",
+            "pathParamExample": "{\r\n  \"contractAddress\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/{contractAddress}/totalSupply",
+            "pathParamExample": "{\r\n  \"contractAddress\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/{contractAddress}/version",
+            "pathParamExample": "{\r\n  \"contractAddress\" : \"abc\"\r\n}"
+          }
+        ]
+      }
+    }
+  ]

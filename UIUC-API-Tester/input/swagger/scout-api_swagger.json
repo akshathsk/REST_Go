@@ -1,0 +1,255 @@
+[
+    {
+      "microservice": "scout_swagger",
+      "host": "http://localhost:50107/api",
+      "methodToRequestMap": {
+        "DELETE": [
+          {
+            "url": "/v2/activities/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v2/activities/{id}/rating",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/media_files/{id}?verify_unused={verify_unused}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/system_messages/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v2/tags/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/users/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/activities/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/activities/{id}/rating",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/categories/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          }
+        ],
+        "POST": [
+          {
+            "url": "/v2/activities",
+            "body": "#/components/schemas/ActivityProperties",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"description_material\" : \"string\",\r\n  \"description_introduction\" : \"string\",\r\n  \"description_prepare\" : \"string\",\r\n  \"description_main\" : \"string\",\r\n  \"description_safety\" : \"string\",\r\n  \"description_notes\" : \"string\",\r\n  \"age_min\" : 0,\r\n  \"age_max\" : 0,\r\n  \"participants_min\" : 0,\r\n  \"participants_max\" : 0,\r\n  \"time_min\" : 0,\r\n  \"time_max\" : 0,\r\n  \"featured\" : true,\r\n  \"source\" : \"string\",\r\n  \"tags\" : [ {\r\n    \"id\" : 0,\r\n    \"group\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"media_file\" : {\r\n      \"id\" : 0,\r\n      \"mime_type\" : \"string\",\r\n      \"uri\" : \"string\",\r\n      \"name\" : \"string\",\r\n      \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"copy_right\" : \"string\",\r\n      \"author\" : \"string\"\r\n    },\r\n    \"activities_count\" : 0\r\n  } ],\r\n  \"media_files\" : [ {\r\n    \"id\" : 0,\r\n    \"mime_type\" : \"string\",\r\n    \"uri\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"copy_right\" : \"string\",\r\n    \"author\" : \"string\"\r\n  } ],\r\n  \"author\" : {\r\n    \"id\" : 0,\r\n    \"name\" : \"string\",\r\n    \"email_address\" : \"string\",\r\n    \"authorization_level\" : 0,\r\n    \"identities\" : [ {\r\n      \"id\" : 0,\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"type\" : \"API\",\r\n      \"value\" : \"string\",\r\n      \"user\" : { }\r\n    } ]\r\n  },\r\n  \"activity\" : {\r\n    \"id\" : 0,\r\n    \"properties_revisions\" : [ {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    } ],\r\n    \"properties\" : {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    },\r\n    \"ratings_count\" : 0,\r\n    \"ratings_sum\" : 0,\r\n    \"favourites_count\" : 0,\r\n    \"ratings_average\" : 1.100000023841858,\r\n    \"related\" : [ 0 ]\r\n  }\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/v2/activities/{id}/rating",
+            "body": "#/components/schemas/ActivityRatingAttrs",
+            "example": "{\r\n  \"rating\" : 0,\r\n  \"favourite\" : true\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/media_files",
+            "body": "#/components/schemas/MediaFile",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"mime_type\" : \"string\",\r\n  \"uri\" : \"string\",\r\n  \"name\" : \"string\",\r\n  \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"copy_right\" : \"string\",\r\n  \"author\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/v1/system_messages",
+            "body": "#/components/schemas/SystemMessage",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"key\" : \"string\",\r\n  \"value\" : \"string\",\r\n  \"valid_to\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"valid_from\" : \"2015-07-20T15:49:04-07:00\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/v2/tags",
+            "body": "#/components/schemas/Tag",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"group\" : \"string\",\r\n  \"name\" : \"string\",\r\n  \"media_file\" : {\r\n    \"id\" : 0,\r\n    \"mime_type\" : \"string\",\r\n    \"uri\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"copy_right\" : \"string\",\r\n    \"author\" : \"string\"\r\n  },\r\n  \"activities_count\" : 0\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/v1/users",
+            "body": "#/components/schemas/User",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"email_address\" : \"string\",\r\n  \"authorization_level\" : 0,\r\n  \"identities\" : [ {\r\n    \"id\" : 0,\r\n    \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"type\" : \"API\",\r\n    \"value\" : \"string\"\r\n  } ]\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/v1/activities",
+            "body": "#/components/schemas/ActivityProperties",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"description_material\" : \"string\",\r\n  \"description_introduction\" : \"string\",\r\n  \"description_prepare\" : \"string\",\r\n  \"description_main\" : \"string\",\r\n  \"description_safety\" : \"string\",\r\n  \"description_notes\" : \"string\",\r\n  \"age_min\" : 0,\r\n  \"age_max\" : 0,\r\n  \"participants_min\" : 0,\r\n  \"participants_max\" : 0,\r\n  \"time_min\" : 0,\r\n  \"time_max\" : 0,\r\n  \"featured\" : true,\r\n  \"source\" : \"string\",\r\n  \"tags\" : [ {\r\n    \"id\" : 0,\r\n    \"group\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"media_file\" : {\r\n      \"id\" : 0,\r\n      \"mime_type\" : \"string\",\r\n      \"uri\" : \"string\",\r\n      \"name\" : \"string\",\r\n      \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"copy_right\" : \"string\",\r\n      \"author\" : \"string\"\r\n    },\r\n    \"activities_count\" : 0\r\n  } ],\r\n  \"media_files\" : [ {\r\n    \"id\" : 0,\r\n    \"mime_type\" : \"string\",\r\n    \"uri\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"copy_right\" : \"string\",\r\n    \"author\" : \"string\"\r\n  } ],\r\n  \"author\" : {\r\n    \"id\" : 0,\r\n    \"name\" : \"string\",\r\n    \"email_address\" : \"string\",\r\n    \"authorization_level\" : 0,\r\n    \"identities\" : [ {\r\n      \"id\" : 0,\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"type\" : \"API\",\r\n      \"value\" : \"string\",\r\n      \"user\" : { }\r\n    } ]\r\n  },\r\n  \"activity\" : {\r\n    \"id\" : 0,\r\n    \"properties_revisions\" : [ {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    } ],\r\n    \"properties\" : {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    },\r\n    \"ratings_count\" : 0,\r\n    \"ratings_sum\" : 0,\r\n    \"favourites_count\" : 0,\r\n    \"ratings_average\" : 1.100000023841858,\r\n    \"related\" : [ 0 ]\r\n  }\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/v1/activities/{id}/rating",
+            "body": "#/components/schemas/ActivityRatingAttrs",
+            "example": "{\r\n  \"rating\" : 0,\r\n  \"favourite\" : true\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/categories",
+            "body": "#/components/schemas/Tag",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"group\" : \"string\",\r\n  \"name\" : \"string\",\r\n  \"media_file\" : {\r\n    \"id\" : 0,\r\n    \"mime_type\" : \"string\",\r\n    \"uri\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"copy_right\" : \"string\",\r\n    \"author\" : \"string\"\r\n  },\r\n  \"activities_count\" : 0\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/v1/favourites/{id}",
+            "body": "#/components/schemas/PutFavouritesEntity",
+            "example": "{\r\n  \"id\" : [ 0 ]\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/v2/activities/{id}?attrs={attrs}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v2/activities?attrs={attrs}&name={name}&text={text}&featured={featured}&categories={categories}&ages={ages}&participants={participants}&durations={durations}&id={id}&my_favourites={my_favourites}&ratings_count_min={ratings_count_min}&ratings_average_min={ratings_average_min}&random={random}&favourites={favourites}"
+          },
+          {
+            "url": "/v2/activities/{id}/rating?attrs={attrs}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/media_files/{id}?attrs={attrs}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/media_files?uri={uri}&attrs={attrs}"
+          },
+          {
+            "url": "/v1/media_files/{id}/file?size={size}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/system_messages/{id}?attrs={attrs}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/system_messages?key={key}&valid={valid}&attrs={attrs}"
+          },
+          {
+            "url": "/v1/system/roles"
+          },
+          {
+            "url": "/v1/system/ping"
+          },
+          {
+            "url": "/v2/tags/{id}?attrs={attrs}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v2/tags?group={group}&name={name}&min_activities_count={min_activities_count}&attrs={attrs}"
+          },
+          {
+            "url": "/v1/users/{id}?attrs={attrs}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/users/profile/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/users?name={name}&attrs={attrs}"
+          },
+          {
+            "url": "/v1/activities/{id}?attrs={attrs}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/activities?attrs={attrs}&name={name}&text={text}&featured={featured}&categories={categories}&age_1={age_1}&age_2={age_2}&participants={participants}&time_1={time_1}&time_2={time_2}&id={id}&my_favourites={my_favourites}&ratings_count_min={ratings_count_min}&ratings_average_min={ratings_average_min}&random={random}&favourites={favourites}"
+          },
+          {
+            "url": "/v1/activities/{id}/rating?attrs={attrs}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/categories/{id}?attrs={attrs}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/categories?group={group}&name={name}&min_activities_count={min_activities_count}&attrs={attrs}"
+          },
+          {
+            "url": "/v1/favourites/{id}",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          }
+        ],
+        "PUT": [
+          {
+            "url": "/v2/activities/{id}",
+            "body": "#/components/schemas/ActivityProperties",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"description_material\" : \"string\",\r\n  \"description_introduction\" : \"string\",\r\n  \"description_prepare\" : \"string\",\r\n  \"description_main\" : \"string\",\r\n  \"description_safety\" : \"string\",\r\n  \"description_notes\" : \"string\",\r\n  \"age_min\" : 0,\r\n  \"age_max\" : 0,\r\n  \"participants_min\" : 0,\r\n  \"participants_max\" : 0,\r\n  \"time_min\" : 0,\r\n  \"time_max\" : 0,\r\n  \"featured\" : true,\r\n  \"source\" : \"string\",\r\n  \"tags\" : [ {\r\n    \"id\" : 0,\r\n    \"group\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"media_file\" : {\r\n      \"id\" : 0,\r\n      \"mime_type\" : \"string\",\r\n      \"uri\" : \"string\",\r\n      \"name\" : \"string\",\r\n      \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"copy_right\" : \"string\",\r\n      \"author\" : \"string\"\r\n    },\r\n    \"activities_count\" : 0\r\n  } ],\r\n  \"media_files\" : [ {\r\n    \"id\" : 0,\r\n    \"mime_type\" : \"string\",\r\n    \"uri\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"copy_right\" : \"string\",\r\n    \"author\" : \"string\"\r\n  } ],\r\n  \"author\" : {\r\n    \"id\" : 0,\r\n    \"name\" : \"string\",\r\n    \"email_address\" : \"string\",\r\n    \"authorization_level\" : 0,\r\n    \"identities\" : [ {\r\n      \"id\" : 0,\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"type\" : \"API\",\r\n      \"value\" : \"string\",\r\n      \"user\" : { }\r\n    } ]\r\n  },\r\n  \"activity\" : {\r\n    \"id\" : 0,\r\n    \"properties_revisions\" : [ {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    } ],\r\n    \"properties\" : {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    },\r\n    \"ratings_count\" : 0,\r\n    \"ratings_sum\" : 0,\r\n    \"favourites_count\" : 0,\r\n    \"ratings_average\" : 1.100000023841858,\r\n    \"related\" : [ 0 ]\r\n  }\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/media_files/{id}",
+            "body": "#/components/schemas/MediaFile",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"mime_type\" : \"string\",\r\n  \"uri\" : \"string\",\r\n  \"name\" : \"string\",\r\n  \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"copy_right\" : \"string\",\r\n  \"author\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/system_messages/{id}",
+            "body": "#/components/schemas/SystemMessage",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"key\" : \"string\",\r\n  \"value\" : \"string\",\r\n  \"valid_to\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"valid_from\" : \"2015-07-20T15:49:04-07:00\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v2/tags/{id}",
+            "body": "#/components/schemas/Tag",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"group\" : \"string\",\r\n  \"name\" : \"string\",\r\n  \"media_file\" : {\r\n    \"id\" : 0,\r\n    \"mime_type\" : \"string\",\r\n    \"uri\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"copy_right\" : \"string\",\r\n    \"author\" : \"string\"\r\n  },\r\n  \"activities_count\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/users/{id}",
+            "body": "#/components/schemas/User",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"email_address\" : \"string\",\r\n  \"authorization_level\" : 0,\r\n  \"identities\" : [ {\r\n    \"id\" : 0,\r\n    \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"type\" : \"API\",\r\n    \"value\" : \"string\"\r\n  } ]\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/activities/{id}",
+            "body": "#/components/schemas/ActivityProperties",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"description_material\" : \"string\",\r\n  \"description_introduction\" : \"string\",\r\n  \"description_prepare\" : \"string\",\r\n  \"description_main\" : \"string\",\r\n  \"description_safety\" : \"string\",\r\n  \"description_notes\" : \"string\",\r\n  \"age_min\" : 0,\r\n  \"age_max\" : 0,\r\n  \"participants_min\" : 0,\r\n  \"participants_max\" : 0,\r\n  \"time_min\" : 0,\r\n  \"time_max\" : 0,\r\n  \"featured\" : true,\r\n  \"source\" : \"string\",\r\n  \"tags\" : [ {\r\n    \"id\" : 0,\r\n    \"group\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"media_file\" : {\r\n      \"id\" : 0,\r\n      \"mime_type\" : \"string\",\r\n      \"uri\" : \"string\",\r\n      \"name\" : \"string\",\r\n      \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"copy_right\" : \"string\",\r\n      \"author\" : \"string\"\r\n    },\r\n    \"activities_count\" : 0\r\n  } ],\r\n  \"media_files\" : [ {\r\n    \"id\" : 0,\r\n    \"mime_type\" : \"string\",\r\n    \"uri\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"copy_right\" : \"string\",\r\n    \"author\" : \"string\"\r\n  } ],\r\n  \"author\" : {\r\n    \"id\" : 0,\r\n    \"name\" : \"string\",\r\n    \"email_address\" : \"string\",\r\n    \"authorization_level\" : 0,\r\n    \"identities\" : [ {\r\n      \"id\" : 0,\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"type\" : \"API\",\r\n      \"value\" : \"string\",\r\n      \"user\" : { }\r\n    } ]\r\n  },\r\n  \"activity\" : {\r\n    \"id\" : 0,\r\n    \"properties_revisions\" : [ {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    } ],\r\n    \"properties\" : {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    },\r\n    \"ratings_count\" : 0,\r\n    \"ratings_sum\" : 0,\r\n    \"favourites_count\" : 0,\r\n    \"ratings_average\" : 1.100000023841858,\r\n    \"related\" : [ 0 ]\r\n  }\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/categories/{id}",
+            "body": "#/components/schemas/Tag",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"group\" : \"string\",\r\n  \"name\" : \"string\",\r\n  \"media_file\" : {\r\n    \"id\" : 0,\r\n    \"mime_type\" : \"string\",\r\n    \"uri\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"copy_right\" : \"string\",\r\n    \"author\" : \"string\"\r\n  },\r\n  \"activities_count\" : 0\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          }
+        ],
+        "PATCH": [
+          {
+            "url": "/v2/activities/{id}",
+            "body": "#/components/schemas/ActivityProperties",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"description_material\" : \"string\",\r\n  \"description_introduction\" : \"string\",\r\n  \"description_prepare\" : \"string\",\r\n  \"description_main\" : \"string\",\r\n  \"description_safety\" : \"string\",\r\n  \"description_notes\" : \"string\",\r\n  \"age_min\" : 0,\r\n  \"age_max\" : 0,\r\n  \"participants_min\" : 0,\r\n  \"participants_max\" : 0,\r\n  \"time_min\" : 0,\r\n  \"time_max\" : 0,\r\n  \"featured\" : true,\r\n  \"source\" : \"string\",\r\n  \"tags\" : [ {\r\n    \"id\" : 0,\r\n    \"group\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"media_file\" : {\r\n      \"id\" : 0,\r\n      \"mime_type\" : \"string\",\r\n      \"uri\" : \"string\",\r\n      \"name\" : \"string\",\r\n      \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"copy_right\" : \"string\",\r\n      \"author\" : \"string\"\r\n    },\r\n    \"activities_count\" : 0\r\n  } ],\r\n  \"media_files\" : [ {\r\n    \"id\" : 0,\r\n    \"mime_type\" : \"string\",\r\n    \"uri\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"copy_right\" : \"string\",\r\n    \"author\" : \"string\"\r\n  } ],\r\n  \"author\" : {\r\n    \"id\" : 0,\r\n    \"name\" : \"string\",\r\n    \"email_address\" : \"string\",\r\n    \"authorization_level\" : 0,\r\n    \"identities\" : [ {\r\n      \"id\" : 0,\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"type\" : \"API\",\r\n      \"value\" : \"string\",\r\n      \"user\" : { }\r\n    } ]\r\n  },\r\n  \"activity\" : {\r\n    \"id\" : 0,\r\n    \"properties_revisions\" : [ {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    } ],\r\n    \"properties\" : {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    },\r\n    \"ratings_count\" : 0,\r\n    \"ratings_sum\" : 0,\r\n    \"favourites_count\" : 0,\r\n    \"ratings_average\" : 1.100000023841858,\r\n    \"related\" : [ 0 ]\r\n  }\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          },
+          {
+            "url": "/v1/activities/{id}",
+            "body": "#/components/schemas/ActivityProperties",
+            "example": "{\r\n  \"id\" : 0,\r\n  \"name\" : \"string\",\r\n  \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n  \"description_material\" : \"string\",\r\n  \"description_introduction\" : \"string\",\r\n  \"description_prepare\" : \"string\",\r\n  \"description_main\" : \"string\",\r\n  \"description_safety\" : \"string\",\r\n  \"description_notes\" : \"string\",\r\n  \"age_min\" : 0,\r\n  \"age_max\" : 0,\r\n  \"participants_min\" : 0,\r\n  \"participants_max\" : 0,\r\n  \"time_min\" : 0,\r\n  \"time_max\" : 0,\r\n  \"featured\" : true,\r\n  \"source\" : \"string\",\r\n  \"tags\" : [ {\r\n    \"id\" : 0,\r\n    \"group\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"media_file\" : {\r\n      \"id\" : 0,\r\n      \"mime_type\" : \"string\",\r\n      \"uri\" : \"string\",\r\n      \"name\" : \"string\",\r\n      \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"copy_right\" : \"string\",\r\n      \"author\" : \"string\"\r\n    },\r\n    \"activities_count\" : 0\r\n  } ],\r\n  \"media_files\" : [ {\r\n    \"id\" : 0,\r\n    \"mime_type\" : \"string\",\r\n    \"uri\" : \"string\",\r\n    \"name\" : \"string\",\r\n    \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n    \"copy_right\" : \"string\",\r\n    \"author\" : \"string\"\r\n  } ],\r\n  \"author\" : {\r\n    \"id\" : 0,\r\n    \"name\" : \"string\",\r\n    \"email_address\" : \"string\",\r\n    \"authorization_level\" : 0,\r\n    \"identities\" : [ {\r\n      \"id\" : 0,\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"type\" : \"API\",\r\n      \"value\" : \"string\",\r\n      \"user\" : { }\r\n    } ]\r\n  },\r\n  \"activity\" : {\r\n    \"id\" : 0,\r\n    \"properties_revisions\" : [ {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    } ],\r\n    \"properties\" : {\r\n      \"id\" : 0,\r\n      \"name\" : \"string\",\r\n      \"date_published\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"date_updated\" : \"2015-07-20T15:49:04-07:00\",\r\n      \"description_material\" : \"string\",\r\n      \"description_introduction\" : \"string\",\r\n      \"description_prepare\" : \"string\",\r\n      \"description_main\" : \"string\",\r\n      \"description_safety\" : \"string\",\r\n      \"description_notes\" : \"string\",\r\n      \"age_min\" : 0,\r\n      \"age_max\" : 0,\r\n      \"participants_min\" : 0,\r\n      \"participants_max\" : 0,\r\n      \"time_min\" : 0,\r\n      \"time_max\" : 0,\r\n      \"featured\" : true,\r\n      \"source\" : \"string\",\r\n      \"tags\" : [ {\r\n        \"id\" : 0,\r\n        \"group\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"media_file\" : {\r\n          \"id\" : 0,\r\n          \"mime_type\" : \"string\",\r\n          \"uri\" : \"string\",\r\n          \"name\" : \"string\",\r\n          \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"copy_right\" : \"string\",\r\n          \"author\" : \"string\"\r\n        },\r\n        \"activities_count\" : 0\r\n      } ],\r\n      \"media_files\" : [ {\r\n        \"id\" : 0,\r\n        \"mime_type\" : \"string\",\r\n        \"uri\" : \"string\",\r\n        \"name\" : \"string\",\r\n        \"capture_date\" : \"2015-07-20T15:49:04-07:00\",\r\n        \"copy_right\" : \"string\",\r\n        \"author\" : \"string\"\r\n      } ],\r\n      \"author\" : {\r\n        \"id\" : 0,\r\n        \"name\" : \"string\",\r\n        \"email_address\" : \"string\",\r\n        \"authorization_level\" : 0,\r\n        \"identities\" : [ {\r\n          \"id\" : 0,\r\n          \"date_created\" : \"2015-07-20T15:49:04-07:00\",\r\n          \"type\" : \"API\",\r\n          \"value\" : \"string\",\r\n          \"user\" : { }\r\n        } ]\r\n      },\r\n      \"activity\" : { }\r\n    },\r\n    \"ratings_count\" : 0,\r\n    \"ratings_sum\" : 0,\r\n    \"favourites_count\" : 0,\r\n    \"ratings_average\" : 1.100000023841858,\r\n    \"related\" : [ 0 ]\r\n  }\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"id\" : 123\r\n}"
+          }
+        ]
+      }
+    }
+  ]

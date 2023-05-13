@@ -1,0 +1,58 @@
+[
+    {
+      "microservice": "problem_swagger",
+      "host": "http://localhost:50112",
+      "methodToRequestMap": {
+        "DELETE": [
+          {
+            "url": "/api/problem/{code}/all",
+            "pathParamExample": "{\r\n  \"code\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/project/{code}",
+            "pathParamExample": "{\r\n  \"code\" : \"abc\"\r\n}"
+          }
+        ],
+        "POST": [
+          {
+            "url": "/api/problem/{code}",
+            "body": "#/components/schemas/Problem",
+            "example": "{\r\n  \"idx\" : 0,\r\n  \"problemCode\" : \"string\",\r\n  \"project\" : {\r\n    \"code\" : \"string\",\r\n    \"idx\" : 0,\r\n    \"title\" : \"string\"\r\n  },\r\n  \"title\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"code\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/project",
+            "body": "#/components/schemas/Project",
+            "example": "{\r\n  \"code\" : \"string\",\r\n  \"idx\" : 0,\r\n  \"problem\" : [ {\r\n    \"idx\" : 0,\r\n    \"problemCode\" : \"string\",\r\n    \"title\" : \"string\"\r\n  } ],\r\n  \"title\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/api/subproblem",
+            "body": "#/components/schemas/subProblemBody",
+            "example": "{\r\n  \"content\" : \"string\",\r\n  \"pro_idx\" : 0\r\n}",
+            "contentType": "REQUEST_BODY"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/api/problem/{code}",
+            "pathParamExample": "{\r\n  \"code\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/api/project/{code}",
+            "pathParamExample": "{\r\n  \"code\" : \"abc\"\r\n}"
+          }
+        ],
+        "PUT": [
+          {
+            "url": "/api/project/{code}",
+            "body": "#/components/schemas/Project",
+            "example": "{\r\n  \"code\" : \"string\",\r\n  \"idx\" : 0,\r\n  \"problem\" : [ {\r\n    \"idx\" : 0,\r\n    \"problemCode\" : \"string\",\r\n    \"title\" : \"string\"\r\n  } ],\r\n  \"title\" : \"string\"\r\n}",
+            "contentType": "REQUEST_BODY",
+            "pathParamExample": "{\r\n  \"code\" : \"abc\"\r\n}"
+          }
+        ]
+      }
+    }
+  ]

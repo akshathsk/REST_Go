@@ -1,0 +1,25 @@
+{
+    "RequestStatus": [
+        "QUOTE_EXPIRED",
+        "REQUEST_SUBMITTED",
+        "POLICY_CREATED",
+        "QUOTE_ACCEPTED",
+        "QUOTE_RECEIVED",
+        "QUOTE_REJECTED",
+        "REQUEST_REJECTED"
+    ],
+    "insuranceTypeValues": [
+        "Life Insurance",
+        "Home Insurance",
+        "Health Insurance",
+        "Car Insurance"
+    ],
+    "deductibleValues": [
+        "300 CHF",
+        "500 CHF",
+        "1000 CHF",
+        "1500 CHF",
+        "2000 CHF",
+        "2500 CHF"
+    ]
+}

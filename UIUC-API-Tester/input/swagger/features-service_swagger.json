@@ -1,0 +1,95 @@
+[
+    {
+      "microservice": "features_swagger",
+      "host": "http://localhost:50100",
+      "methodToRequestMap": {
+        "DELETE": [
+          {
+            "url": "/products/{productName}",
+            "pathParamExample": "{\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/constraints/{constraintId}",
+            "pathParamExample": "{\r\n  \"constraintId\" : 1,\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/configurations/{configurationName}",
+            "pathParamExample": "{\r\n  \"configurationName\" : \"abc\",\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/configurations/{configurationName}/features/{featureName}",
+            "pathParamExample": "{\r\n  \"featureName\" : \"abc\",\r\n  \"configurationName\" : \"abc\",\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/features/{featureName}",
+            "pathParamExample": "{\r\n  \"featureName\" : \"abc\",\r\n  \"productName\" : \"abc\"\r\n}"
+          }
+        ],
+        "POST": [
+          {
+            "url": "/products/{productName}",
+            "pathParamExample": "{\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/constraints/requires",
+            "example": "{\r\n  \"requiredFeature\" : \"example_string\",\r\n  \"sourceFeature\" : \"example_string\"\r\n}",
+            "contentType": "FORM_DATA",
+            "pathParamExample": "{\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/constraints/excludes",
+            "example": "{\r\n  \"excludedFeature\" : \"example_string\",\r\n  \"sourceFeature\" : \"example_string\"\r\n}",
+            "contentType": "FORM_DATA",
+            "pathParamExample": "{\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/configurations/{configurationName}",
+            "pathParamExample": "{\r\n  \"configurationName\" : \"abc\",\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/configurations/{configurationName}/features/{featureName}",
+            "pathParamExample": "{\r\n  \"featureName\" : \"abc\",\r\n  \"configurationName\" : \"abc\",\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/features/{featureName}",
+            "example": "{\r\n  \"description\" : \"example_string\"\r\n}",
+            "contentType": "FORM_DATA",
+            "pathParamExample": "{\r\n  \"featureName\" : \"abc\",\r\n  \"productName\" : \"abc\"\r\n}"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/products"
+          },
+          {
+            "url": "/products/{productName}",
+            "pathParamExample": "{\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/configurations/{configurationName}",
+            "pathParamExample": "{\r\n  \"configurationName\" : \"abc\",\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/configurations/{configurationName}/features",
+            "pathParamExample": "{\r\n  \"configurationName\" : \"abc\",\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/configurations",
+            "pathParamExample": "{\r\n  \"productName\" : \"abc\"\r\n}"
+          },
+          {
+            "url": "/products/{productName}/features",
+            "pathParamExample": "{\r\n  \"productName\" : \"abc\"\r\n}"
+          }
+        ],
+        "PUT": [
+          {
+            "url": "/products/{productName}/features/{featureName}",
+            "example": "{\r\n  \"description\" : \"example_string\"\r\n}",
+            "contentType": "FORM_DATA",
+            "pathParamExample": "{\r\n  \"featureName\" : \"abc\",\r\n  \"productName\" : \"abc\"\r\n}"
+          }
+        ]
+      }
+    }
+  ]

@@ -1,0 +1,57 @@
+[
+    {
+      "microservice": "springboot_swagger",
+      "host": "http://localhost:8080",
+      "methodToRequestMap": {
+        "DELETE": [
+          {
+            "url": "/error"
+          }
+        ],
+        "POST": [
+          {
+            "url": "/application",
+            "body": "#/components/schemas/ApplicationEntry",
+            "example": "{\r\n  \"applicationCode\" : \"string\",\r\n  \"applicationContent\" : {\r\n    \"additionalProp1\" : \"string\",\r\n    \"additionalProp2\" : \"string\",\r\n    \"additionalProp3\" : \"string\"\r\n  }\r\n}",
+            "contentType": "REQUEST_BODY"
+          },
+          {
+            "url": "/error"
+          }
+        ],
+        "GET": [
+          {
+            "url": "/actuator"
+          },
+          {
+            "url": "/actuator/health"
+          },
+          {
+            "url": "/actuator/health/**"
+          },
+          {
+            "url": "/actuator/info"
+          },
+          {
+            "url": "/application"
+          },
+          {
+            "url": "/application/version"
+          },
+          {
+            "url": "/error"
+          }
+        ],
+        "PUT": [
+          {
+            "url": "/error"
+          }
+        ],
+        "PATCH": [
+          {
+            "url": "/error"
+          }
+        ]
+      }
+    }
+  ]
