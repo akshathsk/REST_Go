@@ -140,3 +140,10 @@ For comparison, inorder to ease the process, there is a script that can iterate 
 - To achieve this, from ```RESTGO/``` directory, run the command ```python3 tool_report.py {tool_name}```.
 - Incase this is running on a VM, xlsx formats might be difficult to open in editors like vi . So we can scp the excel file to the local machine using the command ```scp user@remote:<path>/<filename>  <location in local machine>```
 
+
+## Extras
+Things to remember:
+Some projects like genome-nexus, problem-controller, person-controller, spring-batch-rest have issues with docker.
+They cannot re-use a docker image and therefore, when the service is run for the second time, we face error. To overcome that, find the docker image and run the following command
+1. ```sudo docker stop {image}```
+2. ```sudo docker rm {image} ```

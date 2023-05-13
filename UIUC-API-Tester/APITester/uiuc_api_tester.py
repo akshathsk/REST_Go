@@ -5,47 +5,45 @@ import sys
 import requests
 import re
 import traceback
-import ast
 import hashlib
-import collections
-from functools import (partial,
-                       singledispatch)
-from itertools import chain
-from typing import (Dict,
-                    List,
-                    TypeVar)
 import time
 import re
 import random
 from difflib import SequenceMatcher
 from collections import MutableMapping
-from functools import partial
 from random import randint
+
+
 def set_default(obj):
     if isinstance(obj, set):
         return list(obj)
     raise TypeError
 
+
 crumbs = True
+
+
 def flatten(dictionary, parent_key=False, separator='.'):
     items = []
     for key, value in dictionary.items():
         new_key = str(parent_key) + separator + key if parent_key else key
         if isinstance(value, MutableMapping):
             if not value.items():
-                items.append((new_key,None))
+                items.append((new_key, None))
             else:
                 items.extend(flatten(value, new_key, separator).items())
         elif isinstance(value, list):
             if len(value):
                 for k, v in enumerate(value):
-                    items.extend(flatten({str(k): v}, new_key, separator).items())
+                    items.extend(
+                        flatten({str(k): v}, new_key, separator).items())
             else:
-                items.append((new_key,None))
+                items.append((new_key, None))
         else:
             items.append((new_key, value))
-        
+
     return dict(items)
+
 
 def string_helper(json_dict):
     string_sequence = json_dict['sequence']
@@ -58,6 +56,8 @@ def string_helper(json_dict):
     return string_sequence
 
 # helper function for similarity check
+
+
 def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
@@ -75,11 +75,6 @@ def delete_key(json_obj, key_to_delete):
             delete_key(item, key_to_delete)
 
 
-def randints(count, *randint_args):
-    ri = partial(randint, *randint_args)
-    return [(ri(), ri()) for _ in range(count)]
-
-
 def myHash(text):
     try:
         m = hashlib.sha256()
@@ -91,9 +86,9 @@ def myHash(text):
 
 def generate_GPT_log(swagger_example, gpt_content):
     if not enable_gpt_logs:
-        return 
+        return
 
-    key  = myHash(swagger_example)
+    key = myHash(swagger_example)
     if key == 'unable to hash':
         return
     dct = {}
@@ -103,16 +98,18 @@ def generate_GPT_log(swagger_example, gpt_content):
         fd.write('\n')
 
 # for body
+
+
 def check_existing_hash(swagger_example):
     if not enable_gpt_logs:
         return False, {}
-        
-    key  = myHash(swagger_example)
+
+    key = myHash(swagger_example)
     exists = False
 
     if not os.path.isfile('gptlogs/log_'+str(service)+'.txt'):
         return exists, {}
-        
+
     else:
         with open('gptlogs/log_'+str(service)+'.txt', 'r') as fd:
             lines = fd.readlines()
@@ -122,10 +119,8 @@ def check_existing_hash(swagger_example):
                     if str(key) in val_jsn.keys():
                         exists = True
                         return exists, val_jsn[str(key)]
-            
+
     return exists, {}
-
-
 
 
 def getBodyForUrl(urlToFind, previousResponse, GPTcontent, isFormData):
@@ -141,7 +136,7 @@ def getBodyForUrl(urlToFind, previousResponse, GPTcontent, isFormData):
                         url = host + ele['url']
                         if (urlToFind == url):
                             if 'example' not in ele:
-                                return "",exmple, isFormData
+                                return "", exmple, isFormData
                             if 'contentType' in ele:
                                 if ele['contentType'] == "FORM_DATA":
                                     isFormData = True
@@ -151,8 +146,9 @@ def getBodyForUrl(urlToFind, previousResponse, GPTcontent, isFormData):
                             except:
                                 exmple = ''
                                 pass
-                            #check for GTP hash in log
-                            exists, existing_val = check_existing_hash(ele['example'])
+                            # check for GTP hash in log
+                            exists, existing_val = check_existing_hash(
+                                ele['example'])
                             if exists:
                                 print("CACHE HIT")
                                 return existing_val, exmple, isFormData
@@ -185,11 +181,13 @@ def getBodyForUrl(urlToFind, previousResponse, GPTcontent, isFormData):
                                     )
                                 content = response['choices'][0]['message']['content']
                                 content_json = content.split("{", 1)[1]
-                                content_json = "{" + content_json.rsplit("}", 1)[0] + "}"
-                                print("GPT RESPONSE: "+ str(content_json))
+                                content_json = "{" + \
+                                    content_json.rsplit("}", 1)[0] + "}"
+                                print("GPT RESPONSE: " + str(content_json))
                                 try:
                                     content_json = json.loads(content_json)
-                                    generate_GPT_log(ele['example'], content_json)
+                                    generate_GPT_log(
+                                        ele['example'], content_json)
                                 except:
                                     content_json = {}
                                 return content_json, exmple, isFormData
@@ -229,16 +227,15 @@ def getBodyForUrl(urlToFind, previousResponse, GPTcontent, isFormData):
                                     content_json.rsplit("}", 1)[0] + "}"
                                 try:
                                     content_json = json.loads(content_json)
-                                    generate_GPT_log(ele['example'], content_json)
+                                    generate_GPT_log(
+                                        ele['example'], content_json)
                                 except:
                                     content_json = {}
-                                print("GPT RESPONSE: "+ str(content_json))
-                                return content_json,exmple, isFormData
+                                print("GPT RESPONSE: " + str(content_json))
+                                return content_json, exmple, isFormData
     except Exception as e:
         print(traceback.format_exc())
-    return '',exmple,isFormData
-
-
+    return '', exmple, isFormData
 
 
 def getParamFromAlreadyGeneratedValues(allJsonKeyValues, param):
@@ -247,16 +244,16 @@ def getParamFromAlreadyGeneratedValues(allJsonKeyValues, param):
         for j in i:
             if len(paramSet) > 10:
                 break
-            param_new  = param
-            if param_new[-1] =='s':
+            param_new = param
+            if param_new[-1] == 's':
                 param_new = param_new[:-1]
-            if param_new.lower() in j.lower() or j.lower() in param_new.lower() or similar(j.lower(),param_new.lower()) > 0.85:
+            if param_new.lower() in j.lower() or j.lower() in param_new.lower() or similar(j.lower(), param_new.lower()) > 0.85:
                 paramSet.add(i[j])
     return paramSet
 
 
 def getParamFromChatGPT(postUrl, param, allJsonKeyValues):
-    #check for existing params
+    # check for existing params
     exists, existing_value = check_existing_hash(param)
     if exists:
         print("CACHE HIT")
@@ -287,12 +284,12 @@ def getParamFromChatGPT(postUrl, param, allJsonKeyValues):
     allJsonKeyValues.append(flatten(data))
 
     print("GPT RESPONSE: "+str(content2))
-    #generate GPT log
+    # generate GPT log
     generate_GPT_log(param, content2)
     return content2
 
 
-def processPostID(allJsonKeyValues, postUrl, postUrlIDVariation,microservices):
+def processPostID(allJsonKeyValues, postUrl, postUrlIDVariation, microservices):
     if "{" not in postUrl:
         postUrlIDVariation.add(postUrl)
     else:
@@ -310,16 +307,17 @@ def processPostID(allJsonKeyValues, postUrl, postUrlIDVariation,microservices):
                                 resp = json.loads(resp)
                                 var = postUrl
                                 for key in resp.keys():
-                                    var = var.replace("{"+key+"}", str(resp[key]))
+                                    var = var.replace(
+                                        "{"+key+"}", str(resp[key]))
                                 postUrlIDVariation.add(var)
-                                 
 
         allParams = re.findall('\{.*?\}', postUrl)
         for param in allParams:
             paramValues = getParamFromAlreadyGeneratedValues(
                 allJsonKeyValues, param)
-            if len(paramValues) == 0: 
-                paramFromChatGPT = getParamFromChatGPT(postUrl, param, allJsonKeyValues)
+            if len(paramValues) == 0:
+                paramFromChatGPT = getParamFromChatGPT(
+                    postUrl, param, allJsonKeyValues)
                 if (len(paramFromChatGPT) > 0):
                     stringVal = str(paramFromChatGPT)
                     tmp = postUrl
@@ -341,7 +339,7 @@ def processPostID(allJsonKeyValues, postUrl, postUrlIDVariation,microservices):
                     postUrlIDVariation.add(postUrl)
 
 
-def processGetRequests(allJsonKeyValues, getUrl, tmp, allIdFields,microservices):
+def processGetRequests(allJsonKeyValues, getUrl, tmp, allIdFields, microservices):
     if "{" not in getUrl:
         tmp.add(getUrl)
     else:
@@ -359,7 +357,8 @@ def processGetRequests(allJsonKeyValues, getUrl, tmp, allIdFields,microservices)
                                 resp = json.loads(resp)
                                 var = getUrl
                                 for key in resp.keys():
-                                    var = var.replace("{"+key+"}", str(resp[key]))
+                                    var = var.replace(
+                                        "{"+key+"}", str(resp[key]))
                                 tmp.add(var)
 
         allParams = re.findall('{(.+?)}', getUrl)
@@ -382,22 +381,22 @@ def replaceAdditionalParams(processedUrls):
         remove = []
         add = []
         for url in processedUrls:
-            #check for GPT logs
-            exists, gpt_param = check_existing_hash(url)     
+            # check for GPT logs
+            exists, gpt_param = check_existing_hash(url)
             if not exists:
                 print("GPT REQUEST: "+str(url))
                 response = openai.ChatCompletion.create(
-                        model="gpt-3.5-turbo",
-                        messages=[
-                            {"role": "system",
-                            "content": "You are generating HTTP GET request url"},
-                            {"role": "user", "content": "Replace the params between braces in the url {} with one realistic example value. Provide only the url as a response without any explanation.".format(
-                                                        url)}
-                        ]
-                    )
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system",
+                         "content": "You are generating HTTP GET request url"},
+                        {"role": "user", "content": "Replace the params between braces in the url {} with one realistic example value. Provide only the url as a response without any explanation.".format(
+                            url)}
+                    ]
+                )
                 gpt_param = response['choices'][0]['message']['content']
                 print("GPT RESPONSE: "+str(gpt_param))
-                #add into GPT logs
+                # add into GPT logs
                 generate_GPT_log(url, gpt_param)
 
             remove.append(url)
@@ -409,16 +408,16 @@ def replaceAdditionalParams(processedUrls):
 
     except Exception as e:
         print(traceback.format_exc())
-    
+
     return processedUrls[0] if processedUrls else []
 
 
 def getPutValuesForJson(jsonStr, idJsonLoad):
-    #check if data already exists from GPT
+    # check if data already exists from GPT
     exists, existing_val = check_existing_hash(jsonStr)
     if exists:
         print("CACHE HIT")
-        return existing_val 
+        return existing_val
     content_json = ''
     try:
         print("GPT REQUEST: "+str(jsonStr))
@@ -448,14 +447,14 @@ def getPutValuesForJson(jsonStr, idJsonLoad):
     return content_json
 
 
-def process_response_post(resp,url,body,GPTcontent,prevRespJson,allJsonKeyValues):
+def process_response_post(resp, url, body, GPTcontent, prevRespJson, allJsonKeyValues):
     try:
         try:
             resp_val = int(resp.text)
             if isinstance(resp_val, int):
-                allJsonKeyValues.append({"id":resp_val})
-                prevRespJson.append(str({"id":resp_val}))
-                return 
+                allJsonKeyValues.append({"id": resp_val})
+                prevRespJson.append(str({"id": resp_val}))
+                return
         except:
             pass
 
@@ -479,7 +478,6 @@ def process_response_post(resp,url,body,GPTcontent,prevRespJson,allJsonKeyValues
             allJsonKeyValues.append(flatten_resp)
             prevRespJson.append(str(flatten_resp))
 
-    
     except Exception as e:
         print(traceback.format_exc())
 
@@ -498,7 +496,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
     finalReqs['PUT'] = {}
     finalReqs['DELETE'] = {}
     finalReqs['PATCH'] = {}
-    const_no = str(random.randint(-5,6))
+    const_no = str(random.randint(-5, 6))
     const_no2 = '10001'
     const_str = "xyz"
 
@@ -560,7 +558,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
             content2 = response2['choices'][0]['message']['content']
             urlList = [x.strip() for x in content2.split(',')]
 
-        print("GPT RESPONSE: "+ str(urlList))
+        print("GPT RESPONSE: " + str(urlList))
 
         for url in urlList:
             if url.endswith('.'):
@@ -568,19 +566,21 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
 
             isFormData = False
             # Get body for POST request from GPT and also default body
-            body_processed, body_def, isFormData = getBodyForUrl(url, prevRespJson, GPTcontent, isFormData)
+            body_processed, body_def, isFormData = getBodyForUrl(
+                url, prevRespJson, GPTcontent, isFormData)
             body_arr = []
             if body_processed:
                 body_arr.append(body_processed)
             if body_def:
                 body_arr.append(body_def)
-            
+
             #  no body cases
             if len(body_arr) == 0:
                 body = ""
                 postUrlIDVariation = set()
                 # get path parameter for POST request
-                processPostID(allJsonKeyValues, url,postUrlIDVariation,microservices)
+                processPostID(allJsonKeyValues, url,
+                              postUrlIDVariation, microservices)
                 for postUrl in postUrlIDVariation:
                     if '{' not in postUrl:
                         print("POST URL : " + postUrl)
@@ -588,35 +588,39 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                             resp = {}
                             headers = {}
                             if isFormData:
-                                headers['Content-type'] ='application/x-www-form-urlencoded'
+                                headers['Content-type'] = 'application/x-www-form-urlencoded'
                                 resp = requests.post(
                                     postUrl, json=body, headers=headers)
                             else:
-                                resp = requests.post(postUrl, json=body, headers=headers)
+                                resp = requests.post(
+                                    postUrl, json=body, headers=headers)
                             print("INITIAL REQUEST: "+str(resp.status_code))
                             # process 200 response
                             if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
-                                process_response_post(resp, url,body,GPTcontent,prevRespJson,allJsonKeyValues)
-                            
+                                process_response_post(
+                                    resp, url, body, GPTcontent, prevRespJson, allJsonKeyValues)
+
                             # process 401 response. This can happen due to authentication
                             if resp.status_code == 401:
                                 try:
                                     # Check if user has provided any token for authentication
-                                    f = open('../input/headers/'+str(service)+'_header.json')
+                                    f = open('../input/headers/' +
+                                             str(service)+'_header.json')
                                     headers = json.load(f)
                                 except:
                                     pass
 
                                 if isFormData:
-                                    headers['Content-type'] ='application/x-www-form-urlencoded'
+                                    headers['Content-type'] = 'application/x-www-form-urlencoded'
                                     resp = requests.post(
                                         postUrl, json=body, headers=headers)
                                 else:
-                                    resp = requests.post(postUrl, json=body, headers=headers)
+                                    resp = requests.post(
+                                        postUrl, json=body, headers=headers)
                                 print("PROCESS 401: " + str(resp.status_code))
                                 if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
-                                    process_response_post(resp, url,body,GPTcontent,prevRespJson,allJsonKeyValues)
-                            
+                                    process_response_post(
+                                        resp, url, body, GPTcontent, prevRespJson, allJsonKeyValues)
 
                         except Exception as e:
                             print(traceback.format_exc())
@@ -647,15 +651,18 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                     cov_url_no = url
                     cov_url_str = url
                     for param in allParams:
-                        cov_url_no = cov_url_no.replace("{"+param+"}", const_no2)
+                        cov_url_no = cov_url_no.replace(
+                            "{"+param+"}", const_no2)
                     postUrlIDVariation.add(cov_url_no)
 
                     for param in allParams:
-                        cov_url_str = cov_url_str.replace("{"+param+"}", const_str)
+                        cov_url_str = cov_url_str.replace(
+                            "{"+param+"}", const_str)
                     postUrlIDVariation.add(cov_url_str)
 
                 # Get path param from already existing values or GPT response
-                processPostID(allJsonKeyValues, url,postUrlIDVariation,microservices)
+                processPostID(allJsonKeyValues, url,
+                              postUrlIDVariation, microservices)
 
                 for postUrl in postUrlIDVariation:
                     if "}" in postUrl:
@@ -666,77 +673,87 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                             resp = {}
                             headers = {}
                             if isFormData:
-                                headers['Content-type'] ='application/x-www-form-urlencoded'
+                                headers['Content-type'] = 'application/x-www-form-urlencoded'
                                 resp = requests.post(
                                     postUrl, json=body, headers=headers)
                             else:
-                                resp = requests.post(postUrl, json=body, headers=headers)
+                                resp = requests.post(
+                                    postUrl, json=body, headers=headers)
                             print("INITIAL REQUEST: "+str(resp.status_code))
                             # process 200 response
                             if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
-                                process_response_post(resp, url,body,GPTcontent,prevRespJson,allJsonKeyValues)
-                            
+                                process_response_post(
+                                    resp, url, body, GPTcontent, prevRespJson, allJsonKeyValues)
+
                             # process 401 response. This can be due to authentication error
                             if resp.status_code == 401:
                                 try:
                                     # Check if user has provided any token for authentication
-                                    f = open('../input/headers/'+service+'_header.json')
+                                    f = open('../input/headers/' +
+                                             service+'_header.json')
                                     headers = json.load(f)
                                 except:
                                     pass
 
                                 if isFormData:
-                                    headers['Content-type'] ='application/x-www-form-urlencoded'
+                                    headers['Content-type'] = 'application/x-www-form-urlencoded'
                                     resp = requests.post(
                                         postUrl, json=body, headers=headers)
                                 else:
-                                    resp = requests.post(postUrl, json=body, headers=headers)
+                                    resp = requests.post(
+                                        postUrl, json=body, headers=headers)
                                 print("PROCESS 401: " + str(resp.status_code))
                                 if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
-                                    process_response_post(resp, url,body,GPTcontent,prevRespJson,allJsonKeyValues)
-                            
+                                    process_response_post(
+                                        resp, url, body, GPTcontent, prevRespJson, allJsonKeyValues)
+
                             # Process 400 response. This could be due to bad data, hence try to delete few attributes that might cause this
                             if resp.status_code == 400:
                                 body_new = body
                                 delete_key(body_new, "date")
                                 if isFormData:
-                                    headers['Content-type'] ='application/x-www-form-urlencoded'
+                                    headers['Content-type'] = 'application/x-www-form-urlencoded'
                                     resp = requests.post(
                                         postUrl, json=body_new, headers=headers)
                                 else:
-                                    resp = requests.post(postUrl, json=body_new, headers=headers)
+                                    resp = requests.post(
+                                        postUrl, json=body_new, headers=headers)
                                 print("PROCESS 400: "+str(resp.status_code))
                                 if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
-                                    process_response_post(resp, url,body,GPTcontent,prevRespJson,allJsonKeyValues)
-                                
+                                    process_response_post(
+                                        resp, url, body, GPTcontent, prevRespJson, allJsonKeyValues)
+
                                 # handle cases where Id's are default and dates are missmatched
                                 if resp.status_code == 400:
                                     body_new = body
                                     delete_key(body_new, "date")
                                     delete_key(body_new, "Time")
-                                    post_checker = postUrl.split("localhost:")[1]
+                                    post_checker = postUrl.split(
+                                        "localhost:")[1]
                                     post_checker = post_checker.split("/")[1]
                                     keys_to_delete = []
                                     if isinstance(body_new, dict):
                                         for key in body_new.keys():
-                                            if similar(key.lower(),"id") > 0.95:
+                                            if similar(key.lower(), "id") > 0.95:
                                                 keys_to_delete.append(key)
-                                            if similar(key.lower(),post_checker.lower())>0.60:
+                                            if similar(key.lower(), post_checker.lower()) > 0.60:
                                                 keys_to_delete.append(key)
-                                    
+
                                     for key in keys_to_delete:
                                         delete_key(body_new, key)
-                                     
+
                                     if isFormData:
-                                        headers['Content-type'] ='application/x-www-form-urlencoded'
+                                        headers['Content-type'] = 'application/x-www-form-urlencoded'
                                         resp = requests.post(
                                             postUrl, json=body_new, headers=headers)
                                     else:
-                                        resp = requests.post(postUrl, json=body_new, headers=headers)
-                                    print("PROCESS DEFAULTS: "+str(resp.status_code))
+                                        resp = requests.post(
+                                            postUrl, json=body_new, headers=headers)
+                                    print("PROCESS DEFAULTS: " +
+                                          str(resp.status_code))
                                     if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
-                                        process_response_post(resp, url,body,GPTcontent,prevRespJson,allJsonKeyValues)
-
+                                        process_response_post(
+                                            resp, url, body, GPTcontent, prevRespJson, allJsonKeyValues)
 
                         except Exception as e:
                             print(traceback.format_exc())
@@ -765,7 +782,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
         cov_url_no = ''
         cov_url_str = ''
 
-        #replace path params with constants to increase negative scenarios
+        # replace path params with constants to increase negative scenarios
         if '{' in i:
             allParams = re.findall('{(.+?)}', i)
             cov_url_no = i
@@ -779,20 +796,21 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
             tmp.add(cov_url_str)
 
             random_int_neg = randint(-1*1000, 0)
-            random_int_small = randint(1 , 1000)
-            random_int_big = randint(10**5 , 10**10)
-            random_int_deci = (randint(1 , 5000))/100
-            random_integers = [random_int_neg,random_int_small,random_int_big,random_int_deci]
+            random_int_small = randint(1, 1000)
+            random_int_big = randint(10**5, 10**10)
+            random_int_deci = (randint(1, 5000))/100
+            random_integers = [random_int_neg,
+                               random_int_small, random_int_big, random_int_deci]
             for rnd in random_integers:
                 const_url = i
                 for param in allParams:
                     const_url = const_url.replace("{"+param+"}", str(rnd))
                 tmp.add(const_url)
-        
+
         tmp.add(i)
         # get path params
         processGetRequests(allJsonKeyValues, i,
-                           tmp, allIdFields,microservices)
+                           tmp, allIdFields, microservices)
         try:
             for url in tmp:
                 processed_url = replaceAdditionalParams([url])
@@ -805,7 +823,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                         try:
                             inter_json = resp.json()
                             prevRespJson.append(str(inter_json))
-                            limit = 0 
+                            limit = 0
                             if isinstance(inter_json, list):
                                 for resp_jsn in inter_json:
                                     if resp_jsn is not None:
@@ -815,8 +833,10 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                                         delete_key(flatten_resp, '_links')
                                         size = len(flatten_resp)
                                         if size <= 100 and flatten_resp:
-                                            allJsonKeyValues.append(flatten_resp)
-                                            prevRespJson.append(str(flatten_resp))
+                                            allJsonKeyValues.append(
+                                                flatten_resp)
+                                            prevRespJson.append(
+                                                str(flatten_resp))
                                         limit += 1
                             else:
                                 flatten_resp = flatten(resp_jsn)
@@ -827,12 +847,13 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                                     prevRespJson.append(str(flatten_resp))
                         except:
                             pass
-                    
+
                     # process 401 response. This can be due to authentication error
                     if resp.status_code == 401:
                         try:
                             # Check if user has provided any token for authentication
-                            f = open('../input/headers/'+str(service)+'_header.json')
+                            f = open('../input/headers/' +
+                                     str(service)+'_header.json')
                             headers = json.load(f)
                             headers['accept'] = '*/*'
                         except:
@@ -843,7 +864,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                             try:
                                 inter_json = resp.json()
                                 prevRespJson.append(str(inter_json))
-                                limit = 0 
+                                limit = 0
                                 if isinstance(inter_json, list):
                                     for resp_jsn in inter_json:
                                         if resp_jsn is not None:
@@ -853,8 +874,10 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                                             delete_key(flatten_resp, '_links')
                                             size = len(flatten_resp)
                                             if size <= 100 and flatten_resp:
-                                                allJsonKeyValues.append(flatten_resp)
-                                                prevRespJson.append(str(flatten_resp))
+                                                allJsonKeyValues.append(
+                                                    flatten_resp)
+                                                prevRespJson.append(
+                                                    str(flatten_resp))
                                             limit += 1
                                 else:
                                     flatten_resp = flatten(resp_jsn)
@@ -865,7 +888,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                                         prevRespJson.append(str(flatten_resp))
                             except:
                                 pass
-                    
+
         except Exception as e:
             print(traceback.format_exc())
 
@@ -874,7 +897,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
     for k in finalReqs['PUT'].keys():
         putUrlsProcessed = set()
         processGetRequests(allJsonKeyValues, k,
-                           putUrlsProcessed, allIdFields,microservices)
+                           putUrlsProcessed, allIdFields, microservices)
         putUrlsProcessed = list(putUrlsProcessed)
         replaceAdditionalParams(putUrlsProcessed)
         for j in putUrlsProcessed:
@@ -887,7 +910,8 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
         if '{' not in i:
             print("PUT URL: " + i)
             if finalProcessedPutReqs[i]:
-                body_processed = getPutValuesForJson(finalProcessedPutReqs[i], idJsonLoad)
+                body_processed = getPutValuesForJson(
+                    finalProcessedPutReqs[i], idJsonLoad)
             else:
                 body_processed = {}
             body_arr = []
@@ -898,7 +922,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                 try:
                     headers = {'accept': '*/*'}
                     if isFormData:
-                        headers['Content-type'] ='application/x-www-form-urlencoded'
+                        headers['Content-type'] = 'application/x-www-form-urlencoded'
                         resp = requests.post(
                             postUrl, json=body, headers=headers)
                     else:
@@ -909,16 +933,17 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                         delete_key(flatten_resp, '_links')
                         allJsonKeyValues.append(flatten_resp)
                         prevRespJson.append(str(flatten_resp))
-                    
+
                     if resp.status_code == 401:
                         try:
-                            f = open('../input/headers/'+str(service)+'_header.json')
+                            f = open('../input/headers/' +
+                                     str(service)+'_header.json')
                             headers = json.load(f)
                             headers['accept'] = '*/*'
                         except:
                             pass
 
-                        resp = requests.put(i, json=body, headers=headers) 
+                        resp = requests.put(i, json=body, headers=headers)
                         print("PROCESS 401: " + str(resp.status_code))
                         if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
                             flatten_resp = flatten(resp.json())
@@ -934,7 +959,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
     for k in finalReqs['PATCH'].keys():
         putUrlsProcessed = set()
         processGetRequests(allJsonKeyValues, k,
-                           putUrlsProcessed, allIdFields,microservices)
+                           putUrlsProcessed, allIdFields, microservices)
         putUrlsProcessed = list(putUrlsProcessed)
         replaceAdditionalParams(putUrlsProcessed)
         for j in putUrlsProcessed:
@@ -945,8 +970,9 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
 
     for i in finalProcessedPatchReqs:
         if '{' not in i:
-            print("PATCH URL: "+ i)
-            body_processed = getPutValuesForJson(finalProcessedPatchReqs[i], idJsonLoad)
+            print("PATCH URL: " + i)
+            body_processed = getPutValuesForJson(
+                finalProcessedPatchReqs[i], idJsonLoad)
             body_arr = []
             body_arr.append(body_processed)
             body_arr.append(finalProcessedPatchReqs[i])
@@ -955,7 +981,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                 try:
                     headers = {'accept': '*/*'}
                     if isFormData:
-                        headers['Content-type'] ='application/x-www-form-urlencoded'
+                        headers['Content-type'] = 'application/x-www-form-urlencoded'
                         resp = requests.post(
                             postUrl, json=body, headers=headers)
                     else:
@@ -969,13 +995,14 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
 
                     if resp.status_code == 401:
                         try:
-                            f = open('../input/headers/'+str(service)+'_header.json')
+                            f = open('../input/headers/' +
+                                     str(service)+'_header.json')
                             headers = json.load(f)
                             headers['accept'] = '*/*'
                         except:
                             pass
 
-                        resp = requests.patch(i, json=body, headers=headers) 
+                        resp = requests.patch(i, json=body, headers=headers)
                         print("PROCESS 401: " + str(resp.status_code))
                         if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
                             flatten_resp = flatten(resp.json())
@@ -989,12 +1016,12 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
     print("START DELETE REQUESTS")
     deleteUrlsProcessed = set()
     for k in finalReqs['DELETE'].keys():
-        processGetRequests(allJsonKeyValues, k, deleteUrlsProcessed, allIdFields,microservices)
+        processGetRequests(allJsonKeyValues, k,
+                           deleteUrlsProcessed, allIdFields, microservices)
 
         deleteUrlsProcessed = list(deleteUrlsProcessed)
         replaceAdditionalParams(deleteUrlsProcessed)
         deleteUrlsProcessed = set(deleteUrlsProcessed)
-    
 
     for i in deleteUrlsProcessed:
         if '{' not in i:
@@ -1005,14 +1032,15 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                 print("INITIAL REQUEST: "+str(resp.status_code))
                 if resp.status_code == 401:
                     try:
-                        f = open('../input/headers/'+str(service)+'_header.json')
+                        f = open('../input/headers/' +
+                                 str(service)+'_header.json')
                         headers = json.load(f)
                         headers['accept'] = '*/*'
                     except:
                         pass
                     resp = requests.delete(i, json=body, headers=headers)
                     print("PROCESS 401: " + str(resp.status_code))
-                
+
             except:
                 print(traceback.format_exc())
 
@@ -1026,7 +1054,7 @@ if __name__ == "__main__":
         enable_gpt_logs = sys.argv[2]
     except:
         enable_gpt_logs = False
-    
+
     try:
         runs = int(sys.argv[3])
     except:
@@ -1045,7 +1073,7 @@ if __name__ == "__main__":
     f = open('../output/uiuc-api-tester-'+str(service)+'.json')
     microservices = json.load(f)
 
-    # track 1 - Single service REST 
+    # track 1 - Single service REST
     for i in range(runs):
         try:
             print("RUN STARTED FOR: " + str(i))
@@ -1075,9 +1103,9 @@ if __name__ == "__main__":
                         for swagger_service in microservices:
                             if swagger_service['microservice'] in sequence_service.strip() or sequence_service.strip() in swagger_service['microservice']:
                                 try:
-                                    print("RUN STARTED FOR SERVICE: "+str(sequence_service))
+                                    print("RUN STARTED FOR SERVICE: " +
+                                          str(sequence_service))
                                     pre_run([microservices[index]])
                                 except:
                                     print(traceback.format_exc())
                             index += 1
-
