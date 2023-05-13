@@ -48,4 +48,4 @@ if __name__ == "__main__":
 
     base_path = "UIUC-API-Tester/input/input_swagger/"
 
-    blackbox(base_path+service, port, service)
+    blackbox(curdir+'/'+base_path+service, port, service)
