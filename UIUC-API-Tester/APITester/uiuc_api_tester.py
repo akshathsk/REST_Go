@@ -292,7 +292,7 @@ def getParamFromChatGPT(postUrl, param, allJsonKeyValues):
     return content2
 
 
-def processPostID(allJsonKeyValues, postUrl, postUrlIDVariation,microservices, logger_helper):
+def processPostID(allJsonKeyValues, postUrl, postUrlIDVariation,microservices):
     if "{" not in postUrl:
         postUrlIDVariation.add(postUrl)
     else:
@@ -341,7 +341,7 @@ def processPostID(allJsonKeyValues, postUrl, postUrlIDVariation,microservices, l
                     postUrlIDVariation.add(postUrl)
 
 
-def processGetRequests(allJsonKeyValues, getUrl, tmp, allIdFields,microservices, logg_helper):
+def processGetRequests(allJsonKeyValues, getUrl, tmp, allIdFields,microservices):
     if "{" not in getUrl:
         tmp.add(getUrl)
     else:
@@ -377,7 +377,7 @@ def processGetRequests(allJsonKeyValues, getUrl, tmp, allIdFields,microservices,
                     allIdFields[paramOnly].update(paramValues)
 
 
-def replaceAdditionalParams(processedUrls, logger_helper):
+def replaceAdditionalParams(processedUrls):
     try:
         remove = []
         add = []
@@ -484,14 +484,14 @@ def process_response_post(resp,url,body,GPTcontent,prevRespJson,allJsonKeyValues
         print(traceback.format_exc())
 
 
-def pre_run(microservices, logger):
+def pre_run(microservices):
     allJsonKeyValues = []
     prevRespJson = []
     GPTcontent = []
-    run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger)
+    run(microservices, allJsonKeyValues, prevRespJson, GPTcontent)
 
 
-def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
+def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
     finalReqs = {}
     finalReqs['POST'] = {}
     finalReqs['GET'] = {}
@@ -540,6 +540,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
                     except:
                         finalReqs['PATCH'][url] = {}
 
+    # logically order the POST request using GPT
     print("START POST REQUEST")
     urls = ",".join(finalReqs['POST'].keys())
     if urls:
@@ -561,12 +562,12 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
 
         print("GPT RESPONSE: "+ str(urlList))
 
-        logger_helper = {}
         for url in urlList:
             if url.endswith('.'):
                 url = url[:-1]
 
             isFormData = False
+            # Get body for POST request from GPT and also default body
             body_processed, body_def, isFormData = getBodyForUrl(url, prevRespJson, GPTcontent, isFormData)
             body_arr = []
             if body_processed:
@@ -578,7 +579,8 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
             if len(body_arr) == 0:
                 body = ""
                 postUrlIDVariation = set()
-                processPostID(allJsonKeyValues, url,postUrlIDVariation,microservices, logger_helper)
+                # get path parameter for POST request
+                processPostID(allJsonKeyValues, url,postUrlIDVariation,microservices)
                 for postUrl in postUrlIDVariation:
                     if '{' not in postUrl:
                         print("POST URL : " + postUrl)
@@ -592,11 +594,14 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
                             else:
                                 resp = requests.post(postUrl, json=body, headers=headers)
                             print("INITIAL REQUEST: "+str(resp.status_code))
+                            # process 200 response
                             if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
                                 process_response_post(resp, url,body,GPTcontent,prevRespJson,allJsonKeyValues)
-                                
+                            
+                            # process 401 response. This can happen due to authentication
                             if resp.status_code == 401:
                                 try:
+                                    # Check if user has provided any token for authentication
                                     f = open('../input/headers/'+str(service)+'_header.json')
                                     headers = json.load(f)
                                 except:
@@ -636,6 +641,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
                 cov_url_no = ''
                 cov_url_str = ''
 
+                # Replace path parameters with random constants
                 if '{' in url:
                     allParams = re.findall('{(.+?)}', url)
                     cov_url_no = url
@@ -648,12 +654,12 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
                         cov_url_str = cov_url_str.replace("{"+param+"}", const_str)
                     postUrlIDVariation.add(cov_url_str)
 
-
-                processPostID(allJsonKeyValues, url,postUrlIDVariation,microservices, logger_helper)
+                # Get path param from already existing values or GPT response
+                processPostID(allJsonKeyValues, url,postUrlIDVariation,microservices)
 
                 for postUrl in postUrlIDVariation:
                     if "}" in postUrl:
-                        postUrl = replaceAdditionalParams([postUrl], logger_helper)
+                        postUrl = replaceAdditionalParams([postUrl])
                     if '{' not in postUrl:
                         print("POST URL : " + postUrl)
                         try:
@@ -666,11 +672,14 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
                             else:
                                 resp = requests.post(postUrl, json=body, headers=headers)
                             print("INITIAL REQUEST: "+str(resp.status_code))
+                            # process 200 response
                             if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
                                 process_response_post(resp, url,body,GPTcontent,prevRespJson,allJsonKeyValues)
-                                
+                            
+                            # process 401 response. This can be due to authentication error
                             if resp.status_code == 401:
                                 try:
+                                    # Check if user has provided any token for authentication
                                     f = open('../input/headers/'+service+'_header.json')
                                     headers = json.load(f)
                                 except:
@@ -686,7 +695,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
                                 if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
                                     process_response_post(resp, url,body,GPTcontent,prevRespJson,allJsonKeyValues)
                             
-                                # try to delete certain params like 'date' that can cause these errors
+                            # Process 400 response. This could be due to bad data, hence try to delete few attributes that might cause this
                             if resp.status_code == 400:
                                 body_new = body
                                 delete_key(body_new, "date")
@@ -734,8 +743,8 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
 
             postUrlIDVariation = []
 
+    # start GET request
     allIdFields = {}
-    logger_helper = {}
     print("START GET REQUESTS")
     getUrlsProcessed = []
 
@@ -756,6 +765,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
         cov_url_no = ''
         cov_url_str = ''
 
+        #replace path params with constants to increase negative scenarios
         if '{' in i:
             allParams = re.findall('{(.+?)}', i)
             cov_url_no = i
@@ -780,11 +790,12 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
                 tmp.add(const_url)
         
         tmp.add(i)
+        # get path params
         processGetRequests(allJsonKeyValues, i,
-                           tmp, allIdFields,microservices, logger_helper)
+                           tmp, allIdFields,microservices)
         try:
             for url in tmp:
-                processed_url = replaceAdditionalParams([url], logger_helper)
+                processed_url = replaceAdditionalParams([url])
                 if '{' not in processed_url:
                     print("GET URL: " + processed_url)
                     headers = {'accept': '*/*'}
@@ -816,9 +827,11 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
                                     prevRespJson.append(str(flatten_resp))
                         except:
                             pass
-
+                    
+                    # process 401 response. This can be due to authentication error
                     if resp.status_code == 401:
                         try:
+                            # Check if user has provided any token for authentication
                             f = open('../input/headers/'+str(service)+'_header.json')
                             headers = json.load(f)
                             headers['accept'] = '*/*'
@@ -858,13 +871,12 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
 
     print("START PUT REQUESTS")
     finalProcessedPutReqs = {}
-    logger_helper = {}
     for k in finalReqs['PUT'].keys():
         putUrlsProcessed = set()
         processGetRequests(allJsonKeyValues, k,
-                           putUrlsProcessed, allIdFields,microservices, logger_helper)
+                           putUrlsProcessed, allIdFields,microservices)
         putUrlsProcessed = list(putUrlsProcessed)
-        replaceAdditionalParams(putUrlsProcessed, logger_helper)
+        replaceAdditionalParams(putUrlsProcessed)
         for j in putUrlsProcessed:
             finalProcessedPutReqs[j] = finalReqs['PUT'][k]
 
@@ -919,13 +931,12 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
 
     print("START PATCH REQUESTS")
     finalProcessedPatchReqs = {}
-    logger_helper = {}
     for k in finalReqs['PATCH'].keys():
         putUrlsProcessed = set()
         processGetRequests(allJsonKeyValues, k,
-                           putUrlsProcessed, allIdFields,microservices, logger_helper)
+                           putUrlsProcessed, allIdFields,microservices)
         putUrlsProcessed = list(putUrlsProcessed)
-        replaceAdditionalParams(putUrlsProcessed, logger_helper)
+        replaceAdditionalParams(putUrlsProcessed)
         for j in putUrlsProcessed:
             finalProcessedPatchReqs[j] = finalReqs['PATCH'][k]
 
@@ -977,12 +988,11 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
 
     print("START DELETE REQUESTS")
     deleteUrlsProcessed = set()
-    logger_helper = {}
     for k in finalReqs['DELETE'].keys():
-        processGetRequests(allJsonKeyValues, k, deleteUrlsProcessed, allIdFields,microservices, logger_helper)
+        processGetRequests(allJsonKeyValues, k, deleteUrlsProcessed, allIdFields,microservices)
 
         deleteUrlsProcessed = list(deleteUrlsProcessed)
-        replaceAdditionalParams(deleteUrlsProcessed, logger_helper)
+        replaceAdditionalParams(deleteUrlsProcessed)
         deleteUrlsProcessed = set(deleteUrlsProcessed)
     
 
@@ -1008,7 +1018,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent, logger):
 
 
 if __name__ == "__main__":
-    # chat GPT code to get data suggestions
+    # Rest GPT tool.
     global service
     global enable_gpt_logs
     service = sys.argv[1]
@@ -1022,37 +1032,33 @@ if __name__ == "__main__":
     except:
         runs = 10
 
+    # 70 seconds sleep time is provided to give time to start the service on which the tool is run.
     time.sleep(70)
+
+    # load the openai key
     f = open('../input/constants.json')
     val = json.load(f)
     openai.api_key = val['apikey']
     openai.organization = os.getenv("OPENAI_ORGANIZATION")
 
-    # please input the unified swagger json
-    # f = open('/home/darko/api-tester/REST_Go/UIUC-API-Tester/output/uiuc-api-tester-'+str(service)+'.json')
+    # input the unified swagger json
     f = open('../output/uiuc-api-tester-'+str(service)+'.json')
     microservices = json.load(f)
-    logger_write = []
 
-    # track 1
+    # track 1 - Single service REST 
     for i in range(runs):
         try:
             print("RUN STARTED FOR: " + str(i))
-            logger = {}
-            logger['POST'] = {}
-            logger['GET'] = {}
-            logger['PUT'] = {}
-            logger['DELETE'] = {}
-            logger['PATCH'] = {}
-            pre_run(microservices, logger)
+            pre_run(microservices)
 
         except Exception as e:
             print(traceback.format_exc())
 
     print("TRACK 1 DONE")
 
-    # track 2
+    # track 2 - Microservices
     try:
+        # get the reverse topological orders
         dependency_file = open('../input/Sequence/'+str(service)+'.json')
         json_dict = json.load(dependency_file)
     except:
@@ -1070,8 +1076,7 @@ if __name__ == "__main__":
                             if swagger_service['microservice'] in sequence_service.strip() or sequence_service.strip() in swagger_service['microservice']:
                                 try:
                                     print("RUN STARTED FOR SERVICE: "+str(sequence_service))
-                                    logger = []
-                                    pre_run([microservices[index]], logger)
+                                    pre_run([microservices[index]])
                                 except:
                                     print(traceback.format_exc())
                             index += 1
