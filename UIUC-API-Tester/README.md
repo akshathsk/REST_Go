@@ -65,14 +65,21 @@ select
     * Type in terminal: `for c in $(find -name *.class); do echo ==== $c; if javap "$c" | grep "extends java.lang.Enum"; then javap "$c" | grep "public static final" | rev | cut -d' ' -f1 | rev | tr -d \;; fi; done |& tee /tmp/log`
     * Sample output
       ```
-      TODO
+      ==== ./target/classes/com/giassi/microservice/demo2/rest/users/entities/Gender.class
+      public final class com.giassi.microservice.demo2.rest.users.entities.Gender extends java.lang.Enum<com.giassi.microservice.demo2.rest.users.entities.Gender> {
+      MALE
+      FEMALE
+      ==== ./target/classes/com/giassi/microservice/demo2/rest/users/entities/Contact.class
+      ==== ./target/classes/com/giassi/microservice/demo2/rest/users/entities/Role.class
       ```
     * The collected data will be store under the folder with absolute path `/tmp/log`
   3. To collect and process the data from `/tmp/log`, and print it to the console:
     * Type in terminal: `awk '/final/{t=1} /====/{t=0} {if(t)print}' </tmp/log`
     * Sample output
       ```
-      TODO
+      public final class com.giassi.microservice.demo2.rest.users.entities.Gender extends java.lang.Enum<com.giassi.microservice.demo2.rest.users.entities.Gender> {
+      MALE
+      FEMALE
       ```
 
 ## Running the tool

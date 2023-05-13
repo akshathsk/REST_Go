@@ -1,11 +1,21 @@
 #!/bin/bash
 
-codeql_cli_dir="$HOME/codeql"
-codeql_pak_dir="$HOME"
-codeql_query_path="$HOME/enum-extract.ql"
-codeql_dbs_dir="$HOME/codeqlDBs"
-codeql_res_dir="$HOME/codeqlRes"
-rest_go_dir="$HOME/REST_Go"
+# codeql_cli_dir="$HOME/codeql"
+# codeql_pak_dir="$HOME"
+# codeql_query_path="$HOME/enum-extract.ql"
+# codeql_dbs_dir="$HOME/codeqlDBs"
+# codeql_res_dir="$HOME/codeqlRes"
+# rest_go_dir="$HOME/REST_Go"
+
+# ./enum_extraction.sh $HOME/codeql $HOME $HOME/enum-extract.ql $HOME/codeqlDBs $HOME/codeqlRes $HOME/REST_Go
+# ./enum_extraction.sh $HOME/api-tester/codeql $HOME/api-tester $HOME/api-tester/enum-extract.ql $HOME/api-tester/codeqlDBs $HOME/api-tester/codeqlRes $HOME/api-tester/REST_Go
+
+codeql_cli_dir=$1
+codeql_pak_dir=$2
+codeql_query_path=$3
+codeql_dbs_dir=$4
+codeql_res_dir=$5
+rest_go_dir=$6
 
 export PATH=$PATH:$codeql_cli_dir/
 
