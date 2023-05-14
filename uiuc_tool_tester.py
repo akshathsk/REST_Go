@@ -28,7 +28,7 @@ if __name__ == "__main__":
         if enable_gpt_logs.lower() == 'true':
             enable_gpt_logs = True
     except:
-        enable_gpt_logs = False
+        enable_gpt_logs = True
 
     runs = sys.argv[4]
 

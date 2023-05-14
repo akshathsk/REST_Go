@@ -85,7 +85,7 @@ def myHash(text):
 
 
 def generate_GPT_log(swagger_example, gpt_content):
-    if not enable_gpt_logs:
+    if enable_gpt_logs == 'False':
         return
 
     key = myHash(swagger_example)
@@ -101,7 +101,7 @@ def generate_GPT_log(swagger_example, gpt_content):
 
 
 def check_existing_hash(swagger_example):
-    if not enable_gpt_logs:
+    if enable_gpt_logs == 'False':
         return False, {}
 
     key = myHash(swagger_example)
@@ -1053,13 +1053,13 @@ if __name__ == "__main__":
     try:
         enable_gpt_logs = sys.argv[2]
     except:
-        enable_gpt_logs = False
+        enable_gpt_logs = True
 
     try:
         runs = int(sys.argv[3])
     except:
         runs = 10
-
+    
     # 70 seconds sleep time is provided to give time to start the service on which the tool is run.
     time.sleep(70)
 
