@@ -587,6 +587,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                         try:
                             resp = {}
                             headers = {}
+                            headers['rest-tester'] = 'RESTGPT'
                             if isFormData:
                                 headers['Content-type'] = 'application/x-www-form-urlencoded'
                                 resp = requests.post(
@@ -610,6 +611,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                                 except:
                                     pass
 
+                                headers['rest-tester'] = 'RESTGPT'
                                 if isFormData:
                                     headers['Content-type'] = 'application/x-www-form-urlencoded'
                                     resp = requests.post(
@@ -672,6 +674,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                         try:
                             resp = {}
                             headers = {}
+                            headers['rest-tester'] = 'RESTGPT'
                             if isFormData:
                                 headers['Content-type'] = 'application/x-www-form-urlencoded'
                                 resp = requests.post(
@@ -695,6 +698,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                                 except:
                                     pass
 
+                                headers['rest-tester'] = 'RESTGPT'
                                 if isFormData:
                                     headers['Content-type'] = 'application/x-www-form-urlencoded'
                                     resp = requests.post(
@@ -817,6 +821,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                 if '{' not in processed_url:
                     print("GET URL: " + processed_url)
                     headers = {'accept': '*/*'}
+                    headers['rest-tester'] = 'RESTGPT'
                     resp = requests.get(processed_url, headers=headers)
                     print("INITIAL REQUEST: "+str(resp.status_code))
                     if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
@@ -856,8 +861,11 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                                      str(service)+'_header.json')
                             headers = json.load(f)
                             headers['accept'] = '*/*'
+                            
                         except:
                             pass
+                        
+                        headers['rest-tester'] = 'RESTGPT'
                         resp = requests.get(processed_url, headers=headers)
                         print("PROCESS 401: "+str(resp.status_code))
                         if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
@@ -921,6 +929,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
             for body in body_arr:
                 try:
                     headers = {'accept': '*/*'}
+                    headers['rest-tester'] = 'RESTGPT'
                     if isFormData:
                         headers['Content-type'] = 'application/x-www-form-urlencoded'
                         resp = requests.post(
@@ -943,6 +952,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                         except:
                             pass
 
+                        headers['rest-tester'] = 'RESTGPT'
                         resp = requests.put(i, json=body, headers=headers)
                         print("PROCESS 401: " + str(resp.status_code))
                         if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
@@ -980,6 +990,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
             for body in body_arr:
                 try:
                     headers = {'accept': '*/*'}
+                    headers['rest-tester'] = 'RESTGPT'
                     if isFormData:
                         headers['Content-type'] = 'application/x-www-form-urlencoded'
                         resp = requests.post(
@@ -1002,6 +1013,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                         except:
                             pass
 
+                        headers['rest-tester'] = 'RESTGPT'
                         resp = requests.patch(i, json=body, headers=headers)
                         print("PROCESS 401: " + str(resp.status_code))
                         if resp.status_code == 200 or resp.status_code == 201 or resp.status_code == 204:
@@ -1028,6 +1040,7 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
             print("DELETE URL: " + i)
             try:
                 headers = {'accept': '*/*'}
+                headers['rest-tester'] = 'RESTGPT'
                 resp = requests.delete(i, json=body, headers=headers)
                 print("INITIAL REQUEST: "+str(resp.status_code))
                 if resp.status_code == 401:
@@ -1038,6 +1051,8 @@ def run(microservices, allJsonKeyValues, prevRespJson, GPTcontent):
                         headers['accept'] = '*/*'
                     except:
                         pass
+                        
+                    headers['rest-tester'] = 'RESTGPT'
                     resp = requests.delete(i, json=body, headers=headers)
                     print("PROCESS 401: " + str(resp.status_code))
 
