@@ -21,7 +21,17 @@ To generate enums for new project, please follow below sections.
 To generate enums for a service, we need to have CodeQL setup on the system.
 Please refer to CodeQL official docs to set up it on your system: https://codeql.github.com/
 
-#### How to Run
+#### Run with Bash Script automatically
+
+- Please notice that `codeql` only works for `x86-64` CPU arch.
+- Please refer to [`README_enum_extraction.md`](./README_enum_extraction.md) to run `enum_extraction.sh`.
+
+#### Run use CLI on Linux
+
+- Please notice that `codeql` only works for `x86-64` CPU arch.
+- Please refer to [`README_codeql_cli.md`](./README_codeql_cli.md).
+
+#### Extract Enums manually using Bash Script
 - Import codebase as database in CodeQL. Sample query to import database: </br>
 Execute this query at root directory of project - </br>
 ``codeql database create <location_of_folder_where_database_needs_to_be_stored> --language=java``
