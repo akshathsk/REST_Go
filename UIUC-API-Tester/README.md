@@ -21,6 +21,10 @@ To generate enums for new project, please follow below sections.
 To generate enums for a service, we need to have CodeQL setup on the system.
 Please refer to CodeQL official docs to set up it on your system: https://codeql.github.com/
 
+#### Run by Command Line
+
+* Please refer to [codeql_cli_readme.md](./codeql_cli_readme.md) to generate `codeql query result` using command line instrcutions.
+
 #### How to Run
 - Import codebase as database in CodeQL. Sample query to import database: </br>
 Execute this query at root directory of project - </br>
@@ -30,6 +34,7 @@ Execute this query at root directory of project - </br>
 - Import the database by selecting folder generated in above step ``<path_till_root_location>-codeql>``
 - Select the imported Database as target database in CodeQL
 - Execute this codeQL query: 
+
 ```
 import java
 
@@ -51,8 +56,31 @@ select
 
 - This script will generate a json file in the location ```UIUC-API-Tester/input/enum-props/output_enum_{service_name}.json``` with the enum information.
 
+#### Command line Enum detection
 
-
+- This bash script could only work with Java project currently
+- You could also collect all the `Enum` object using bash script
+  1. Navigate to the target system's project folder
+  2. To scan through the project, and collect all the class that was `extended` from `java.lamg.Enum`
+    * Type in terminal: `for c in $(find -name *.class); do echo ==== $c; if javap "$c" | grep "extends java.lang.Enum"; then javap "$c" | grep "public static final" | rev | cut -d' ' -f1 | rev | tr -d \;; fi; done |& tee /tmp/log`
+    * Sample output
+      ```
+      ==== ./target/classes/com/giassi/microservice/demo2/rest/users/entities/Gender.class
+      public final class com.giassi.microservice.demo2.rest.users.entities.Gender extends java.lang.Enum<com.giassi.microservice.demo2.rest.users.entities.Gender> {
+      MALE
+      FEMALE
+      ==== ./target/classes/com/giassi/microservice/demo2/rest/users/entities/Contact.class
+      ==== ./target/classes/com/giassi/microservice/demo2/rest/users/entities/Role.class
+      ```
+    * The collected data will be store under the folder with absolute path `/tmp/log`
+  3. To collect and process the data from `/tmp/log`, and print it to the console:
+    * Type in terminal: `awk '/final/{t=1} /====/{t=0} {if(t)print}' </tmp/log`
+    * Sample output
+      ```
+      public final class com.giassi.microservice.demo2.rest.users.entities.Gender extends java.lang.Enum<com.giassi.microservice.demo2.rest.users.entities.Gender> {
+      MALE
+      FEMALE
+      ```
 
 ## Running the tool
 
@@ -94,6 +122,9 @@ Sample input of swagger file: [features_swagger.json](https://github.com/akshath
 ###### Output
 Sample output of unified swagger file: [features-service_swagger.json](https://github.com/akshathsk/REST_Go/blob/UIUC-API-Tester/UIUC-API-Tester/input/swagger/features-service_swagger.json)
 
+##### Generate Swagger file 
+
+* Please refer to [swagger_generation_readme.md](./swagger_generation_readme.md) to generate swagger during `Spring` project building.
 
 #### 2. Using enum with unified json
 The project uses the enum's to replace certain attributes in the body during the request. Our tool already takes the unified swagger as input and to simplify the process, we integrate the enum to that swagger. to do that,

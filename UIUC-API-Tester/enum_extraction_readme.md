@@ -1,0 +1,33 @@
+# `enum-extraction.sh` README
+
+### Execution
+
+* `enum-extraction.sh` takes **six** parameters to run:
+
+    1. `codeql_cli_dir`: The absolute path to codeql cli
+    2. `codeql_pak_dir`: The absolute path to `qlpack.yml` file
+    3. `codeql_query_path`: The absolute path to target codeql query file
+    4. `codeql_dbs_dir`: The absolute path to folder which stores codeql database
+    5. `codeql_res_dir`: The absolute path to folder which stores codeql query results
+    6. `rest_go_dir`: The absolute path to the `REST_Go` project
+
+
+* during the execution, 19 projects of `REST_Go` will be scaned
+    * `erc20-rest-service` was built using Gradle, which is not supported by codeql currently
+
+* After the execution, all codeql query results will be stored under the `codeql_res_dir` folder
+    * Sample file: E.g. `cwa-certification`
+        ```
+        |           col0           |     col1      |                                                                                   col2                                                                                   |                                                                                            col3                                                                                             |
+    +--------------------------+---------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | AppSessionSourceOfTrust  | TELETAN       | /home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/AppSessionSourceOfTrust.java  | file:///home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/AppSessionSourceOfTrust.java:29:13:29:35  |
+    | AppSessionSourceOfTrust  | HASHED_GUID   | /home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/AppSessionSourceOfTrust.java  | file:///home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/AppSessionSourceOfTrust.java:29:13:29:35  |
+    | RegistrationTokenKeyType | TELETAN       | /home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/RegistrationTokenKeyType.java | file:///home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/RegistrationTokenKeyType.java:27:13:27:36 |
+    | RegistrationTokenKeyType | GUID          | /home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/RegistrationTokenKeyType.java | file:///home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/RegistrationTokenKeyType.java:27:13:27:36 |
+    | TanSourceOfTrust         | TELETAN       | /home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TanSourceOfTrust.java         | file:///home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TanSourceOfTrust.java:29:13:29:28         |
+    | TanSourceOfTrust         | CONNECTED_LAB | /home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TanSourceOfTrust.java         | file:///home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TanSourceOfTrust.java:29:13:29:28         |
+    | TanType                  | TELETAN       | /home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TanType.java                  | file:///home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TanType.java:32:13:32:19                  |
+    | TanType                  | TAN           | /home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TanType.java                  | file:///home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TanType.java:32:13:32:19                  |
+    | TeleTanType              | EVENT         | /home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TeleTanType.java              | file:///home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TeleTanType.java:29:13:29:23              |
+    | TeleTanType              | TEST          | /home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TeleTanType.java              | file:///home/kobenorriswu/REST_Go/services/jdk11/cwa-verification/cs/rest/cwa-verification-server/src/main/java/app/coronawarn/verification/model/TeleTanType.java:29:13:29:23              |
+        ```
