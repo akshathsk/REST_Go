@@ -114,6 +114,15 @@ codeql_query_java_mvn_project() {
     codeql_res_to_uiuc_input $codeql_res_path $rest_go_dir/UIUC-API-Tester/input/codeql_csv/$project_name.csv
 }
 
+# Convert codeql results into csv file and put it under UIUC Test Tool's input folder
+codeql_res_to_uiuc_input() {
+    input_file=$1
+    output_path=$2
+
+    formatted_contents=$(tail -n +3 "$input_file" | awk -F '|' 'BEGIN {OFS=","} {gsub(/^[[:blank:]]+|[[:blank:]]+$/, "", $2); gsub(/^[[:blank:]]+|[[:blank:]]+$/, "", $3); gsub(/^[[:blank:]]+|[[:blank:]]+$/, "", $4); gsub(/^[[:blank:]]+|[[:blank:]]+$/, "", $5); print "\""$2"\","$3",\""$4"\","$5}')
+    echo  "$formatted_contents" > "$output_path"
+}
+
 # Java 8 projects without evomaster
 codeql_query_java_gradle_project erc20-rest-service $rest_go_dir/services/jdk8/erc20-rest-service 8 $codeql_dbs_dir/jdk8/erc20-rest-service $codeql_res_dir/jdk8/erc20-rest-service.res
 codeql_query_java_mvn_project genome-nexus $rest_go_dir/services/jdk8/genome-nexus 8 $codeql_dbs_dir/jdk8/genome-nexus $codeql_res_dir/jdk8/genome-nexus.res
